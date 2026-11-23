@@ -111,7 +111,7 @@
     overflow-x: hidden;
   }
 
-  button, select, input, textarea {
+  button, select, input {
     font-family: inherit;
     color: inherit;
   }
@@ -123,11 +123,9 @@
     transition: transform 0.12s ease, background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
   }
 
-  button:active {
-    transform: scale(0.96);
-  }
+  button:active { transform: scale(0.96); }
 
-  select, input[type="text"], input[type="number"], input[type="date"], textarea {
+  select, input[type="text"], input[type="number"], input[type="date"] {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -137,9 +135,7 @@
     outline: none;
   }
 
-  select:focus, input:focus, textarea:focus {
-    border-color: var(--primary);
-  }
+  select:focus, input:focus { border-color: var(--primary); }
 
   .app-shell {
     width: 100%;
@@ -165,11 +161,7 @@
     gap: 8px;
   }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .brand { display: flex; align-items: center; gap: 10px; }
 
   .brand-logo {
     width: 38px;
@@ -186,23 +178,10 @@
     flex-shrink: 0;
   }
 
-  .brand-title {
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
+  .brand-title { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; }
+  .brand-sub { font-size: 11px; color: var(--text-muted); font-weight: 500; }
 
-  .brand-sub {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-
-  .controls-row {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .controls-row { display: flex; align-items: center; gap: 6px; }
 
   .batch-switch {
     display: inline-flex;
@@ -220,10 +199,7 @@
     color: var(--text-muted);
   }
 
-  .batch-btn.active {
-    background: var(--primary);
-    color: #fff;
-  }
+  .batch-btn.active { background: var(--primary); color: #fff; }
 
   .icon-pill {
     display: inline-flex;
@@ -239,7 +215,6 @@
     min-height: 34px;
   }
 
-  /* 5-Tab Navigation */
   .nav-tabs {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -260,10 +235,7 @@
     white-space: nowrap;
   }
 
-  .nav-tab.active {
-    background: var(--primary);
-    color: #fff;
-  }
+  .nav-tab.active { background: var(--primary); color: #fff; }
 
   .alert-banner {
     background: var(--danger);
@@ -281,25 +253,9 @@
   .alert-title { font-size: 13px; font-weight: 800; }
   .alert-desc { font-size: 11.5px; opacity: 0.95; margin-top: 2px; }
 
-  .overview-top {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .ring-wrap {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-  }
-
-  .ring-svg {
-    width: 100px;
-    height: 100px;
-    transform: rotate(-90deg);
-  }
-
+  .overview-top { display: flex; align-items: center; gap: 16px; }
+  .ring-wrap { position: relative; width: 100px; height: 100px; flex-shrink: 0; }
+  .ring-svg { width: 100px; height: 100px; transform: rotate(-90deg); }
   .ring-bg { fill: none; stroke: var(--ring-track); stroke-width: 9; }
   .ring-fg {
     fill: none;
@@ -351,13 +307,7 @@
     border-top: 1px solid var(--border);
   }
 
-  .stat-box {
-    background: var(--surface-alt);
-    border-radius: 14px;
-    padding: 8px 4px;
-    text-align: center;
-  }
-
+  .stat-box { background: var(--surface-alt); border-radius: 14px; padding: 8px 4px; text-align: center; }
   .stat-box.present { background: var(--success-soft); color: var(--success-text); }
   .stat-box.absent { background: var(--danger-soft); color: var(--danger-text); }
   .stat-box.holiday { background: var(--warning-soft); color: var(--warning-text); }
@@ -366,30 +316,11 @@
   .stat-k { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; opacity: 0.85; }
   .stat-v { display: block; font-size: 16px; font-weight: 800; margin-top: 2px; }
 
-  .sec-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-
-  .sec-kicker {
-    font-size: 10.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--primary-text);
-  }
-
+  .sec-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+  .sec-kicker { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--primary-text); }
   .sec-title { font-size: 15px; font-weight: 800; margin-top: 1px; }
 
-  .bulk-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 12px;
-  }
+  .bulk-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
 
   .bulk-btn {
     padding: 10px 6px;
@@ -405,11 +336,7 @@
   .bulk-holiday { background: var(--warning-soft); color: var(--warning-text); border-color: rgba(245, 158, 11, 0.25); }
   .bulk-medical { background: var(--info-soft); color: var(--info-text); border-color: rgba(2, 132, 199, 0.28); }
 
-  .period-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .period-list { display: flex; flex-direction: column; gap: 8px; }
 
   .period-item {
     display: flex;
@@ -421,13 +348,7 @@
     border: 1px solid var(--border);
   }
 
-  .period-top-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
+  .period-top-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .period-meta { min-width: 0; flex: 1; }
   .period-top { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 
@@ -499,13 +420,7 @@
     color: var(--text-muted);
   }
 
-  .lunch-divider::before,
-  .lunch-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .lunch-divider::before, .lunch-divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
   .subject-card {
     padding: 12px 13px;
@@ -514,11 +429,7 @@
     border: 1px solid var(--border);
   }
 
-  .subject-card.low {
-    background: var(--danger-soft);
-    border-color: rgba(244, 63, 94, 0.35);
-  }
-
+  .subject-card.low { background: var(--danger-soft); border-color: rgba(244, 63, 94, 0.35); }
   .sub-row-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   .sub-title-wrap { display: flex; align-items: center; gap: 7px; min-width: 0; }
   .sub-full-name { font-size: 12.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -565,26 +476,10 @@
     background: var(--primary-soft);
   }
 
-  .pace-controls {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
-    align-items: center;
-    margin-top: 8px;
-  }
-
-  .topic-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 9px 10px;
-    margin-top: 8px;
-    font-size: 11.5px;
-  }
-
+  .pace-controls { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; margin-top: 8px; }
+  .topic-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 9px 10px; margin-top: 8px; font-size: 11.5px; }
   .topic-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
   .topic-text { font-weight: 700; margin-top: 2px; color: var(--text); }
-
   .topic-status-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 
   .st-chip {
@@ -615,6 +510,23 @@
   .syllabus-item.is-today { border-color: var(--primary); background: var(--primary-soft); }
   .syllabus-item.is-done { border-left: 3px solid var(--success); }
 
+  /* Practical Check-Row inside Syllabus */
+  .prac-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    font-size: 11.5px;
+  }
+  .prac-item.attended {
+    background: var(--success-soft);
+    border-color: rgba(16, 185, 129, 0.35);
+  }
+
   .rules-card {
     background: var(--info-soft);
     border: 1px solid rgba(2, 132, 199, 0.25);
@@ -627,17 +539,7 @@
   .rules-card ul { margin-left: 16px; margin-top: 5px; display: flex; flex-direction: column; gap: 4px; }
 
   /* Calendar */
-  .cal-weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 800;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-
+  .cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; font-size: 11px; font-weight: 800; color: var(--text-muted); margin-bottom: 6px; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
 
   .cal-cell {
@@ -664,7 +566,6 @@
   .cal-cell.sunday { color: var(--danger); opacity: 0.75; }
 
   .cal-mini { font-size: 8.5px; opacity: 0.92; margin-top: 1px; }
-  .cal-syl-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: 0.7; margin-top: 1px; }
 
   .legend-row {
     display: flex;
@@ -800,10 +701,7 @@
   .pill-action.success { background: var(--success); border-color: var(--success); color: #fff; }
   .pill-action.danger { color: var(--danger-text); background: var(--danger-soft); border-color: transparent; }
 
-  input[type="range"] {
-    width: 100%;
-    accent-color: var(--primary);
-  }
+  input[type="range"] { width: 100%; accent-color: var(--primary); }
 </style>
 </head>
 <body>
@@ -862,9 +760,10 @@
           <span id="w-today-status" style="font-size:11px;font-weight:700;color:var(--text-muted);">Today: Not Logged</span>
           <span style="font-size:10px;font-weight:700;color:var(--primary-text);">1-Tap Log</span>
         </div>
-        <div class="bulk-row" style="margin-bottom:0;">
+        <div class="bulk-row" style="grid-template-columns:repeat(2,1fr);margin-bottom:0;">
           <button onclick="logTodayAll('present')" class="bulk-btn bulk-present">✓ Present</button>
           <button onclick="logTodayAll('absent')" class="bulk-btn bulk-absent">✕ Absent</button>
+          <button onclick="logTodayAll('medical')" class="bulk-btn bulk-medical">🏥 Medical</button>
           <button onclick="logTodayAll('holiday')" class="bulk-btn bulk-holiday">☀ Holiday</button>
         </div>
       </div>
@@ -973,7 +872,7 @@
         </div>
       </section>
 
-      <!-- Upcoming Exam Banner (if any) -->
+      <!-- Upcoming Exam Banner -->
       <div id="dash-exam-strip"></div>
 
       <!-- Today's Classes Logger -->
@@ -1005,7 +904,7 @@
         <div class="sec-head">
           <div>
             <div class="sec-kicker">Subject-Wise Target (75%)</div>
-            <div class="sec-title">Core & Activity Attendance</div>
+            <div class="sec-title">All Subjects (LPM • VPY • VAN)</div>
           </div>
           <button onclick="toggleExtraSubjects()" id="toggle-subs-btn" class="pill-action">Show All (6)</button>
         </div>
@@ -1045,30 +944,53 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- TAB 2: SYLLABUS (LPM | VPY | VAN COLUMNS)  -->
+    <!-- TAB 2: SYLLABUS & PRACTICALS (BUILT FROM SCRATCH) -->
     <!-- ========================================== -->
     <div id="panel-syllabus" class="hidden" style="flex-direction:column;gap:14px;">
-      <!-- 3 Separate Subject Columns Overview -->
+      <!-- 1. View Mode Switcher: Daily Schedule vs Separate Subject Columns -->
       <section class="card">
-        <div class="sec-head">
+        <div class="sec-head" style="margin-bottom:8px;">
           <div>
-            <div class="sec-kicker">Completed Topics Counter</div>
-            <div class="sec-title">Subject Syllabus Columns</div>
+            <div class="sec-kicker">Syllabus & Practicals Tracker</div>
+            <div class="sec-title">LPM • Physiology • Anatomy</div>
           </div>
           <span class="badge badge-info" style="margin:0;" id="syl-ref-date">Date</span>
         </div>
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:10px;">
-          Tap any subject column below to open its full dated topic checklist and mark completed lectures.
-        </p>
 
-        <div id="subject-columns-grid" class="three-col-grid"></div>
+        <!-- 3 Subject Summary Columns (Always visible at top so you see completed topics per subject) -->
+        <div id="subject-columns-grid" class="three-col-grid" style="margin-bottom:12px;"></div>
+
+        <!-- View Switcher: Daily Schedule OR Separate Subject Syllabus -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <button onclick="setSyllabusView('daily')" id="syl-view-daily" class="pill-action primary" style="text-align:center;">📅 Daily Schedule</button>
+          <button onclick="setSyllabusView('subjects')" id="syl-view-subjects" class="pill-action" style="text-align:center;">📚 By Subject (All Topics)</button>
+        </div>
       </section>
 
-      <!-- Selected Subject Checklist & Teacher Pace -->
-      <section class="card">
+      <!-- 2A. DAILY SCHEDULE VIEW (Shows today's / selected date's topics & practicals across all 3 subjects with tick-off) -->
+      <section id="syl-daily-card" class="card">
         <div class="sec-head">
           <div>
-            <div class="sec-kicker">Topic Checklist & Teacher Pace</div>
+            <div class="sec-kicker">Day-by-Day Lecture & Practical Sync</div>
+            <div id="syl-daily-title" class="sec-title">Today's Syllabus & Practicals</div>
+          </div>
+          <div class="controls-row">
+            <button onclick="shiftSyllabusDate(-1)" class="icon-pill" title="Previous Day">◀</button>
+            <button onclick="resetSyllabusDate()" class="icon-pill">Today</button>
+            <button onclick="shiftSyllabusDate(1)" class="icon-pill" title="Next Day">▶</button>
+          </div>
+        </div>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:10px;">
+          Tick off topics taught today and mark whether you attended scheduled Practical classes.
+        </p>
+        <div id="syl-daily-list" class="period-list"></div>
+      </section>
+
+      <!-- 2B. SEPARATE SUBJECT SYLLABUS VIEW (LPM / VPY / VAN tabs + Teacher Pace + Searchable Topic Checklist) -->
+      <section id="syl-subjects-card" class="card hidden">
+        <div class="sec-head">
+          <div>
+            <div class="sec-kicker">Separate Subject Syllabus</div>
             <div id="active-sub-syl-title" class="sec-title">LPM — Livestock Production Mgmt</div>
           </div>
           <div class="batch-switch">
@@ -1078,25 +1000,26 @@
           </div>
         </div>
 
-        <!-- Pace & Drift Controls for the selected subject -->
+        <!-- Teacher Pace Drift for selected subject -->
         <div id="active-pace-card" style="margin-bottom:12px;"></div>
 
-        <!-- Bulk Completion & Search Bar -->
+        <!-- Working Search Bar + Bulk Done -->
         <div style="display:flex;gap:6px;margin-bottom:8px;">
           <input type="text" id="syl-search" oninput="renderSyllabusBrowser()" placeholder="Search topic, lecture # or date..." style="flex:1;">
-          <button onclick="markUpToTodayDone()" class="pill-action success" title="Mark all lectures up to today's date as Completed">✓ Done ≤ Today</button>
+          <button onclick="clearSyllabusSearch()" id="syl-clear-search" class="icon-pill hidden" title="Clear search">✕</button>
+          <button onclick="markUpToTodayDone()" class="pill-action success" title="Mark all lectures up to today as Taught">✓ Taught ≤ Today</button>
         </div>
 
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:11px;color:var(--text-muted);">
           <span id="syl-filter-summary" style="font-weight:700;">Showing all lectures</span>
           <label style="display:inline-flex;align-items:center;gap:4px;font-weight:700;cursor:pointer;">
-            <input type="checkbox" id="syl-hide-done" onchange="renderSyllabusBrowser()" style="accent-color:var(--primary);"> Hide Completed
+            <input type="checkbox" id="syl-hide-done" onchange="renderSyllabusBrowser()" style="accent-color:var(--primary);"> Hide Taught
           </label>
         </div>
 
         <div id="syllabus-browser" class="period-list"></div>
 
-        <!-- VAN Practical Rules Box (shown when VAN is active) -->
+        <!-- VAN Practical Rules Box -->
         <div id="van-rules-box" class="rules-card hidden" style="margin-top:12px;">
           <strong>🔬 Dept. of Veterinary Anatomy — Practical Rules</strong>
           <ul>
@@ -1107,14 +1030,29 @@
         </div>
       </section>
 
-      <!-- Catch-Up / Missed Queue -->
+      <!-- 3. PRACTICAL CLASSES ATTENDANCE TRACKER (LPM, VPY & VAN Practicals) -->
+      <section class="card">
+        <div class="sec-head">
+          <div>
+            <div class="sec-kicker">Lab, Dissection & Farm Practicals</div>
+            <div class="sec-title">Practical Classes Checklist (<span id="prac-attended-count">0</span> Attended)</div>
+          </div>
+          <button onclick="openModal('practical-modal')" class="pill-action primary">+ Add Practical</button>
+        </div>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:10px;">
+          Tick the checkbox when you attend a practical class (also counts toward your 75% attendance).
+        </p>
+        <div id="practicals-list" class="period-list"></div>
+      </section>
+
+      <!-- 4. Missed Topics Catch-Up Queue -->
       <section class="card">
         <div class="sec-head">
           <div>
             <div class="sec-kicker">Backlog Recovery</div>
             <div class="sec-title">Missed Topics Queue (<span id="backlog-count">0</span>)</div>
           </div>
-          <button onclick="clearCaughtUpTopics()" class="pill-action">Clear Completed</button>
+          <button onclick="clearCaughtUpTopics()" class="pill-action">Clear Queue</button>
         </div>
         <div id="backlog-list" class="period-list"></div>
       </section>
@@ -1254,6 +1192,52 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <button onclick="setModalDateAll(null)" class="pill-action" style="text-align:center;padding:10px;">Clear Day</button>
         <button onclick="closeModal('date-modal')" class="pill-action primary" style="text-align:center;padding:10px;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- ADD PRACTICAL CLASS MODAL                  -->
+  <!-- ========================================== -->
+  <div id="practical-modal" class="modal-backdrop" onclick="if(event.target===this) closeModal('practical-modal')">
+    <div class="modal-box">
+      <div class="sec-head">
+        <div>
+          <div class="sec-kicker">Lab & Dissection Log</div>
+          <div class="sec-title">Add Practical Class</div>
+        </div>
+        <button onclick="closeModal('practical-modal')" class="icon-pill">✕</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">SUBJECT</label>
+            <select id="pr-sub" style="width:100%;">
+              <option value="VAN">VAN — Anatomy Practical</option>
+              <option value="VPY">VPY — Physiology Practical</option>
+              <option value="LPM">LPM — Livestock Practical</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">DATE</label>
+            <input type="date" id="pr-date" style="width:100%;">
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">PRACTICAL TOPIC / EXPERIMENT</label>
+          <input type="text" id="pr-topic" placeholder="e.g. Osteology of Scapula, RBC Count, Animal Handling..." style="width:100%;">
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 11px;border-radius:12px;background:var(--surface-alt);border:1px solid var(--border);">
+          <div>
+            <strong style="display:block;font-size:12px;">Attended This Practical</strong>
+            <span style="font-size:10.5px;color:var(--text-muted);">Counts toward your 75% attendance</span>
+          </div>
+          <input type="checkbox" id="pr-attended" checked style="width:18px;height:18px;accent-color:var(--success);">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
+          <button onclick="closeModal('practical-modal')" class="pill-action" style="padding:10px;">Cancel</button>
+          <button onclick="savePractical()" class="pill-action primary" style="padding:10px;">Save Practical</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1449,8 +1433,8 @@
           Open your GitHub Pages link in <strong>Chrome</strong>, then tap <strong>Install App</strong> (or <strong>⋮ Menu → Install app</strong>). Long-press the home-screen icon for quick <em>Present / Absent / Holiday</em> shortcuts.
         </div>
         <div class="subject-card">
-          <strong style="color:var(--text);display:block;margin-bottom:4px;">2. Subject Columns & Exams</strong>
-          Use the <strong>Syllabus</strong> tab to track completed topics separately across <strong>LPM</strong>, <strong>VPY</strong>, and <strong>VAN</strong>, and the <strong>Exams</strong> tab to log Internals, Practicals, and Marks.
+          <strong style="color:var(--text);display:block;margin-bottom:4px;">2. Subject Columns & Practicals</strong>
+          Use the <strong>Syllabus</strong> tab to toggle between the <strong>Daily Schedule</strong> and separate subject lists for <strong>LPM</strong>, <strong>VPY</strong>, and <strong>VAN</strong>, and tick off attended practicals.
         </div>
       </div>
       <button onclick="closeModal('install-modal')" class="pill-action primary" style="width:100%;margin-top:14px;padding:11px;">Got It</button>
@@ -1504,42 +1488,56 @@
     1: [
       { id: "p1", time: "9:30 – 10:30", A: "VPY", B: "VPY" },
       { id: "p2", time: "10:30 – 11:30", A: "VAN", B: "VAN" },
-      { id: "p3", time: "11:30 – 1:30", A: "LPM", B: "VPY" },
-      { id: "p4", time: "2:15 – 4:15", A: "VAN", B: null }
+      { id: "p3", time: "11:30 – 1:30", A: "LPM", B: "VPY", isPractical: true },
+      { id: "p4", time: "2:15 – 4:15", A: "VAN", B: null, isPractical: true }
     ],
     2: [
       { id: "p1", time: "9:30 – 10:30", A: "VPY", B: "VPY" },
       { id: "p2", time: "10:30 – 11:30", A: "VAN", B: "VAN" },
-      { id: "p3", time: "11:30 – 1:30", A: "VPY", B: "LPM" },
-      { id: "p4", time: "2:15 – 4:15", A: null, B: "VAN" }
+      { id: "p3", time: "11:30 – 1:30", A: "VPY", B: "LPM", isPractical: true },
+      { id: "p4", time: "2:15 – 4:15", A: null, B: "VAN", isPractical: true }
     ],
     3: [
       { id: "p1", time: "9:30 – 10:30", A: "VAN", B: "VAN" },
       { id: "p2", time: "10:30 – 11:30", A: "LPM", B: "LPM" },
       { id: "p3", time: "11:30 – 1:30", A: "NCC", B: "NCC" },
-      { id: "p4", time: "2:15 – 4:15", A: "VAN", B: "LPM" }
+      { id: "p4", time: "2:15 – 4:15", A: "VAN", B: "LPM", isPractical: true }
     ],
     4: [
       { id: "p1", time: "9:30 – 10:30", A: "VPY", B: "VPY" },
       { id: "p2", time: "10:30 – 11:30", A: "LPM", B: "LPM" },
-      { id: "p3", time: "11:30 – 1:30", A: "VAN", B: null },
+      { id: "p3", time: "11:30 – 1:30", A: "VAN", B: null, isPractical: true },
       { id: "p4", time: "2:15 – 4:15", A: "WORK", B: "WORK" }
     ],
     5: [
       { id: "p1", time: "9:30 – 10:30", A: "LPM", B: "LPM" },
       { id: "p2", time: "10:30 – 11:30", A: "VAN", B: "VAN" },
-      { id: "p3", time: "11:30 – 1:30", A: "LPM", B: null },
-      { id: "p4", time: "2:15 – 4:15", A: null, B: "VAN" }
+      { id: "p3", time: "11:30 – 1:30", A: "LPM", B: null, isPractical: true },
+      { id: "p4", time: "2:15 – 4:15", A: null, B: "VAN", isPractical: true }
     ],
     6: [
       { id: "p1", time: "9:30 – 10:30", A: "LPM", B: "LPM" },
       { id: "p2", time: "10:30 – 11:30", A: "VPY", B: "VPY" },
-      { id: "p3", time: "11:30 – 1:30", A: null, B: "VAN" },
+      { id: "p3", time: "11:30 – 1:30", A: null, B: "VAN", isPractical: true },
       { id: "p4", time: "2:15 – 4:15", A: "ADVISOR", B: "ADVISOR" }
     ]
   };
 
-  // Dated Lecture Schedule — Livestock Production Management (68 Lectures)
+  // Default Practical Modules for LPM, VPY & VAN
+  const DEFAULT_PRACTICALS = [
+    { id: "pr_van_1", code: "VAN", title: "Osteology: Axial & Appendicular Skeleton (Ox, Horse, Dog)" },
+    { id: "pr_van_2", code: "VAN", title: "Arthrology & Myology Dissection (Forelimb & Hindlimb)" },
+    { id: "pr_van_3", code: "VAN", title: "Splanchnology: Thorax, Abdomen & Pelvic Organs" },
+    { id: "pr_van_4", code: "VAN", title: "Histology Slides: Basic Tissues & Organ Systems" },
+    { id: "pr_vpy_1", code: "VPY", title: "Hematology: RBC, WBC, Hb Estimation & Blood Smear" },
+    { id: "pr_vpy_2", code: "VPY", title: "Cardiovascular & Respiratory: Pulse, Heart Sounds, ECG & Spirometry" },
+    { id: "pr_vpy_3", code: "VPY", title: "Urinalysis & Rumen Fluid Examination" },
+    { id: "pr_lpm_1", code: "LPM", title: "Animal Handling, Restraining, Dentition & Body Condition Scoring" },
+    { id: "pr_lpm_2", code: "LPM", title: "Clean Milk Production, Milking Methods & Farm Record Keeping" },
+    { id: "pr_lpm_3", code: "LPM", title: "Fodder Identification, Silage/Hay Making & Poultry Hatchery Visit" }
+  ];
+
+  // Dated Lecture Schedule — Livestock Production Management (Oct 14, 2026 – Feb 12, 2027)
   const LPM_SCHEDULE = [
     { no: 1, date: "2026-10-14", day: "Wednesday", topic: "Demographic distribution of livestock and role in Indian economy. Problems and prospects of livestock industry in India." },
     { no: 2, date: "2026-10-15", day: "Thursday", topic: "Common animal husbandry terms (glossary). Body conformation and identification." },
@@ -1611,81 +1609,7 @@
     { no: 68, date: "2027-02-12", day: "Friday", topic: "Limitation of rabbit animal production, Selection, care and management of breeding stock for commercial purpose." }
   ];
 
-  // Dated Lecture Schedule — Veterinary Physiology and Biochemistry (70 Lectures from Photo)
-  const VPY_SCHEDULE = [
-    { no: 1, date: "2026-10-13", day: "Tuesday", topic: "Introduction to Blood; Properties of blood as a body fluid, metabolism and fate of R.B.C." },
-    { no: 2, date: "2026-10-15", day: "Thursday", topic: "Hemoglobin-chemical structure, synthesis, physiological functions, derivatives of hemoglobin." },
-    { no: 3, date: "2026-10-17", day: "Saturday", topic: "Heart- morphological characteristic, systemic excitability conduction and transmission processes." },
-    { no: 4, date: "2026-10-19", day: "Monday", topic: "Cardiac Cycle: Regulation of cardiac output; coronary circulation; properties of pulse." },
-    { no: 5, date: "2026-10-22", day: "Thursday", topic: "Metabolism and energetic of working myocardial cell, extrinsic and intrinsic regulation." },
-    { no: 6, date: "2026-10-24", day: "Saturday", topic: "Electro Cardio Graph and its significance in Veterinary Sciences - Echocardiography." },
-    { no: 7, date: "2026-10-26", day: "Monday", topic: "Haemorrhage haemostasis. Haemodynamics of circulation, circulatory mechanics, resistance to flow." },
-    { no: 8, date: "2026-10-27", day: "Tuesday", topic: "Vasoconstriction, nervous and circulating fluid volume controls of blood pressure, neurohormonal control of vascular smooth muscle." },
-    { no: 9, date: "2026-10-29", day: "Thursday", topic: "Circulatory controls- shock stresses, regional and fetal circulation. Capillary exchange, control of blood pressure." },
-    { no: 10, date: "2026-10-31", day: "Saturday", topic: "Adjustment of circulation during exercise. Muscle Physiology-basic muscle unit characteristic-electrical phenomenon in muscle cell." },
-    { no: 11, date: "2026-11-02", day: "Monday", topic: "Muscle action potential, excitation and propagation of impulse characteristics- latent period refractive ness threshold level-all and none characteristics - contractile mechanism - excitation - contraction." },
-    { no: 12, date: "2026-11-03", day: "Tuesday", topic: "Coupling-neuro-muscular transmission." },
-    { no: 13, date: "2026-11-05", day: "Thursday", topic: "Types of muscle contraction, phenomenon of fatigue, rigor mortis. Organization of nervous system." },
-    { no: 14, date: "2026-11-07", day: "Saturday", topic: "Mechanism of information processing, hierarchical control." },
-    { no: 15, date: "2026-11-14", day: "Saturday", topic: "Major function system- sensory, consciousness, emotion, motor and visceral control and basic functional unit." },
-    { no: 16, date: "2026-11-16", day: "Monday", topic: "Neuron structure, type- functional characteristics of sub-units of neuron." },
-    { no: 17, date: "2026-11-17", day: "Tuesday", topic: "Membrane potential - ionic basis of resting membrane potential (RMP) nerve action potential, excitation and propagation of impulse characteristics." },
-    { no: 18, date: "2026-11-19", day: "Thursday", topic: "Latent period- refractive-ness threshold level-all and none characteristics." },
-    { no: 19, date: "2026-11-21", day: "Saturday", topic: "Degeneration and regeneration of nerve fibre. Synaptic and junctional transmission." },
-    { no: 20, date: "2026-11-23", day: "Monday", topic: "Functions of nervous system-reflexes-control of posture and movements, autonomic nervous system and visceral control." },
-    { no: 21, date: "2026-11-26", day: "Thursday", topic: "Neurotransmitter wakefulness, sleep cycle. Higher function of neurons system learning, memory, electroencephalography." },
-    { no: 22, date: "2026-11-28", day: "Saturday", topic: "Sense organs and receptors physiology of special senses." },
-    { no: 23, date: "2026-11-30", day: "Monday", topic: "Eye: functional morphology, nourishment and protection neural pathway, receptors optics, ocular muscles and movements, photochemistry, Vision defects." },
-    { no: 24, date: "2026-12-01", day: "Tuesday", topic: "Ear: Physiology of hearing and common hearing impairment." },
-    { no: 25, date: "2026-12-03", day: "Thursday", topic: "Vestibule apparatus. Physiology of olfaction and taste." },
-    { no: 26, date: "2026-12-05", day: "Saturday", topic: "Morphological characteristic of mono gastric and poly gastric digestive system." },
-    { no: 27, date: "2026-12-07", day: "Monday", topic: "Prehension, rumination; defecation; vomition; regulation of secretory function of saliva, stomach, intestine, pancreas." },
-    { no: 28, date: "2026-12-08", day: "Tuesday", topic: "Bile secretion; hunger, appetite control, developmental aspects of digestion." },
-    { no: 29, date: "2026-12-10", day: "Thursday", topic: "Luminal, membranous and microbial digestion in rumen and intestine." },
-    { no: 30, date: "2026-12-12", day: "Saturday", topic: "Permeability characteristics of intestine, forces governing absorption, control intestinal transport of electrolyte and water." },
-    { no: 31, date: "2026-12-14", day: "Monday", topic: "Enzymatic digestion in monogastric and fermentative digestion in rumen, modification of toxic substances in rumen. Digestion in birds." },
-    { no: 32, date: "2026-12-15", day: "Tuesday", topic: "Functional morphology of respiratory apparatus. Mechanics of breathing." },
-    { no: 33, date: "2026-12-17", day: "Thursday", topic: "Transport of blood gases, foetal and neonatal oxygen transport, dissociation curves, pressures, recoil tendency." },
-    { no: 34, date: "2026-12-19", day: "Saturday", topic: "Elasticity, surfactants, pleural liquid, compliance, exchanges of gases in lungs and tissues." },
-    { no: 35, date: "2026-12-21", day: "Monday", topic: "Neural and chemical regulation of breathing, diffusion, perfusion, hypoxia." },
-    { no: 36, date: "2026-12-22", day: "Tuesday", topic: "Frictional resistance to air flow, airways smooth muscle contraction." },
-    { no: 37, date: "2026-12-24", day: "Thursday", topic: "Respiratory muscle work, panting, adaptation of respiration during muscle exercise." },
-    { no: 38, date: "2026-12-26", day: "Saturday", topic: "High altitude hypoxia, Non-respiratory lung functions. Respiration in birds." },
-    { no: 39, date: "2026-12-28", day: "Monday", topic: "Kidney- Functional morphology of nephrons, factors determining filtration pressure." },
-    { no: 40, date: "2026-12-29", day: "Tuesday", topic: "Determination of glomerular filtration rate (GFR) and renal plasma flow." },
-    { no: 41, date: "2026-12-31", day: "Thursday", topic: "Re-absorption mechanisms for glucose, protein, amino acids, electrolytes; ammonium mechanism, glomerulo." },
-    { no: 42, date: "2027-01-02", day: "Saturday", topic: "Tubular balance, methods of studying renal functions; urine concentration; micturition, uremia." },
-    { no: 43, date: "2027-01-04", day: "Monday", topic: "Fluid, water balance, fluid therapy, dehydration, water concentration mechanisms." },
-    { no: 44, date: "2027-01-05", day: "Tuesday", topic: "Acid base balance and H+ regulation, correction and evolution of imbalances, total osmotic pressure." },
-    { no: 45, date: "2027-01-07", day: "Thursday", topic: "Formation and excretion of urine of Birds." },
-    { no: 46, date: "2027-01-09", day: "Saturday", topic: "Cerebrospinal fluid, synovial fluids - composition, formation and flow; Joints. Regulation of bone metabolism and homeostasis." },
-    { no: 47, date: "2027-01-11", day: "Monday", topic: "Hormone cell interaction, sub-cellular mechanisms-metabolism of hormones." },
-    { no: 48, date: "2027-01-12", day: "Tuesday", topic: "Methods of study of endocrine system; Receptors- mechanism of regulation." },
-    { no: 49, date: "2027-01-16", day: "Saturday", topic: "Chemistry of hypothalamo- hypophyseal hormones, target organ, pineal, thyroid, thymus." },
-    { no: 50, date: "2027-01-19", day: "Tuesday", topic: "Pancreas, adrenal, prostaglandins, hormones of calcium metabolism, disorders, rennin." },
-    { no: 51, date: "2027-01-21", day: "Thursday", topic: "Angiotensin system, atrial natriuretic factors, erythropoietin, GI hormones, pheromones." },
-    { no: 52, date: "2027-01-23", day: "Saturday", topic: "Genetic and endocrine control of gonadal development, modification of gonadotrophin release." },
-    { no: 53, date: "2027-01-25", day: "Monday", topic: "Ovarian functions, follicular development, dynamics, endocrine and receptor profiles, sexual receptivity." },
-    { no: 54, date: "2027-01-28", day: "Thursday", topic: "Ovarian cycle, post-partum ovarian activity, ovum transport, capacitation, fertilization, reproductive cycles in farm animals." },
-    { no: 55, date: "2027-01-30", day: "Saturday", topic: "Hormones present in the biological fluids during pregnancy and their uses for the diagnosis of pregnancy." },
-    { no: 56, date: "2027-02-01", day: "Monday", topic: "Maternal foetal placental participation in pregnancy and parturition, immunology of gestation, preparturient endocrine status." },
-    { no: 57, date: "2027-02-02", day: "Tuesday", topic: "Spermatogenic cycle and wave- function of sertoli cell-leydig cell-semen - composition- evaluation." },
-    { no: 58, date: "2027-02-04", day: "Thursday", topic: "Testosterone - function and regulation - cryptorchidism." },
-    { no: 59, date: "2027-02-06", day: "Saturday", topic: "Puberty - photoperiod - uses of androgens, progestogens, estrogens." },
-    { no: 60, date: "2027-02-08", day: "Monday", topic: "Functional and metabolic organization of mammary glands - structure and development." },
-    { no: 61, date: "2027-02-09", day: "Tuesday", topic: "Effect of estrogens and progesterone; hormonal control of mammary growth." },
-    { no: 62, date: "2027-02-11", day: "Thursday", topic: "Lactogenesis and galactogenesis; biosynthesis of milk constituents, secretion of milk, and metabolism, prolactin and lactation cycle." },
-    { no: 63, date: "2027-02-13", day: "Saturday", topic: "Biochemical and genetic determinants of growth, regulation of growth, metabolic and hormone interactions." },
-    { no: 64, date: "2027-02-15", day: "Monday", topic: "Factors affecting efficiency of growth and production in ruminants and single stomach animals." },
-    { no: 65, date: "2027-02-16", day: "Tuesday", topic: "Growth in meat producing animals and birds, growth curves." },
-    { no: 66, date: "2027-02-18", day: "Thursday", topic: "Recombinant gene transfer technologies for growth manipulation- advantages and limitations." },
-    { no: 67, date: "2027-02-20", day: "Saturday", topic: "Protein deposition in animals and poultry." },
-    { no: 68, date: "2027-02-22", day: "Monday", topic: "Heat balance, heat tolerance, hypothermia, hyperthermia, thermo-regulation in farm animals." },
-    { no: 69, date: "2027-02-23", day: "Tuesday", topic: "Role of skin, responses of animals to heat and cold, fever, body temperature and hibernation." },
-    { no: 70, date: "2027-02-25", day: "Thursday", topic: "Temperature regulation in birds. Climatology- various parameters and their importance. Effect of environmental variables, Acclimation, Circadian rhythm & Neurophysiology of behaviour." }
-  ];
-
-  // Dated Lecture Schedule — Veterinary Anatomy (149 Lectures)
+  // Dated Lecture Schedule — Veterinary Anatomy (Oct 12, 2026 – Aug 3, 2027)
   const VAN_SCHEDULE = [
     { no: 1, date: "2026-10-12", topic: "Introduction, branches of anatomy and various terms used in anatomy." },
     { no: 2, date: "2026-10-13", topic: "Skeleton, Classification, structure, bone marrow and composition of bones." },
@@ -1838,6 +1762,85 @@
     { no: 149, date: "2027-08-03", topic: "Development of endocrine glands and sense organs (contd.)." }
   ];
 
+
+  // Dated Lecture Schedule — Veterinary Physiology & Biochemistry (Oct 13, 2026 – Mar 6, 2027)
+  const VPY_SCHEDULE = [
+    { no: 1, date: "2026-10-13", day: "Tuesday", topic: "Introduction to Blood; Properties of blood as a body fluid, metabolism and fate of R.B.C." },
+    { no: 3, date: "2026-10-15", day: "Thursday", topic: "Hemoglobin-chemical structure, synthesis, physiological functions, derivatives of hemoglobin." },
+    { no: 5, date: "2026-10-17", day: "Saturday", topic: "Heart- morphological characteristic, systemic excitability conduction and transmission processes." },
+    { no: 6, date: "2026-10-19", day: "Monday", topic: "Cardiac Cycle: Regulation of cardiac output; coronary circulation; properties of pulse." },
+    { no: 8, date: "2026-10-22", day: "Thursday", topic: "Metabolism and energetic of working myocardial cell, extrinsic and intrinsic regulation." },
+    { no: 10, date: "2026-10-24", day: "Saturday", topic: "Electro Cardio Graph and its significance in Veterinary Sciences - Echocardiography." },
+    { no: 11, date: "2026-10-26", day: "Monday", topic: "Haemorrhage haemostasis. Haemodynamics of circulation, circulatory mechanics, resistance to flow." },
+    { no: 12, date: "2026-10-27", day: "Tuesday", topic: "Vasoconstriction, nervous and circulating fluid volume controls of blood pressure, neurohormonal control of vascular smooth muscle." },
+    { no: 14, date: "2026-10-29", day: "Thursday", topic: "Circulatory controls- shock stresses, regional and fetal circulation. Capillary exchange, control of blood pressure." },
+    { no: 16, date: "2026-10-31", day: "Saturday", topic: "Adjustment of circulation during exercise. Muscle Physiology-basic muscle unit characteristic-electrical phenomenon in muscle cell." },
+    { no: 17, date: "2026-11-02", day: "Monday", topic: "Muscle action potential, excitation and propagation of impulse characteristics- latent period refractive ness threshold level-all and none characteristics - contractile mechanism - excitation - contraction." },
+    { no: 18, date: "2026-11-03", day: "Tuesday", topic: "Coupling-neuro-muscular transmission." },
+    { no: 20, date: "2026-11-05", day: "Thursday", topic: "Types of muscle contraction, phenomenon of fatigue, rigor mortis. Organization of nervous system." },
+    { no: 22, date: "2026-11-07", day: "Saturday", topic: "Mechanism of information processing, hierarchical control." },
+    { no: 25, date: "2026-11-14", day: "Saturday", topic: "Major function system- sensory, consciousness, emotion, motor and visceral control and basic functional unit." },
+    { no: 26, date: "2026-11-16", day: "Monday", topic: "Neuron structure, type- functional characteristics of sub-units of neuron." },
+    { no: 27, date: "2026-11-17", day: "Tuesday", topic: "Membrane potential - ionic basis of resting membrane potential (RMP) nerve action potential, excitation and propagation of impulse characteristics." },
+    { no: 29, date: "2026-11-19", day: "Thursday", topic: "Latent period- refractive-ness threshold level-all and none characteristics." },
+    { no: 31, date: "2026-11-21", day: "Saturday", topic: "Degeneration and regeneration of nerve fibre. Synaptic and junctional transmission." },
+    { no: 32, date: "2026-11-23", day: "Monday", topic: "Functions of nervous system-reflexes-control of posture and movements, autonomic nervous system and visceral control." },
+    { no: 34, date: "2026-11-26", day: "Thursday", topic: "Neurotransmitter wakefulness, sleep cycle. Higher function of neurons system learning, memory, electroencephalography." },
+    { no: 36, date: "2026-11-28", day: "Saturday", topic: "Sense organs and receptors physiology of special senses." },
+    { no: 37, date: "2026-11-30", day: "Monday", topic: "Eye: functional morphology, nourishment and protection neural pathway, receptors optics, ocular muscles and movements, photochemistry, Vision defects." },
+    { no: 38, date: "2026-12-01", day: "Tuesday", topic: "Ear: Physiology of hearing and common hearing impairment." },
+    { no: 39, date: "2026-12-03", day: "Thursday", topic: "Vestibule apparatus. Physiology of olfaction and taste." },
+    { no: 41, date: "2026-12-05", day: "Saturday", topic: "Morphological characteristic of mono gastric and poly gastric digestive system." },
+    { no: 43, date: "2026-12-07", day: "Monday", topic: "Prehension, rumination; defecation; vomition; regulation of secretory function of saliva, stomach, intestine, pancreas." },
+    { no: 44, date: "2026-12-08", day: "Tuesday", topic: "Bile secretion; hunger, appetite control, developmental aspects of digestion." },
+    { no: 46, date: "2026-12-10", day: "Thursday", topic: "Luminal, membranous and microbial digestion in rumen and intestine." },
+    { no: 48, date: "2026-12-12", day: "Saturday", topic: "Permeability characteristics of intestine, forces governing absorption, control intestinal transport of electrolyte and water." },
+    { no: 49, date: "2026-12-14", day: "Monday", topic: "Enzymatic digestion in monogastric and fermentative digestion in rumen, modification of toxic substances in rumen. Digestion in birds." },
+    { no: 50, date: "2026-12-15", day: "Tuesday", topic: "Functional morphology of respiratory apparatus. Mechanics of breathing." },
+    { no: 52, date: "2026-12-17", day: "Thursday", topic: "Transport of blood gases, foetal and neonatal oxygen transport, dissociation curves, pressures, recoil tendency." },
+    { no: 54, date: "2026-12-19", day: "Saturday", topic: "Elasticity, surfactants, pleural liquid, compliance, exchanges of gases in lungs and tissues." },
+    { no: 55, date: "2026-12-21", day: "Monday", topic: "Neural and chemical regulation of breathing, diffusion, perfusion, hypoxia." },
+    { no: 56, date: "2026-12-22", day: "Tuesday", topic: "Frictional resistance to air flow, airways smooth muscle contraction." },
+    { no: 58, date: "2026-12-24", day: "Thursday", topic: "Respiratory muscle work, panting, adaptation of respiration during muscle exercise." },
+    { no: 59, date: "2026-12-26", day: "Saturday", topic: "High altitude hypoxia, Non-respiratory lung functions. Respiration in birds." },
+    { no: 60, date: "2026-12-28", day: "Monday", topic: "Kidney- Functional morphology of nephrons, factors determining filtration pressure." },
+    { no: 61, date: "2026-12-29", day: "Tuesday", topic: "Determination of glomerular filtration rate (GFR) and renal plasma flow." },
+    { no: 63, date: "2026-12-31", day: "Thursday", topic: "Re-absorption mechanisms for glucose, protein, amino acids, electrolytes; ammonium mechanism, glomerulo." },
+    { no: 65, date: "2027-01-02", day: "Saturday", topic: "Tubular balance, methods of studying renal functions; urine concentration; micturition, uremia." },
+    { no: 66, date: "2027-01-04", day: "Monday", topic: "Fluid, water balance, fluid therapy, dehydration, water concentration mechanisms." },
+    { no: 67, date: "2027-01-05", day: "Tuesday", topic: "Acid base balance and H+ regulation, correction and evolution of imbalances, total osmotic pressure." },
+    { no: 69, date: "2027-01-07", day: "Thursday", topic: "Formation and excretion of urine of Birds." },
+    { no: 71, date: "2027-01-09", day: "Saturday", topic: "Cerebrospinal fluid, synovial fluids - composition, formation and flow; Joints. Regulation of bone metabolism and homeostasis." },
+    { no: 72, date: "2027-01-11", day: "Monday", topic: "Hormone cell interaction, sub-cellular mechanisms-metabolism of hormones." },
+    { no: 73, date: "2027-01-12", day: "Tuesday", topic: "Methods of study of endocrine system; Receptors- mechanism of regulation." },
+    { no: 76, date: "2027-01-16", day: "Saturday", topic: "Chemistry of hypothalamo- hypophyseal hormones, target organ, pineal, thyroid, thymus." },
+    { no: 78, date: "2027-01-19", day: "Tuesday", topic: "Pancreas, adrenal, prostaglandins, hormones of calcium metabolism, disorders, rennin." },
+    { no: 80, date: "2027-01-21", day: "Thursday", topic: "Angiotensin system, atrial natriuretic factors, erythropoietin, GI hormones, pheromones." },
+    { no: 82, date: "2027-01-23", day: "Saturday", topic: "Genetic and endocrine control of gonadal development, modification of gonadotrophin release." },
+    { no: 83, date: "2027-01-25", day: "Monday", topic: "Ovarian functions, follicular development, dynamics, endocrine and receptor profiles, sexual receptivity." },
+    { no: 85, date: "2027-01-28", day: "Thursday", topic: "Ovarian cycle, post-partum ovarian activity, ovum transport, capacitation, fertilization, reproductive cycles in farm animals." },
+    { no: 87, date: "2027-01-30", day: "Saturday", topic: "Hormones present in the biological fluids during pregnancy and their uses for the diagnosis of pregnancy." },
+    { no: 88, date: "2027-02-01", day: "Monday", topic: "Maternal foetal placental participation in pregnancy and parturition, immunology of gestation, preparturient endocrine status." },
+    { no: 89, date: "2027-02-02", day: "Tuesday", topic: "Spermatogenic cycle and wave- function of sertoli cell-leydig cell-semen - composition- evaluation." },
+    { no: 91, date: "2027-02-04", day: "Thursday", topic: "Testosterone - function and regulation - cryptorchidism." },
+    { no: 93, date: "2027-02-06", day: "Saturday", topic: "Puberty - photoperiod - uses of androgens, progestogens, estrogens." },
+    { no: 94, date: "2027-02-08", day: "Monday", topic: "Functional and metabolic organization of mammary glands - structure and development." },
+    { no: 95, date: "2027-02-09", day: "Tuesday", topic: "Effect of estrogens and progesterone; hormonal control of mammary growth." },
+    { no: 97, date: "2027-02-11", day: "Thursday", topic: "Lactogenesis and galactogenesis; biosynthesis of milk constituents, secretion of milk, and metabolism, prolactin and lactation cycle." },
+    { no: 99, date: "2027-02-13", day: "Saturday", topic: "Biochemical and genetic determinants of growth, regulation of growth, metabolic and hormone interactions." },
+    { no: 100, date: "2027-02-15", day: "Monday", topic: "Factors affecting efficiency of growth and production in ruminants and single stomach animals." },
+    { no: 101, date: "2027-02-16", day: "Tuesday", topic: "Growth in meat producing animals and birds, growth curves." },
+    { no: 103, date: "2027-02-18", day: "Thursday", topic: "Recombinant gene transfer technologies for growth manipulation- advantages and limitations." },
+    { no: 105, date: "2027-02-20", day: "Saturday", topic: "Protein deposition in animals and poultry." },
+    { no: 106, date: "2027-02-22", day: "Monday", topic: "Heat balance, heat tolerance, hypothermia, hyperthermia, thermo-regulation in farm animals." },
+    { no: 107, date: "2027-02-23", day: "Tuesday", topic: "Role of skin, responses of animals to heat and cold, fever, body temperature and hibernation." },
+    { no: 109, date: "2027-02-25", day: "Thursday", topic: "Temperature regulation in birds. Climatology- various parameters and their importance." },
+    { no: 111, date: "2027-02-27", day: "Saturday", topic: "Effect of different environmental variables like temperature, humidity, light, radiation, altitude on animal performance." },
+    { no: 112, date: "2027-03-01", day: "Monday", topic: "Acclimation, acclimatization - general adaptive syndrome." },
+    { no: 114, date: "2027-03-04", day: "Thursday", topic: "Clinical aspects of endocrine - reproductive functions, circadian rhythm." },
+    { no: 116, date: "2027-03-06", day: "Saturday", topic: "Neurophysiology of behaviours, types of behaviour, communication. Learning and memory behavioural plasticity." }
+  ];
+
   const SCHEDULES_BY_SUB = {
     LPM: LPM_SCHEDULE,
     VPY: VPY_SCHEDULE,
@@ -1850,12 +1853,14 @@
   const MEDICAL_KEY = "attend75_medical_v4";
   const EXAMS_KEY = "attend75_exams_v4";
   const EXTRA_KEY = "attend75_extra_v4";
+  const PRAC_KEY = "attend75_practicals_v5";
 
   let state = {
     records: {},
     medicalLeaves: [],
     exams: [],
     extraClasses: [],
+    practicals: [],
     syllabus: {
       drift: { LPM: 0, VPY: 0, VAN: 0 },
       manualLectureIdx: { LPM: null, VPY: null, VAN: null },
@@ -1870,7 +1875,9 @@
       medicalLeaveMode: "condone"
     },
     tab: "dashboard",
+    syllabusView: "daily", // "daily" | "subjects"
     syllabusFilter: "LPM",
+    syllabusDateKey: null,
     viewDate: new Date(),
     modalDateKey: null
   };
@@ -1911,7 +1918,7 @@
     for (let i = 0; i < slots.length; i++) {
       const s = slots[i];
       if (s[b]) {
-        list.push({ slotId: s.id, time: s.time, code: s[b], subject: SUBJECTS[s[b]] });
+        list.push({ slotId: s.id, time: s.time, code: s[b], subject: SUBJECTS[s[b]], isPractical: !!s.isPractical });
       }
     }
     return list;
@@ -1956,6 +1963,7 @@
   }
 
   function loadState() {
+    state.syllabusDateKey = toDateKey(new Date());
     try {
       const r = SafeStorage.get(RECORDS_KEY);
       const s = SafeStorage.get(SETTINGS_KEY);
@@ -1963,11 +1971,19 @@
       const ml = SafeStorage.get(MEDICAL_KEY);
       const ex = SafeStorage.get(EXAMS_KEY);
       const ec = SafeStorage.get(EXTRA_KEY);
+      const pr = SafeStorage.get(PRAC_KEY);
       if (r) state.records = JSON.parse(r) || {};
       if (s) state.settings = Object.assign({}, state.settings, JSON.parse(s));
       if (ml) state.medicalLeaves = JSON.parse(ml) || [];
       if (ex) state.exams = JSON.parse(ex) || [];
       if (ec) state.extraClasses = JSON.parse(ec) || [];
+      if (pr) {
+        state.practicals = JSON.parse(pr) || [];
+      } else {
+        state.practicals = DEFAULT_PRACTICALS.map(function(x) {
+          return Object.assign({}, x, { date: "", attended: false });
+        });
+      }
       if (syl) {
         const parsedSyl = JSON.parse(syl) || {};
         state.syllabus.drift = Object.assign({ LPM: 0, VPY: 0, VAN: 0 }, parsedSyl.drift || {});
@@ -1997,6 +2013,7 @@
       SafeStorage.set(MEDICAL_KEY, JSON.stringify(state.medicalLeaves));
       SafeStorage.set(EXAMS_KEY, JSON.stringify(state.exams));
       SafeStorage.set(EXTRA_KEY, JSON.stringify(state.extraClasses));
+      SafeStorage.set(PRAC_KEY, JSON.stringify(state.practicals));
     } catch (e) {}
   }
 
@@ -2069,6 +2086,47 @@
     });
   };
 
+  window.setSyllabusView = function(mode) {
+    state.syllabusView = mode === "subjects" ? "subjects" : "daily";
+    const dBtn = document.getElementById("syl-view-daily");
+    const sBtn = document.getElementById("syl-view-subjects");
+    const dCard = document.getElementById("syl-daily-card");
+    const sCard = document.getElementById("syl-subjects-card");
+    if (state.syllabusView === "daily") {
+      dBtn.classList.add("primary");
+      sBtn.classList.remove("primary");
+      dCard.classList.remove("hidden");
+      sCard.classList.add("hidden");
+    } else {
+      sBtn.classList.add("primary");
+      dBtn.classList.remove("primary");
+      sCard.classList.remove("hidden");
+      dCard.classList.add("hidden");
+    }
+    renderSyllabusTab();
+  };
+
+  window.shiftSyllabusDate = function(delta) {
+    const cur = parseDateKey(state.syllabusDateKey || toDateKey(new Date()));
+    cur.setDate(cur.getDate() + delta);
+    state.syllabusDateKey = toDateKey(cur);
+    renderDailySyllabus();
+  };
+
+  window.resetSyllabusDate = function() {
+    state.syllabusDateKey = toDateKey(new Date());
+    renderDailySyllabus();
+  };
+
+  window.clearSyllabusSearch = function() {
+    const inp = document.getElementById("syl-search");
+    if (inp) {
+      inp.value = "";
+      inp.focus();
+    }
+    renderSyllabusBrowser();
+  };
+
   window.adjustDrift = function(code, delta) {
     const list = SCHEDULES_BY_SUB[code];
     if (!list) return;
@@ -2108,6 +2166,17 @@
     renderAll();
   };
 
+  window.toggleTopicCovered = function(code, lecNo, checked) {
+    const key = code + "-" + lecNo;
+    if (checked) {
+      state.syllabus.topicStatus[key] = "covered";
+    } else {
+      delete state.syllabus.topicStatus[key];
+    }
+    saveState();
+    renderAll();
+  };
+
   window.markUpToTodayDone = function() {
     const code = state.syllabusFilter;
     const list = SCHEDULES_BY_SUB[code];
@@ -2125,7 +2194,7 @@
     });
     saveState();
     renderAll();
-    showToast(count > 0 ? "Marked " + count + " " + code + " topic(s) up to today as Completed ✓" : "All " + code + " topics up to today are already completed!", "info");
+    showToast(count > 0 ? "Marked " + count + " " + code + " topic(s) up to today as Taught ✓" : "All " + code + " topics up to today are already ticked!", "info");
   };
 
   window.clearCaughtUpTopics = function() {
@@ -2147,7 +2216,53 @@
       const el = document.getElementById("syl-f-" + f);
       if (el) el.classList.toggle("active", f === state.syllabusFilter);
     });
-    renderSyllabusTab();
+    if (state.syllabusView !== "subjects") {
+      window.setSyllabusView("subjects");
+    } else {
+      renderSyllabusTab();
+    }
+  };
+
+  // Practical Classes Management
+  window.togglePracticalAttended = function(id) {
+    const pr = state.practicals.find(function(x) { return x.id === id; });
+    if (!pr) return;
+    pr.attended = !pr.attended;
+    if (pr.attended && !pr.date) {
+      pr.date = toDateKey(new Date());
+    }
+    saveState();
+    const metrics = renderAll();
+    showToast((pr.attended ? "✓ Marked " : "Unmarked ") + pr.code + " practical", "info");
+    checkAlerts(metrics);
+  };
+
+  window.savePractical = function() {
+    const code = document.getElementById("pr-sub").value;
+    const date = document.getElementById("pr-date").value || toDateKey(new Date());
+    const title = document.getElementById("pr-topic").value.trim();
+    const attended = document.getElementById("pr-attended").checked;
+    if (!title) { showToast("Please enter the practical topic.", "danger"); return; }
+    state.practicals.unshift({
+      id: "pr_" + Date.now(),
+      code: code,
+      date: date,
+      title: title,
+      attended: attended
+    });
+    document.getElementById("pr-topic").value = "";
+    saveState();
+    closeModal("practical-modal");
+    const metrics = renderAll();
+    showToast("Added " + code + " practical!", "info");
+    checkAlerts(metrics);
+  };
+
+  window.deletePractical = function(id) {
+    state.practicals = state.practicals.filter(function(x) { return x.id !== id; });
+    saveState();
+    renderAll();
+    showToast("Deleted practical entry", "info");
   };
 
   window.setMedicalLeaveMode = function(mode) {
@@ -2218,6 +2333,14 @@
       if (!s) return;
       if (ec.status === "present") { s.present++; s.held++; totalPresent++; }
       else if (ec.status === "absent") { s.absent++; s.held++; totalAbsent++; }
+    });
+
+    // Include Attended Practicals logged in Practicals Checklist (with a date)
+    state.practicals.forEach(function(pr) {
+      if (pr.attended && pr.date) {
+        const s = subStats[pr.code];
+        if (s) { s.present++; s.held++; totalPresent++; }
+      }
     });
 
     const lowSubjects = [];
@@ -2387,7 +2510,6 @@
     checkAlerts(metrics);
   };
 
-  // Extra Class Logger
   window.openExtraClassModal = function() {
     document.getElementById("ec-date").value = toDateKey(new Date());
     document.getElementById("ec-topic").value = "";
@@ -2413,14 +2535,6 @@
     checkAlerts(metrics);
   };
 
-  window.deleteExtraClass = function(id) {
-    state.extraClasses = state.extraClasses.filter(function(x) { return x.id !== id; });
-    saveState();
-    renderAll();
-    showToast("Removed extra class", "info");
-  };
-
-  // Exams & Internals Management
   window.openExamModal = function(examId) {
     const ex = examId ? state.exams.find(function(x) { return x.id === examId; }) : null;
     document.getElementById("exam-modal-title").textContent = ex ? "Edit Exam / Marks" : "Add Exam / Internal";
@@ -2691,7 +2805,7 @@
           '<div style="font-size:13px;font-weight:800;margin-top:1px;">' + next.subject + ' — ' + next.type + ' (' + formatShortDate(next.date) + ')</div>' +
           (next.syllabus ? '<div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Portion: ' + next.syllabus + '</div>' : '') +
         '</div>' +
-        '<button onclick="switchTab(\'exams\')" class="pill-action primary">Exams →</button>' +
+        '<button onclick="switchTab('exams')" class="pill-action primary">Exams →</button>' +
       '</div>' +
     '</section>';
   }
@@ -2743,15 +2857,13 @@
       let topicStrip = "";
       if (SCHEDULES_BY_SUB[cls.code]) {
         const pace = getPaceInfoForSubject(cls.code, key);
-        const driftBadge = pace.effectiveDrift > 0
-          ? '<span class="badge badge-warn" style="margin:0;">+' + pace.effectiveDrift + ' Ahead</span>'
-          : (pace.effectiveDrift < 0
-            ? '<span class="badge badge-danger" style="margin:0;">' + pace.effectiveDrift + ' Behind</span>'
-            : '<span class="badge badge-safe" style="margin:0;">On Schedule</span>');
+        const isDone = state.syllabus.topicStatus[cls.code + "-" + pace.actualItem.no] === "covered";
         topicStrip = '<div class="period-topic-box">' +
           '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;">' +
-            '<span style="font-weight:800;color:var(--primary-text);">Lecture #' + pace.actualItem.no + '</span>' +
-            driftBadge +
+            '<span style="font-weight:800;color:var(--primary-text);">Lecture #' + pace.actualItem.no + (cls.isPractical ? ' • Practical' : '') + '</span>' +
+            '<label style="display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:800;cursor:pointer;color:var(--success-text);">' +
+              '<input type="checkbox" ' + (isDone ? 'checked' : '') + ' onchange="toggleTopicCovered('' + cls.code + '',' + pace.actualItem.no + ',this.checked)" style="accent-color:var(--success);"> Taught' +
+            '</label>' +
           '</div>' +
           '<div style="font-weight:600;margin-top:2px;">' + pace.actualItem.topic + '</div>' +
         '</div>';
@@ -2762,15 +2874,15 @@
           '<div class="period-meta">' +
             '<div class="period-top">' +
               '<span class="sub-tag ' + cls.code + '">' + cls.code + '</span>' +
-              '<span class="period-time">' + cls.time + '</span>' +
+              '<span class="period-time">' + cls.time + (cls.isPractical ? ' (Practical)' : '') + '</span>' +
             '</div>' +
             '<div class="period-name">' + cls.subject.name + '</div>' +
           '</div>' +
           '<div class="period-actions">' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'present\')" class="p-btn' + (st === "present" ? " active-present" : "") + '" title="Present">✓</button>' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'absent\')" class="p-btn' + (st === "absent" ? " active-absent" : "") + '" title="Absent">✕</button>' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'medical\')" class="p-btn' + (st === "medical" ? " active-medical" : "") + '" title="Medical Leave">ML</button>' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'holiday\')" class="p-btn' + (st === "holiday" ? " active-holiday" : "") + '" title="Cancelled / Holiday">☀</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','present')" class="p-btn' + (st === "present" ? " active-present" : "") + '" title="Present">✓</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','absent')" class="p-btn' + (st === "absent" ? " active-absent" : "") + '" title="Absent">✕</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','medical')" class="p-btn' + (st === "medical" ? " active-medical" : "") + '" title="Medical Leave">ML</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','holiday')" class="p-btn' + (st === "holiday" ? " active-holiday" : "") + '" title="Cancelled / Holiday">☀</button>' +
           '</div>' +
         '</div>' +
         topicStrip +
@@ -2822,7 +2934,6 @@
     }).join("");
   }
 
-  // What-If Simulator
   window.updateSimulator = function() {
     const metrics = calculateMetrics();
     const addPresent = Number(document.getElementById("sim-attend").value || 0);
@@ -2841,8 +2952,7 @@
     const simPct = (newPresent / newHeld) * 100;
     const safe = simPct >= 75;
     out.style.color = safe ? "var(--success-text)" : "var(--danger-text)";
-    out.textContent = (safe ? "✓ Safe: " : "⚠️ Warning: ") +
-      simPct.toFixed(1) + "% (" + newPresent + "/" + newHeld + " classes)";
+    out.textContent = (safe ? "✓ Safe: " : "⚠️ Warning: ") + simPct.toFixed(1) + "% (" + newPresent + "/" + newHeld + " classes)";
   };
 
   window.resetSimulator = function() {
@@ -2851,38 +2961,35 @@
     updateSimulator();
   };
 
-  // Subject Syllabus Completion Counter
   function getSubjectCompletion(code) {
     const list = SCHEDULES_BY_SUB[code] || [];
     let done = 0;
     let missed = 0;
-    let revised = 0;
     list.forEach(function(item) {
       const st = state.syllabus.topicStatus[code + "-" + item.no];
       if (st === "covered" || st === "revised") done++;
       if (st === "missed") missed++;
-      if (st === "revised") revised++;
     });
     const pct = list.length === 0 ? 0 : Math.round((done / list.length) * 100);
-    return { code: code, total: list.length, done: done, missed: missed, revised: revised, pct: pct };
+    return { code: code, total: list.length, done: done, missed: missed, pct: pct };
   }
 
   function renderSyllabusTab() {
     const todayKey = toDateKey(new Date());
     const colsGrid = document.getElementById("subject-columns-grid");
 
-    // Render 3 separate subject columns: LPM, VPY, VAN
+    // 3 Separate Subject Columns: LPM, VPY (Physiology), VAN (Anatomy)
     colsGrid.innerHTML = ["LPM", "VPY", "VAN"].map(function(code) {
       const stats = getSubjectCompletion(code);
-      const isSelected = state.syllabusFilter === code;
-      return '<div onclick="setSyllabusFilter(\'' + code + '\')" class="col-card' + (isSelected ? " selected" : "") + '">' +
+      const isSelected = state.syllabusView === "subjects" && state.syllabusFilter === code;
+      return '<div onclick="setSyllabusFilter('' + code + '')" class="col-card' + (isSelected ? " selected" : "") + '">' +
         '<div style="display:flex;justify-content:space-between;align-items:center;">' +
           '<span class="sub-tag ' + code + '">' + code + '</span>' +
           '<strong style="font-size:11px;color:var(--primary-text);">' + stats.pct + '%</strong>' +
         '</div>' +
         '<div style="font-size:11.5px;font-weight:800;">' + SUBJECTS[code].short + '</div>' +
         '<div style="font-size:11px;color:var(--text-muted);font-weight:700;">' +
-          '<strong style="color:var(--success-text);">' + stats.done + '</strong> / ' + stats.total + ' done' +
+          '<strong style="color:var(--success-text);">' + stats.done + '</strong> / ' + stats.total + ' taught' +
         '</div>' +
         '<div class="bar-track" style="margin:2px 0;">' +
           '<div class="bar-fill" style="width:' + stats.pct + '%;background:var(--success);"></div>' +
@@ -2893,7 +3000,8 @@
       '</div>';
     }).join("");
 
-    // Render Pace Tracker for active subject column
+    renderDailySyllabus();
+
     const code = state.syllabusFilter;
     document.getElementById("active-sub-syl-title").textContent = code + " — " + SUBJECTS[code].name;
     const vanRules = document.getElementById("van-rules-box");
@@ -2915,22 +3023,112 @@
     document.getElementById("active-pace-card").innerHTML =
       '<div class="subject-card">' +
         '<div class="sub-row-top">' +
-          '<span style="font-size:11.5px;font-weight:800;">Current Lecture: #' + p.actualItem.no + ' (' + formatShortDate(p.actualItem.date) + ')</span>' +
+          '<span style="font-size:11.5px;font-weight:800;">Current Topic: #' + p.actualItem.no + ' (' + formatShortDate(p.actualItem.date) + ')</span>' +
           '<span class="badge ' + driftBadgeClass + '" style="margin:0;">' + driftBadgeText + '</span>' +
         '</div>' +
         '<div style="font-size:11.5px;font-weight:600;margin-top:4px;">' + p.actualItem.topic + '</div>' +
         '<div class="pace-controls">' +
-          '<select onchange="setManualLecture(\'' + code + '\', this.value)">' + optionsHtml + '</select>' +
+          '<select onchange="setManualLecture('' + code + '', this.value)">' + optionsHtml + '</select>' +
           '<div class="controls-row">' +
-            '<button onclick="adjustDrift(\'' + code + '\', -1)" class="icon-pill">-1</button>' +
-            '<button onclick="adjustDrift(\'' + code + '\', 0 - ' + p.drift + ')" class="icon-pill">Sync</button>' +
-            '<button onclick="adjustDrift(\'' + code + '\', 1)" class="icon-pill">+1</button>' +
+            '<button onclick="adjustDrift('' + code + '', -1)" class="icon-pill">-1</button>' +
+            '<button onclick="adjustDrift('' + code + '', 0 - ' + p.drift + ')" class="icon-pill">Sync</button>' +
+            '<button onclick="adjustDrift('' + code + '', 1)" class="icon-pill">+1</button>' +
           '</div>' +
         '</div>' +
       '</div>';
 
+    renderPracticalsList();
     renderBacklogQueue();
     renderSyllabusBrowser();
+  }
+
+  function renderDailySyllabus() {
+    const targetKey = state.syllabusDateKey || toDateKey(new Date());
+    const dateObj = parseDateKey(targetKey);
+    const isToday = targetKey === toDateKey(new Date());
+    document.getElementById("syl-daily-title").textContent =
+      (isToday ? "Today • " : "") + formatHumanDate(dateObj);
+
+    const listEl = document.getElementById("syl-daily-list");
+    const scheduled = getScheduledClasses(dateObj, state.settings.batch);
+    const itemsHtml = [];
+
+    // 1. Show scheduled classes & their corresponding syllabus topic for this day
+    scheduled.forEach(function(cls) {
+      if (SCHEDULES_BY_SUB[cls.code]) {
+        const pace = getPaceInfoForSubject(cls.code, targetKey);
+        const item = pace.actualItem;
+        const st = state.syllabus.topicStatus[cls.code + "-" + item.no] || "";
+        const isDone = st === "covered" || st === "revised";
+        itemsHtml.push(
+          '<div class="syllabus-item' + (isDone ? " is-done" : "") + '">' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;">' +
+              '<div style="display:flex;align-items:center;gap:6px;">' +
+                '<span class="sub-tag ' + cls.code + '">' + cls.code + ' #' + item.no + '</span>' +
+                '<span style="color:var(--text-muted);font-weight:700;">' + cls.time + (cls.isPractical ? ' • Practical' : ' • Theory') + '</span>' +
+              '</div>' +
+              '<label style="display:inline-flex;align-items:center;gap:5px;font-weight:800;font-size:11.5px;cursor:pointer;color:' + (isDone ? 'var(--success-text)' : 'var(--text)') + ';">' +
+                '<input type="checkbox" ' + (isDone ? 'checked' : '') + ' onchange="toggleTopicCovered('' + cls.code + '',' + item.no + ',this.checked)" style="width:16px;height:16px;accent-color:var(--success);"> Taught' +
+              '</label>' +
+            '</div>' +
+            '<div style="font-weight:600;">' + item.topic + '</div>' +
+          '</div>'
+        );
+      }
+    });
+
+    // 2. Also include any dated syllabus lectures on targetKey whose subject wasn't in the timetable slot
+    ["LPM", "VPY", "VAN"].forEach(function(code) {
+      const exact = SCHEDULES_BY_SUB[code].find(function(x) { return x.date === targetKey; });
+      if (exact && !scheduled.some(function(s) { return s.code === code; })) {
+        const st = state.syllabus.topicStatus[code + "-" + exact.no] || "";
+        const isDone = st === "covered" || st === "revised";
+        itemsHtml.push(
+          '<div class="syllabus-item' + (isDone ? " is-done" : "") + '">' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;">' +
+              '<div style="display:flex;align-items:center;gap:6px;">' +
+                '<span class="sub-tag ' + code + '">' + code + ' #' + exact.no + '</span>' +
+                '<span style="color:var(--text-muted);font-weight:700;">Scheduled Syllabus</span>' +
+              '</div>' +
+              '<label style="display:inline-flex;align-items:center;gap:5px;font-weight:800;font-size:11.5px;cursor:pointer;">' +
+                '<input type="checkbox" ' + (isDone ? 'checked' : '') + ' onchange="toggleTopicCovered('' + code + '',' + exact.no + ',this.checked)" style="width:16px;height:16px;accent-color:var(--success);"> Taught' +
+              '</label>' +
+            '</div>' +
+            '<div style="font-weight:600;">' + exact.topic + '</div>' +
+          '</div>'
+        );
+      }
+    });
+
+    if (itemsHtml.length === 0) {
+      listEl.innerHTML = '<div class="period-item" style="justify-content:center;color:var(--text-muted);font-size:12px;">No theory/syllabus topics scheduled on this date (Sunday or off-day). Use ◀ / ▶ to check other days.</div>';
+    } else {
+      listEl.innerHTML = itemsHtml.join("");
+    }
+  }
+
+  function renderPracticalsList() {
+    const countEl = document.getElementById("prac-attended-count");
+    const listEl = document.getElementById("practicals-list");
+    if (!listEl) return;
+    const attendedCount = state.practicals.filter(function(p) { return p.attended; }).length;
+    if (countEl) countEl.textContent = attendedCount + "/" + state.practicals.length;
+
+    listEl.innerHTML = state.practicals.map(function(pr) {
+      return '<div class="prac-item' + (pr.attended ? " attended" : "") + '">' +
+        '<label style="display:flex;align-items:flex-start;gap:9px;flex:1;cursor:pointer;">' +
+          '<input type="checkbox" ' + (pr.attended ? 'checked' : '') + ' onchange="togglePracticalAttended('' + pr.id + '')" style="width:18px;height:18px;margin-top:2px;accent-color:var(--success);flex-shrink:0;">' +
+          '<div>' +
+            '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">' +
+              '<span class="sub-tag ' + pr.code + '">' + pr.code + ' Practical</span>' +
+              (pr.date ? '<span style="font-size:10.5px;color:var(--text-muted);font-weight:700;">' + formatShortDate(pr.date) + '</span>' : '') +
+            '</div>' +
+            '<div style="font-weight:700;margin-top:2px;">' + pr.title + '</div>' +
+          '</div>' +
+        '</label>' +
+        '<button onclick="deletePractical('' + pr.id + '')" class="icon-pill" style="padding:4px 7px;min-height:28px;color:var(--text-muted);" title="Remove">✕</button>' +
+      '</div>';
+    }).join("");
   }
 
   function renderBacklogQueue() {
@@ -2958,7 +3156,7 @@
             '<strong>Lec #' + entry.item.no + '</strong>' +
             '<span style="color:var(--text-muted);">(' + formatShortDate(entry.item.date) + ')</span>' +
           '</div>' +
-          '<button onclick="setTopicStatus(\'' + entry.code + '\',' + entry.item.no + ',\'covered\')" class="pill-action success">✓ Completed</button>' +
+          '<button onclick="setTopicStatus('' + entry.code + '',' + entry.item.no + ','covered')" class="pill-action success">✓ Taught</button>' +
         '</div>' +
         '<div style="font-weight:600;">' + entry.item.topic + '</div>' +
       '</div>';
@@ -2968,28 +3166,42 @@
   function renderSyllabusBrowser() {
     const code = state.syllabusFilter;
     const list = SCHEDULES_BY_SUB[code] || [];
-    const searchVal = (document.getElementById("syl-search") ? document.getElementById("syl-search").value : "").trim().toLowerCase();
+    const searchInp = document.getElementById("syl-search");
+    const clearBtn = document.getElementById("syl-clear-search");
+    const rawSearch = searchInp ? searchInp.value : "";
+    const searchVal = rawSearch.trim().toLowerCase();
+    if (clearBtn) clearBtn.classList.toggle("hidden", searchVal.length === 0);
+
     const hideDone = document.getElementById("syl-hide-done") ? document.getElementById("syl-hide-done").checked : false;
     const todayKey = toDateKey(new Date());
+
+    // Multi-word AND search across topic, date, day, subject code, and lecture number
+    const tokens = searchVal.split(/\s+/).filter(Boolean);
 
     const filtered = list.filter(function(item) {
       const st = state.syllabus.topicStatus[code + "-" + item.no] || "";
       if (hideDone && (st === "covered" || st === "revised")) return false;
-      if (!searchVal) return true;
-      return item.topic.toLowerCase().indexOf(searchVal) !== -1 ||
-        item.date.indexOf(searchVal) !== -1 ||
-        formatShortDate(item.date).indexOf(searchVal) !== -1 ||
-        ("#" + item.no).indexOf(searchVal) !== -1 ||
-        ("lec " + item.no).indexOf(searchVal) !== -1;
+      if (tokens.length === 0) return true;
+      const haystack = (
+        code + " " +
+        SUBJECTS[code].short + " " +
+        SUBJECTS[code].name + " " +
+        "#" + item.no + " lec " + item.no + " lecture " + item.no + " " +
+        item.date + " " +
+        formatShortDate(item.date) + " " +
+        (item.day || "") + " " +
+        item.topic
+      ).toLowerCase();
+      return tokens.every(function(tok) { return haystack.indexOf(tok) !== -1; });
     });
 
     const stats = getSubjectCompletion(code);
     document.getElementById("syl-filter-summary").textContent =
-      code + ": " + stats.done + " of " + stats.total + " topics completed (" + filtered.length + " shown)";
+      code + ": " + stats.done + " of " + stats.total + " topics taught (" + filtered.length + " shown)";
 
     const browser = document.getElementById("syllabus-browser");
     if (filtered.length === 0) {
-      browser.innerHTML = '<div class="period-item" style="justify-content:center;color:var(--text-muted);font-size:12px;">No matching lectures found.</div>';
+      browser.innerHTML = '<div class="period-item" style="justify-content:center;color:var(--text-muted);font-size:12px;">No matching topics found for "' + rawSearch.replace(/</g, "&lt;") + '".</div>';
       return;
     }
 
@@ -2998,11 +3210,6 @@
       const isToday = item.date === todayKey;
       const isDone = st === "covered" || st === "revised";
 
-      let statusTag = '<span class="badge badge-neutral" style="margin:0;">Pending</span>';
-      if (st === "covered") statusTag = '<span class="badge badge-safe" style="margin:0;">✓ Completed</span>';
-      else if (st === "missed") statusTag = '<span class="badge badge-danger" style="margin:0;">! Missed</span>';
-      else if (st === "revised") statusTag = '<span class="badge badge-info" style="margin:0;">↻ Revised</span>';
-
       return '<div class="syllabus-item' + (isToday ? " is-today" : "") + (isDone ? " is-done" : "") + '">' +
         '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;">' +
           '<div style="display:flex;align-items:center;gap:6px;">' +
@@ -3010,19 +3217,20 @@
             '<span style="color:var(--text-muted);font-weight:700;">' + formatShortDate(item.date) + (item.day ? " • " + item.day : "") + '</span>' +
             (isToday ? '<span class="badge badge-info" style="margin:0;">Today</span>' : '') +
           '</div>' +
-          statusTag +
+          '<label style="display:inline-flex;align-items:center;gap:5px;font-weight:800;font-size:11.5px;cursor:pointer;color:' + (isDone ? 'var(--success-text)' : 'var(--text)') + ';">' +
+            '<input type="checkbox" ' + (isDone ? 'checked' : '') + ' onchange="toggleTopicCovered('' + code + '',' + item.no + ',this.checked)" style="width:16px;height:16px;accent-color:var(--success);"> Taught' +
+          '</label>' +
         '</div>' +
         '<div style="font-weight:600;">' + item.topic + '</div>' +
         '<div class="topic-status-pills" style="margin-top:2px;">' +
-          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'covered\')" class="st-chip' + (st === "covered" ? " active-covered" : "") + '">✓ Completed</button>' +
-          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'missed\')" class="st-chip' + (st === "missed" ? " active-missed" : "") + '">! Missed</button>' +
-          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'revised\')" class="st-chip' + (st === "revised" ? " active-revised" : "") + '">↻ Revised</button>' +
+          '<button onclick="setTopicStatus('' + code + '',' + item.no + ','covered')" class="st-chip' + (st === "covered" ? " active-covered" : "") + '">✓ Taught</button>' +
+          '<button onclick="setTopicStatus('' + code + '',' + item.no + ','missed')" class="st-chip' + (st === "missed" ? " active-missed" : "") + '">! Missed</button>' +
+          '<button onclick="setTopicStatus('' + code + '',' + item.no + ','revised')" class="st-chip' + (st === "revised" ? " active-revised" : "") + '">↻ Revised</button>' +
         '</div>' +
       '</div>';
     }).join("");
   }
 
-  // Render Exams Tab
   function renderExamsTab() {
     const listEl = document.getElementById("exams-list");
     if (!listEl) return;
@@ -3058,8 +3266,8 @@
         (ex.syllabus ? '<div style="font-weight:600;">📚 Portion: ' + ex.syllabus + '</div>' : '') +
         (ex.notes ? '<div style="font-size:11px;color:var(--text-muted);">📝 ' + ex.notes + '</div>' : '') +
         '<div style="display:flex;gap:6px;margin-top:4px;">' +
-          '<button onclick="openExamModal(\'' + ex.id + '\')" class="pill-action" style="padding:4px 9px;font-size:10.5px;">Edit / Add Marks</button>' +
-          '<button onclick="deleteExam(\'' + ex.id + '\')" class="pill-action danger" style="padding:4px 9px;font-size:10.5px;">Delete</button>' +
+          '<button onclick="openExamModal('' + ex.id + '')" class="pill-action" style="padding:4px 9px;font-size:10.5px;">Edit / Add Marks</button>' +
+          '<button onclick="deleteExam('' + ex.id + '')" class="pill-action danger" style="padding:4px 9px;font-size:10.5px;">Delete</button>' +
         '</div>' +
       '</div>';
     }).join("");
@@ -3116,7 +3324,7 @@
       const hasExam = state.exams.some(function(x) { return x.date === key; });
       if (hasExam) mini = '<span class="cal-mini">EX</span>';
 
-      html += '<button onclick="openDateModal(\'' + key + '\')" class="' + classes.join(" ") + '">' + d + mini + '</button>';
+      html += '<button onclick="openDateModal('' + key + '')" class="' + classes.join(" ") + '">' + d + mini + '</button>';
     }
 
     grid.innerHTML = html;
@@ -3137,15 +3345,15 @@
     listEl.innerHTML = state.medicalLeaves.map(function(item) {
       const rangeTxt = item.from === item.to ? formatShortDate(item.from) : (formatShortDate(item.from) + " → " + formatShortDate(item.to));
       const certBadge = item.certReady
-        ? '<button onclick="toggleMedicalCert(\'' + item.id + '\')" class="badge badge-safe" style="margin:0;cursor:pointer;">✓ Certificate Ready</button>'
-        : '<button onclick="toggleMedicalCert(\'' + item.id + '\')" class="badge badge-warn" style="margin:0;cursor:pointer;">! Certificate Pending</button>';
+        ? '<button onclick="toggleMedicalCert('' + item.id + '')" class="badge badge-safe" style="margin:0;cursor:pointer;">✓ Certificate Ready</button>'
+        : '<button onclick="toggleMedicalCert('' + item.id + '')" class="badge badge-warn" style="margin:0;cursor:pointer;">! Certificate Pending</button>';
       return '<div class="syllabus-item" style="border-color:rgba(2,132,199,0.35);">' +
         '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;">' +
           '<div style="display:flex;align-items:center;gap:6px;">' +
             '<span class="sub-tag" style="background:var(--info-soft);color:var(--info-text);">🏥 ' + rangeTxt + '</span>' +
             certBadge +
           '</div>' +
-          '<button onclick="deleteMedicalLeave(\'' + item.id + '\')" class="pill-action danger" style="padding:4px 8px;font-size:10.5px;">Remove</button>' +
+          '<button onclick="deleteMedicalLeave('' + item.id + '')" class="pill-action danger" style="padding:4px 8px;font-size:10.5px;">Remove</button>' +
         '</div>' +
         '<div style="font-weight:700;">' + item.reason + '</div>' +
       '</div>';
@@ -3255,10 +3463,10 @@
             '<div class="period-name">' + cls.subject.name + '</div>' +
           '</div>' +
           '<div class="period-actions">' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'present\')" class="p-btn' + (st === "present" ? " active-present" : "") + '">P</button>' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'absent\')" class="p-btn' + (st === "absent" ? " active-absent" : "") + '">A</button>' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'medical\')" class="p-btn' + (st === "medical" ? " active-medical" : "") + '">ML</button>' +
-            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'holiday\')" class="p-btn' + (st === "holiday" ? " active-holiday" : "") + '">H</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','present')" class="p-btn' + (st === "present" ? " active-present" : "") + '">P</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','absent')" class="p-btn' + (st === "absent" ? " active-absent" : "") + '">A</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','medical')" class="p-btn' + (st === "medical" ? " active-medical" : "") + '">ML</button>' +
+            '<button onclick="setPeriodStatus('' + key + '','' + cls.slotId + '','holiday')" class="p-btn' + (st === "holiday" ? " active-holiday" : "") + '">H</button>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -3269,7 +3477,10 @@
 
   window.openModal = function(id) {
     const el = document.getElementById(id);
-    if (el) el.classList.add("open");
+    if (el) {
+      if (id === "practical-modal") document.getElementById("pr-date").value = toDateKey(new Date());
+      el.classList.add("open");
+    }
   };
 
   window.closeModal = function(id) {
@@ -3283,6 +3494,7 @@
     state.medicalLeaves = [];
     state.exams = [];
     state.extraClasses = [];
+    state.practicals = DEFAULT_PRACTICALS.map(function(x) { return Object.assign({}, x, { date: "", attended: false }); });
     state.syllabus = {
       drift: { LPM: 0, VPY: 0, VAN: 0 },
       manualLectureIdx: { LPM: null, VPY: null, VAN: null },
@@ -3301,6 +3513,7 @@
         medicalLeaves: state.medicalLeaves,
         exams: state.exams,
         extraClasses: state.extraClasses,
+        practicals: state.practicals,
         syllabus: state.syllabus,
         settings: state.settings
       }, null, 2);
@@ -3332,6 +3545,7 @@
         state.medicalLeaves = Array.isArray(data.medicalLeaves) ? data.medicalLeaves : [];
         state.exams = Array.isArray(data.exams) ? data.exams : [];
         state.extraClasses = Array.isArray(data.extraClasses) ? data.extraClasses : [];
+        if (Array.isArray(data.practicals)) state.practicals = data.practicals;
         const syl = data.syllabus || {};
         state.syllabus.drift = Object.assign({ LPM: 0, VPY: 0, VAN: 0 }, syl.drift || {});
         state.syllabus.manualLectureIdx = Object.assign({ LPM: null, VPY: null, VAN: null }, syl.manualLectureIdx || {});
