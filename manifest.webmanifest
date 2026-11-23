@@ -1,0 +1,21 @@
+{
+  "name": "Attend75 – Attendance & Syllabus Tracker",
+  "short_name": "Attend75",
+  "description": "Track college attendance against the 75% rule and your teachers' syllabus pace.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f1f5f9",
+  "theme_color": "#4f46e5",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Present (all today)", "short_name": "Present", "url": "./?action=present", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Absent (all today)", "short_name": "Absent", "url": "./?action=absent", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Holiday today", "short_name": "Holiday", "url": "./?action=holiday", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
