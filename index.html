@@ -11,7 +11,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
-<title>Attend75 - College Attendance, Syllabus Pace & Widget</title>
+<title>Attend75 - B.V.Sc Attendance, Syllabus & Exams</title>
 <style>
   :root, [data-theme="light"] {
     --bg: #f1f5f9;
@@ -111,7 +111,7 @@
     overflow-x: hidden;
   }
 
-  button, select, input {
+  button, select, input, textarea {
     font-family: inherit;
     color: inherit;
   }
@@ -127,23 +127,23 @@
     transform: scale(0.96);
   }
 
-  select, input[type="text"] {
+  select, input[type="text"], input[type="number"], input[type="date"], textarea {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 6px 8px;
-    font-size: 11.5px;
+    padding: 7px 9px;
+    font-size: 12px;
     font-weight: 600;
     outline: none;
   }
 
-  select:focus, input[type="text"]:focus {
+  select:focus, input:focus, textarea:focus {
     border-color: var(--primary);
   }
 
   .app-shell {
     width: 100%;
-    max-width: 500px;
+    max-width: 540px;
     padding: calc(14px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) calc(44px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left));
     display: flex;
     flex-direction: column;
@@ -158,7 +158,6 @@
     box-shadow: var(--shadow);
   }
 
-  /* Header */
   .topbar {
     display: flex;
     align-items: center;
@@ -240,10 +239,10 @@
     min-height: 34px;
   }
 
-  /* Nav Tabs */
+  /* 5-Tab Navigation */
   .nav-tabs {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 4px;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -252,9 +251,9 @@
   }
 
   .nav-tab {
-    padding: 9px 4px;
+    padding: 9px 2px;
     border-radius: 12px;
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 700;
     color: var(--text-muted);
     text-align: center;
@@ -266,7 +265,6 @@
     color: #fff;
   }
 
-  /* Alert Banner */
   .alert-banner {
     background: var(--danger);
     color: #fff;
@@ -278,27 +276,11 @@
     box-shadow: 0 8px 20px -4px rgba(225, 29, 72, 0.4);
   }
 
-  .alert-banner.hidden {
-    display: none;
-  }
+  .alert-banner.hidden { display: none; }
+  .alert-icon { font-size: 18px; line-height: 1.2; }
+  .alert-title { font-size: 13px; font-weight: 800; }
+  .alert-desc { font-size: 11.5px; opacity: 0.95; margin-top: 2px; }
 
-  .alert-icon {
-    font-size: 18px;
-    line-height: 1.2;
-  }
-
-  .alert-title {
-    font-size: 13px;
-    font-weight: 800;
-  }
-
-  .alert-desc {
-    font-size: 11.5px;
-    opacity: 0.95;
-    margin-top: 2px;
-  }
-
-  /* Overview Card */
   .overview-top {
     display: flex;
     align-items: center;
@@ -318,12 +300,7 @@
     transform: rotate(-90deg);
   }
 
-  .ring-bg {
-    fill: none;
-    stroke: var(--ring-track);
-    stroke-width: 9;
-  }
-
+  .ring-bg { fill: none; stroke: var(--ring-track); stroke-width: 9; }
   .ring-fg {
     fill: none;
     stroke: var(--success);
@@ -331,10 +308,7 @@
     stroke-linecap: round;
     transition: stroke-dashoffset 0.5s ease, stroke 0.25s ease;
   }
-
-  .ring-fg.danger {
-    stroke: var(--danger);
-  }
+  .ring-fg.danger { stroke: var(--danger); }
 
   .ring-center {
     position: absolute;
@@ -345,18 +319,8 @@
     justify-content: center;
   }
 
-  .ring-pct {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-  }
-
-  .ring-lbl {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+  .ring-pct { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; }
+  .ring-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
 
   .badge {
     display: inline-flex;
@@ -375,22 +339,13 @@
   .badge-info { background: var(--info-soft); color: var(--info-text); }
   .badge-neutral { background: var(--surface-alt); color: var(--text-muted); border: 1px solid var(--border); }
 
-  .overview-title {
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 1.3;
-  }
-
-  .overview-sub {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 3px;
-  }
+  .overview-title { font-size: 14px; font-weight: 800; line-height: 1.3; }
+  .overview-sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
     margin-top: 14px;
     padding-top: 14px;
     border-top: 1px solid var(--border);
@@ -406,23 +361,11 @@
   .stat-box.present { background: var(--success-soft); color: var(--success-text); }
   .stat-box.absent { background: var(--danger-soft); color: var(--danger-text); }
   .stat-box.holiday { background: var(--warning-soft); color: var(--warning-text); }
+  .stat-box.medical { background: var(--info-soft); color: var(--info-text); }
 
-  .stat-k {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    opacity: 0.85;
-  }
+  .stat-k { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; opacity: 0.85; }
+  .stat-v { display: block; font-size: 16px; font-weight: 800; margin-top: 2px; }
 
-  .stat-v {
-    display: block;
-    font-size: 16px;
-    font-weight: 800;
-    margin-top: 2px;
-  }
-
-  /* Section Headers */
   .sec-head {
     display: flex;
     align-items: center;
@@ -439,13 +382,8 @@
     color: var(--primary-text);
   }
 
-  .sec-title {
-    font-size: 15px;
-    font-weight: 800;
-    margin-top: 1px;
-  }
+  .sec-title { font-size: 15px; font-weight: 800; margin-top: 1px; }
 
-  /* Quick Action Row */
   .bulk-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -465,8 +403,8 @@
   .bulk-present { background: var(--success-soft); color: var(--success-text); border-color: rgba(16, 185, 129, 0.25); }
   .bulk-absent { background: var(--danger-soft); color: var(--danger-text); border-color: rgba(244, 63, 94, 0.25); }
   .bulk-holiday { background: var(--warning-soft); color: var(--warning-text); border-color: rgba(245, 158, 11, 0.25); }
+  .bulk-medical { background: var(--info-soft); color: var(--info-text); border-color: rgba(2, 132, 199, 0.28); }
 
-  /* Period Rows */
   .period-list {
     display: flex;
     flex-direction: column;
@@ -490,17 +428,8 @@
     gap: 10px;
   }
 
-  .period-meta {
-    min-width: 0;
-    flex: 1;
-  }
-
-  .period-top {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
+  .period-meta { min-width: 0; flex: 1; }
+  .period-top { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 
   .sub-tag {
     display: inline-block;
@@ -526,17 +455,8 @@
   [data-theme="dark"] .sub-tag.WORK, [data-theme="oled"] .sub-tag.WORK { color: #f0abfc; }
   [data-theme="dark"] .sub-tag.ADVISOR, [data-theme="oled"] .sub-tag.ADVISOR { color: #fdba74; }
 
-  .period-time {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-muted);
-  }
-
-  .period-name {
-    font-size: 12.5px;
-    font-weight: 700;
-    margin-top: 2px;
-  }
+  .period-time { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+  .period-name { font-size: 12.5px; font-weight: 700; margin-top: 2px; }
 
   .period-topic-box {
     background: var(--surface);
@@ -546,12 +466,7 @@
     font-size: 11.5px;
   }
 
-  .period-actions {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex-shrink: 0;
-  }
+  .period-actions { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
 
   .p-btn {
     width: 38px;
@@ -570,6 +485,7 @@
   .p-btn.active-present { background: var(--success); border-color: var(--success); color: #fff; }
   .p-btn.active-absent { background: var(--danger); border-color: var(--danger); color: #fff; }
   .p-btn.active-holiday { background: var(--warning); border-color: var(--warning); color: #0f172a; }
+  .p-btn.active-medical { background: var(--info); border-color: var(--info); color: #fff; }
 
   .lunch-divider {
     display: flex;
@@ -591,7 +507,6 @@
     background: var(--border);
   }
 
-  /* Subject & Syllabus Cards */
   .subject-card {
     padding: 12px 13px;
     border-radius: 16px;
@@ -604,39 +519,11 @@
     border-color: rgba(244, 63, 94, 0.35);
   }
 
-  .sub-row-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .sub-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    min-width: 0;
-  }
-
-  .sub-full-name {
-    font-size: 12.5px;
-    font-weight: 700;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .sub-score {
-    font-size: 13px;
-    font-weight: 800;
-    flex-shrink: 0;
-  }
-
-  .sub-score small {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-muted);
-  }
+  .sub-row-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .sub-title-wrap { display: flex; align-items: center; gap: 7px; min-width: 0; }
+  .sub-full-name { font-size: 12.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sub-score { font-size: 13px; font-weight: 800; flex-shrink: 0; }
+  .sub-score small { font-size: 11px; font-weight: 600; color: var(--text-muted); }
 
   .bar-track {
     position: relative;
@@ -647,37 +534,37 @@
     overflow: hidden;
   }
 
-  .bar-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: var(--primary);
-    transition: width 0.4s ease;
-  }
-
+  .bar-fill { height: 100%; border-radius: 999px; background: var(--primary); transition: width 0.4s ease; }
   .bar-fill.danger { background: var(--danger); }
+  .bar-marker { position: absolute; top: 0; bottom: 0; left: 75%; width: 2px; background: var(--text); opacity: 0.45; }
 
-  .bar-marker {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 75%;
-    width: 2px;
-    background: var(--text);
-    opacity: 0.45;
+  .sub-advice { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+  .subject-card.low .sub-advice { color: var(--danger-text); font-weight: 700; }
+
+  /* 3-Column Subject Syllabus Columns */
+  .three-col-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 
-  .sub-advice {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 600;
+  .col-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 10px 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    cursor: pointer;
   }
 
-  .subject-card.low .sub-advice {
-    color: var(--danger-text);
-    font-weight: 700;
+  .col-card.selected {
+    border-color: var(--primary);
+    background: var(--primary-soft);
   }
 
-  /* Syllabus & Pace Tracker Styles */
   .pace-controls {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -695,33 +582,17 @@
     font-size: 11.5px;
   }
 
-  .topic-label {
-    font-size: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-  }
+  .topic-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+  .topic-text { font-weight: 700; margin-top: 2px; color: var(--text); }
 
-  .topic-text {
-    font-weight: 700;
-    margin-top: 2px;
-    color: var(--text);
-  }
-
-  .topic-status-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 8px;
-  }
+  .topic-status-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 
   .st-chip {
-    padding: 4px 8px;
+    padding: 5px 9px;
     border-radius: 8px;
-    font-size: 10.5px;
+    font-size: 11px;
     font-weight: 700;
-    background: var(--surface-alt);
+    background: var(--surface);
     border: 1px solid var(--border);
     color: var(--text-muted);
   }
@@ -741,14 +612,8 @@
     font-size: 11.5px;
   }
 
-  .syllabus-item.is-today {
-    border-color: var(--primary);
-    background: var(--primary-soft);
-  }
-
-  .syllabus-item.is-actual-today {
-    box-shadow: inset 3px 0 0 var(--info);
-  }
+  .syllabus-item.is-today { border-color: var(--primary); background: var(--primary-soft); }
+  .syllabus-item.is-done { border-left: 3px solid var(--success); }
 
   .rules-card {
     background: var(--info-soft);
@@ -759,13 +624,7 @@
     color: var(--info-text);
   }
 
-  .rules-card ul {
-    margin-left: 16px;
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+  .rules-card ul { margin-left: 16px; margin-top: 5px; display: flex; flex-direction: column; gap: 4px; }
 
   /* Calendar */
   .cal-weekdays {
@@ -779,11 +638,7 @@
     margin-bottom: 6px;
   }
 
-  .cal-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
 
   .cal-cell {
     aspect-ratio: 1 / 1;
@@ -799,37 +654,17 @@
     position: relative;
   }
 
-  .cal-cell.empty {
-    background: transparent;
-    border-color: transparent;
-    pointer-events: none;
-  }
-
-  .cal-cell.today {
-    outline: 2px solid var(--primary);
-    outline-offset: 1px;
-  }
-
+  .cal-cell.empty { background: transparent; border-color: transparent; pointer-events: none; }
+  .cal-cell.today { outline: 2px solid var(--primary); outline-offset: 1px; }
   .cal-cell.st-present { background: var(--success); border-color: var(--success); color: #fff; }
   .cal-cell.st-absent { background: var(--danger); border-color: var(--danger); color: #fff; }
   .cal-cell.st-holiday { background: var(--warning); border-color: var(--warning); color: #0f172a; }
+  .cal-cell.st-medical { background: var(--info); border-color: var(--info); color: #fff; }
   .cal-cell.st-partial { background: var(--primary); border-color: var(--primary); color: #fff; }
   .cal-cell.sunday { color: var(--danger); opacity: 0.75; }
 
-  .cal-mini {
-    font-size: 8.5px;
-    opacity: 0.92;
-    margin-top: 1px;
-  }
-
-  .cal-syl-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: currentColor;
-    opacity: 0.7;
-    margin-top: 1px;
-  }
+  .cal-mini { font-size: 8.5px; opacity: 0.92; margin-top: 1px; }
+  .cal-syl-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: 0.7; margin-top: 1px; }
 
   .legend-row {
     display: flex;
@@ -844,30 +679,12 @@
     font-weight: 600;
   }
 
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-  }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; }
 
   /* Timetable Day Card */
-  .tt-day {
-    padding: 12px;
-    border-radius: 16px;
-    background: var(--surface-alt);
-    border: 1px solid var(--border);
-  }
-
-  .tt-day.today {
-    border-color: var(--primary);
-    background: var(--primary-soft);
-  }
+  .tt-day { padding: 12px; border-radius: 16px; background: var(--surface-alt); border: 1px solid var(--border); }
+  .tt-day.today { border-color: var(--primary); background: var(--primary-soft); }
 
   .tt-slot {
     display: flex;
@@ -903,35 +720,10 @@
     box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
   }
 
-  .widget-mini-subjects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    margin: 12px 0;
-  }
-
-  .widget-sub-box {
-    background: var(--surface-alt);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 6px 4px;
-    text-align: center;
-  }
-
-  .widget-sub-box.low {
-    background: var(--danger-soft);
-    border-color: rgba(244, 63, 94, 0.35);
-    color: var(--danger-text);
-  }
-
-  .widget-pace-strip {
-    background: var(--surface-alt);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 9px 11px;
-    margin-bottom: 12px;
-    font-size: 11px;
-  }
+  .widget-mini-subjects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 12px 0; }
+  .widget-sub-box { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 12px; padding: 6px 4px; text-align: center; }
+  .widget-sub-box.low { background: var(--danger-soft); border-color: rgba(244, 63, 94, 0.35); color: var(--danger-text); }
+  .widget-pace-strip { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 14px; padding: 9px 11px; margin-bottom: 12px; font-size: 11px; }
 
   /* Modal */
   .modal-backdrop {
@@ -945,19 +737,12 @@
     padding: 12px;
   }
 
-  .modal-backdrop.open {
-    display: flex;
-  }
-
-  @media (min-width: 520px) {
-    .modal-backdrop {
-      align-items: center;
-    }
-  }
+  .modal-backdrop.open { display: flex; }
+  @media (min-width: 520px) { .modal-backdrop { align-items: center; } }
 
   .modal-box {
     width: 100%;
-    max-width: 450px;
+    max-width: 460px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 24px;
@@ -966,7 +751,6 @@
     overflow-y: auto;
   }
 
-  /* Toast */
   .toast-wrap {
     position: fixed;
     top: 12px;
@@ -993,25 +777,15 @@
     animation: fadeIn 0.2s ease;
   }
 
-  .toast.danger {
-    background: #be123c;
-    border-color: #fb7185;
-  }
+  .toast.danger { background: #be123c; border-color: #fb7185; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-6px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .hidden {
-    display: none !important;
-  }
-
-  .btn-row-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+  .hidden { display: none !important; }
+  .btn-row-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
 
   .pill-action {
     padding: 7px 11px;
@@ -1022,28 +796,18 @@
     border: 1px solid var(--border);
   }
 
-  .pill-action.primary {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #fff;
-  }
+  .pill-action.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+  .pill-action.success { background: var(--success); border-color: var(--success); color: #fff; }
+  .pill-action.danger { color: var(--danger-text); background: var(--danger-soft); border-color: transparent; }
 
-  .pill-action.success {
-    background: var(--success);
-    border-color: var(--success);
-    color: #fff;
-  }
-
-  .pill-action.danger {
-    color: var(--danger-text);
-    background: var(--danger-soft);
-    border-color: transparent;
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--primary);
   }
 </style>
 </head>
 <body>
 
-  <!-- Toast Container -->
   <div id="toast-wrap" class="toast-wrap"></div>
 
   <!-- ========================================== -->
@@ -1084,13 +848,12 @@
 
       <div id="w-subjects" class="widget-mini-subjects"></div>
 
-      <!-- Teacher Pace Strip inside Compact Widget -->
       <div id="w-pace-strip" class="widget-pace-strip">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-          <strong style="font-size:10px;text-transform:uppercase;letter-spacing:0.04em;color:var(--primary-text);">🧭 Teacher Pace</strong>
-          <button onclick="setWidgetMode(false);switchTab('syllabus');" style="font-size:10.5px;font-weight:800;color:var(--primary-text);">Pace Tracker →</button>
+          <strong style="font-size:10px;text-transform:uppercase;letter-spacing:0.04em;color:var(--primary-text);">🧭 Syllabus & Pace</strong>
+          <button onclick="setWidgetMode(false);switchTab('syllabus');" style="font-size:10.5px;font-weight:800;color:var(--primary-text);">Checklist →</button>
         </div>
-        <div id="w-pace-summary" style="font-weight:700;color:var(--text);">LPM & VAN on schedule</div>
+        <div id="w-pace-summary" style="font-weight:700;color:var(--text);">LPM • VPY • VAN</div>
         <div id="w-pace-topic" style="color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Today's lecture topic</div>
       </div>
 
@@ -1115,13 +878,12 @@
   <!-- FULL APP VIEW                              -->
   <!-- ========================================== -->
   <div id="main-view" class="app-shell">
-    <!-- Top Header -->
     <header class="topbar">
       <div class="brand">
         <div class="brand-logo">75%</div>
         <div>
           <div class="brand-title">Attend75</div>
-          <div class="brand-sub">B.V.Sc & A.H. • Attendance & Syllabus</div>
+          <div class="brand-sub">B.V.Sc & A.H. • KM University</div>
         </div>
       </div>
 
@@ -1135,12 +897,13 @@
       </div>
     </header>
 
-    <!-- Navigation Tabs -->
+    <!-- 5 Navigation Tabs -->
     <nav class="nav-tabs">
-      <button onclick="switchTab('dashboard')" id="tab-dashboard" class="nav-tab active">Dashboard</button>
+      <button onclick="switchTab('dashboard')" id="tab-dashboard" class="nav-tab active">Home</button>
       <button onclick="switchTab('syllabus')" id="tab-syllabus" class="nav-tab">Syllabus</button>
+      <button onclick="switchTab('exams')" id="tab-exams" class="nav-tab">Exams</button>
       <button onclick="switchTab('calendar')" id="tab-calendar" class="nav-tab">Calendar</button>
-      <button onclick="switchTab('timetable')" id="tab-timetable" class="nav-tab">Timetable</button>
+      <button onclick="switchTab('timetable')" id="tab-timetable" class="nav-tab">Routine</button>
     </nav>
 
     <!-- <75% Threshold Alert Banner -->
@@ -1190,14 +953,30 @@
             <span class="stat-k">Absent</span>
             <span id="st-absent" class="stat-v">0</span>
           </div>
+          <div class="stat-box medical">
+            <span class="stat-k">Medical</span>
+            <span id="st-medical" class="stat-v">0</span>
+          </div>
           <div class="stat-box holiday">
-            <span class="stat-k">Holidays</span>
+            <span class="stat-k">Holiday</span>
             <span id="st-holiday" class="stat-v">0</span>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;padding:8px 10px;border-radius:12px;background:var(--surface-alt);border:1px solid var(--border);font-size:11px;">
+          <span style="color:var(--text-muted);font-weight:600;">🏥 Medical Leave rule:</span>
+          <select id="ml-mode-select" onchange="setMedicalLeaveMode(this.value)" style="padding:4px 7px;font-size:11px;">
+            <option value="condone">Excused (Excluded from Held)</option>
+            <option value="credit">Count as Present (Approved ML)</option>
+            <option value="absent">Track Only (Count as Absent)</option>
+          </select>
+        </div>
       </section>
 
-      <!-- Today's Classes Logger + Actual Class Topic -->
+      <!-- Upcoming Exam Banner (if any) -->
+      <div id="dash-exam-strip"></div>
+
+      <!-- Today's Classes Logger -->
       <section class="card">
         <div class="sec-head">
           <div>
@@ -1207,10 +986,15 @@
           <span id="today-badge" class="badge badge-neutral" style="margin:0;">Not Logged</span>
         </div>
 
-        <div class="bulk-row">
+        <div class="bulk-row" style="grid-template-columns:repeat(2,1fr);margin-bottom:8px;">
           <button onclick="logTodayAll('present')" class="bulk-btn bulk-present">✓ Present All</button>
           <button onclick="logTodayAll('absent')" class="bulk-btn bulk-absent">✕ Absent All</button>
+          <button onclick="logTodayAll('medical')" class="bulk-btn bulk-medical">🏥 Medical Leave</button>
           <button onclick="logTodayAll('holiday')" class="bulk-btn bulk-holiday">☀ Holiday</button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <button onclick="openMedicalLeaveModal()" class="pill-action" style="color:var(--info-text);background:var(--info-soft);border-color:rgba(2,132,199,0.28);text-align:center;">🏥 Apply Medical Leave</button>
+          <button onclick="openExtraClassModal()" class="pill-action" style="text-align:center;">➕ Log Extra Class</button>
         </div>
 
         <div id="today-periods" class="period-list"></div>
@@ -1221,82 +1005,142 @@
         <div class="sec-head">
           <div>
             <div class="sec-kicker">Subject-Wise Target (75%)</div>
-            <div class="sec-title">All Subjects</div>
+            <div class="sec-title">Core & Activity Attendance</div>
           </div>
           <button onclick="toggleExtraSubjects()" id="toggle-subs-btn" class="pill-action">Show All (6)</button>
         </div>
 
         <div id="subjects-list" class="period-list"></div>
       </section>
+
+      <!-- What-If Bunk / Recovery Simulator -->
+      <section class="card">
+        <div class="sec-head" style="margin-bottom:8px;">
+          <div>
+            <div class="sec-kicker">Planning Tool</div>
+            <div class="sec-title">What-If Bunk / Recovery Calculator</div>
+          </div>
+          <button onclick="resetSimulator()" class="pill-action">Reset</button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:11.5px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-weight:700;">
+              <span>Attend next <strong id="sim-attend-val">0</strong> classes</span>
+              <span style="color:var(--success-text);">+Present</span>
+            </div>
+            <input type="range" id="sim-attend" min="0" max="25" value="0" oninput="updateSimulator()">
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-weight:700;">
+              <span>Skip next <strong id="sim-skip-val">0</strong> classes</span>
+              <span style="color:var(--danger-text);">+Absent</span>
+            </div>
+            <input type="range" id="sim-skip" min="0" max="25" value="0" oninput="updateSimulator()">
+          </div>
+          <div id="sim-result" class="topic-box" style="margin-top:2px;font-weight:700;">
+            Move sliders to simulate future attendance %.
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ========================================== -->
-    <!-- TAB 2: SYLLABUS PACE & DRIFT TRACKER       -->
+    <!-- TAB 2: SYLLABUS (LPM | VPY | VAN COLUMNS)  -->
     <!-- ========================================== -->
     <div id="panel-syllabus" class="hidden" style="flex-direction:column;gap:14px;">
-      <!-- Pace & Drift Controls per Subject -->
+      <!-- 3 Separate Subject Columns Overview -->
       <section class="card">
         <div class="sec-head">
           <div>
-            <div class="sec-kicker">Teacher Ahead / Behind Sync</div>
-            <div class="sec-title">Syllabus Pace & Drift Tracker</div>
+            <div class="sec-kicker">Completed Topics Counter</div>
+            <div class="sec-title">Subject Syllabus Columns</div>
           </div>
           <span class="badge badge-info" style="margin:0;" id="syl-ref-date">Date</span>
         </div>
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:12px;">
-          Teachers often run ahead or behind the printed schedule. Adjust drift or pick the exact lecture covered today to stay synced.
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:10px;">
+          Tap any subject column below to open its full dated topic checklist and mark completed lectures.
         </p>
-        <div id="pace-cards" class="period-list"></div>
+
+        <div id="subject-columns-grid" class="three-col-grid"></div>
       </section>
 
-      <!-- Catch-Up / Backlog Queue -->
+      <!-- Selected Subject Checklist & Teacher Pace -->
       <section class="card">
         <div class="sec-head">
           <div>
-            <div class="sec-kicker">Recovery & Revision</div>
-            <div class="sec-title">Catch-Up / Backlog Queue (<span id="backlog-count">0</span>)</div>
-          </div>
-          <button onclick="clearCaughtUpTopics()" class="pill-action">Clear Caught Up</button>
-        </div>
-        <div id="backlog-list" class="period-list"></div>
-      </section>
-
-      <!-- Dated Lecture Schedule Browser (LPM & VAN) -->
-      <section class="card">
-        <div class="sec-head">
-          <div>
-            <div class="sec-kicker">Dated Lecture Schedule • 2026–27</div>
-            <div class="sec-title">LPM & VAN Syllabus</div>
+            <div class="sec-kicker">Topic Checklist & Teacher Pace</div>
+            <div id="active-sub-syl-title" class="sec-title">LPM — Livestock Production Mgmt</div>
           </div>
           <div class="batch-switch">
-            <button onclick="setSyllabusFilter('ALL')" id="syl-f-ALL" class="batch-btn active">All</button>
-            <button onclick="setSyllabusFilter('LPM')" id="syl-f-LPM" class="batch-btn">LPM</button>
+            <button onclick="setSyllabusFilter('LPM')" id="syl-f-LPM" class="batch-btn active">LPM</button>
+            <button onclick="setSyllabusFilter('VPY')" id="syl-f-VPY" class="batch-btn">VPY</button>
             <button onclick="setSyllabusFilter('VAN')" id="syl-f-VAN" class="batch-btn">VAN</button>
           </div>
         </div>
 
-        <div style="display:flex;gap:6px;margin-bottom:10px;">
-          <input type="text" id="syl-search" oninput="renderSyllabusBrowser()" placeholder="Search topic or date (e.g. poultry, 14-10-26, brain)..." style="flex:1;">
-          <button onclick="jumpSyllabusToToday()" class="pill-action primary">Near Today</button>
+        <!-- Pace & Drift Controls for the selected subject -->
+        <div id="active-pace-card" style="margin-bottom:12px;"></div>
+
+        <!-- Bulk Completion & Search Bar -->
+        <div style="display:flex;gap:6px;margin-bottom:8px;">
+          <input type="text" id="syl-search" oninput="renderSyllabusBrowser()" placeholder="Search topic, lecture # or date..." style="flex:1;">
+          <button onclick="markUpToTodayDone()" class="pill-action success" title="Mark all lectures up to today's date as Completed">✓ Done ≤ Today</button>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:11px;color:var(--text-muted);">
+          <span id="syl-filter-summary" style="font-weight:700;">Showing all lectures</span>
+          <label style="display:inline-flex;align-items:center;gap:4px;font-weight:700;cursor:pointer;">
+            <input type="checkbox" id="syl-hide-done" onchange="renderSyllabusBrowser()" style="accent-color:var(--primary);"> Hide Completed
+          </label>
         </div>
 
         <div id="syllabus-browser" class="period-list"></div>
 
-        <!-- VAN Practical Rules Box -->
-        <div class="rules-card" style="margin-top:12px;">
+        <!-- VAN Practical Rules Box (shown when VAN is active) -->
+        <div id="van-rules-box" class="rules-card hidden" style="margin-top:12px;">
           <strong>🔬 Dept. of Veterinary Anatomy — Practical Rules</strong>
           <ul>
             <li>Enter the Anatomy department wearing a <strong>neat and clean apron</strong>.</li>
             <li>Reach the practical class <strong>5 minutes prior</strong> to the scheduled practical time.</li>
             <li>Bring your <strong>practical manual</strong>, <strong>myology register/book</strong>, and a <strong>small notebook</strong> for salient features of organs, body parts, and slides.</li>
-            <li>Holidays during the schedule are compensated via extra classes with prior intimation.</li>
           </ul>
         </div>
+      </section>
+
+      <!-- Catch-Up / Missed Queue -->
+      <section class="card">
+        <div class="sec-head">
+          <div>
+            <div class="sec-kicker">Backlog Recovery</div>
+            <div class="sec-title">Missed Topics Queue (<span id="backlog-count">0</span>)</div>
+          </div>
+          <button onclick="clearCaughtUpTopics()" class="pill-action">Clear Completed</button>
+        </div>
+        <div id="backlog-list" class="period-list"></div>
       </section>
     </div>
 
     <!-- ========================================== -->
-    <!-- TAB 3: CALENDAR                            -->
+    <!-- TAB 3: EXAMS, INTERNALS & MARKS            -->
+    <!-- ========================================== -->
+    <div id="panel-exams" class="hidden" style="flex-direction:column;gap:14px;">
+      <section class="card">
+        <div class="sec-head">
+          <div>
+            <div class="sec-kicker">Internals • Annuals • Practicals</div>
+            <div class="sec-title">Exam Schedule & Marks Log</div>
+          </div>
+          <button onclick="openExamModal()" class="pill-action primary">+ Add Exam</button>
+        </div>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:12px;">
+          Record when your Internal Assessments, Practicals, or Board Exams are conducted, note the syllabus covered, and log your scores afterward.
+        </p>
+        <div id="exams-list" class="period-list"></div>
+      </section>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: CALENDAR & MEDICAL LEAVE            -->
     <!-- ========================================== -->
     <div id="panel-calendar" class="hidden" style="flex-direction:column;gap:14px;">
       <section class="card">
@@ -1325,16 +1169,29 @@
         <div id="cal-grid" class="cal-grid"></div>
 
         <div class="legend-row">
-          <div class="legend-item"><span class="dot" style="background:var(--success);"></span>Full Present</div>
+          <div class="legend-item"><span class="dot" style="background:var(--success);"></span>Present</div>
           <div class="legend-item"><span class="dot" style="background:var(--primary);"></span>Partial</div>
           <div class="legend-item"><span class="dot" style="background:var(--danger);"></span>Absent</div>
+          <div class="legend-item"><span class="dot" style="background:var(--info);"></span>Medical Leave</div>
           <div class="legend-item"><span class="dot" style="background:var(--warning);"></span>Holiday</div>
         </div>
+      </section>
+
+      <!-- Medical Leave Applications Card -->
+      <section class="card">
+        <div class="sec-head">
+          <div>
+            <div class="sec-kicker">Sick Leave & Condonation</div>
+            <div class="sec-title">Medical Leave Applications (<span id="ml-count">0</span>)</div>
+          </div>
+          <button onclick="openMedicalLeaveModal()" class="pill-action primary">+ Apply Leave</button>
+        </div>
+        <div id="ml-list" class="period-list"></div>
       </section>
     </div>
 
     <!-- ========================================== -->
-    <!-- TAB 4: TIMETABLE                           -->
+    <!-- TAB 5: TIMETABLE                           -->
     <!-- ========================================== -->
     <div id="panel-timetable" class="hidden" style="flex-direction:column;gap:14px;">
       <section class="card">
@@ -1362,7 +1219,6 @@
       <div class="btn-row-wrap">
         <button onclick="installApp()" id="install-btn" class="pill-action success">📲 Install App</button>
         <button onclick="openModal('install-modal')" class="pill-action">📱 Help</button>
-        <button onclick="loadDemoData()" class="pill-action">✨ Load Demo Data</button>
         <button onclick="exportBackup()" class="pill-action">⬇ Export Backup</button>
         <button onclick="document.getElementById('import-file').click()" class="pill-action">⬆ Import Backup</button>
         <input type="file" id="import-file" accept=".json,application/json" class="hidden" onchange="importBackup(this)">
@@ -1386,9 +1242,10 @@
 
       <div id="m-syllabus-info" style="margin-bottom:10px;"></div>
 
-      <div class="bulk-row">
+      <div class="bulk-row" style="grid-template-columns:repeat(2,1fr);">
         <button onclick="setModalDateAll('present')" class="bulk-btn bulk-present">✓ Present All</button>
         <button onclick="setModalDateAll('absent')" class="bulk-btn bulk-absent">✕ Absent All</button>
+        <button onclick="setModalDateAll('medical')" class="bulk-btn bulk-medical">🏥 Medical Leave</button>
         <button onclick="setModalDateAll('holiday')" class="bulk-btn bulk-holiday">☀ Holiday</button>
       </div>
 
@@ -1397,6 +1254,179 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <button onclick="setModalDateAll(null)" class="pill-action" style="text-align:center;padding:10px;">Clear Day</button>
         <button onclick="closeModal('date-modal')" class="pill-action primary" style="text-align:center;padding:10px;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- EXAM ADD / EDIT MODAL                      -->
+  <!-- ========================================== -->
+  <div id="exam-modal" class="modal-backdrop" onclick="if(event.target===this) closeModal('exam-modal')">
+    <div class="modal-box">
+      <div class="sec-head">
+        <div>
+          <div class="sec-kicker">Exam & Assessment Log</div>
+          <div id="exam-modal-title" class="sec-title">Add Exam / Internal</div>
+        </div>
+        <button onclick="closeModal('exam-modal')" class="icon-pill">✕</button>
+      </div>
+
+      <input type="hidden" id="ex-id" value="">
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">SUBJECT</label>
+            <select id="ex-sub" style="width:100%;">
+              <option value="VPY">VPY — Physiology</option>
+              <option value="VAN">VAN — Anatomy</option>
+              <option value="LPM">LPM — Livestock Mgmt</option>
+              <option value="ALL">All Core Subjects</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">EXAM TYPE</label>
+            <select id="ex-type" style="width:100%;">
+              <option value="Internal 1">Internal Assessment 1</option>
+              <option value="Internal 2">Internal Assessment 2</option>
+              <option value="Internal 3">Internal Assessment 3</option>
+              <option value="Practical / Viva">Practical / Spotters / Viva</option>
+              <option value="Annual Board">Annual / University Exam</option>
+              <option value="Class Test">Class Test / Quiz</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">DATE CONDUCTED / SCHEDULED</label>
+            <input type="date" id="ex-date" style="width:100%;">
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">STATUS</label>
+            <select id="ex-status" style="width:100%;">
+              <option value="upcoming">Upcoming</option>
+              <option value="completed">Conducted / Done</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">SYLLABUS / TOPICS COVERED</label>
+          <input type="text" id="ex-syllabus" placeholder="e.g. Blood, Heart, Muscle & Nervous System (Lec 1–25)" style="width:100%;">
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">MARKS OBTAINED (OPTIONAL)</label>
+            <input type="number" step="0.5" id="ex-scored" placeholder="e.g. 34" style="width:100%;">
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">MAX MARKS (OPTIONAL)</label>
+            <input type="number" step="0.5" id="ex-max" placeholder="e.g. 40" style="width:100%;">
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">NOTES (ROOM, ROLL NO, REMARKS)</label>
+          <input type="text" id="ex-notes" placeholder="e.g. Lecture Hall 2, bring apron & manual" style="width:100%;">
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
+          <button onclick="closeModal('exam-modal')" class="pill-action" style="padding:10px;">Cancel</button>
+          <button onclick="saveExam()" class="pill-action primary" style="padding:10px;">Save Exam</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- EXTRA / COMPENSATION CLASS MODAL           -->
+  <!-- ========================================== -->
+  <div id="extra-class-modal" class="modal-backdrop" onclick="if(event.target===this) closeModal('extra-class-modal')">
+    <div class="modal-box">
+      <div class="sec-head">
+        <div>
+          <div class="sec-kicker">Holiday Compensation</div>
+          <div class="sec-title">Log Extra Class</div>
+        </div>
+        <button onclick="closeModal('extra-class-modal')" class="icon-pill">✕</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">SUBJECT</label>
+            <select id="ec-sub" style="width:100%;">
+              <option value="VPY">VPY — Physiology</option>
+              <option value="VAN">VAN — Anatomy</option>
+              <option value="LPM">LPM — Livestock Mgmt</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">DATE</label>
+            <input type="date" id="ec-date" style="width:100%;">
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">ATTENDANCE</label>
+          <select id="ec-status" style="width:100%;">
+            <option value="present">Present ✓</option>
+            <option value="absent">Absent ✕</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">TOPIC COVERED (OPTIONAL)</label>
+          <input type="text" id="ec-topic" placeholder="e.g. Extra osteology practical" style="width:100%;">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
+          <button onclick="closeModal('extra-class-modal')" class="pill-action" style="padding:10px;">Cancel</button>
+          <button onclick="saveExtraClass()" class="pill-action primary" style="padding:10px;">Add Extra Class</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MEDICAL LEAVE APPLICATION MODAL            -->
+  <!-- ========================================== -->
+  <div id="medical-modal" class="modal-backdrop" onclick="if(event.target===this) closeModal('medical-modal')">
+    <div class="modal-box">
+      <div class="sec-head">
+        <div>
+          <div class="sec-kicker">Condonation & Sick Leave</div>
+          <div class="sec-title">Apply Medical Leave</div>
+        </div>
+        <button onclick="closeModal('medical-modal')" class="icon-pill">✕</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">FROM DATE</label>
+            <input type="date" id="ml-from" style="width:100%;">
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">TO DATE</label>
+            <input type="date" id="ml-to" style="width:100%;">
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:10.5px;font-weight:800;color:var(--text-muted);margin-bottom:4px;">REASON / DIAGNOSIS</label>
+          <input type="text" id="ml-reason" placeholder="e.g. Viral fever, Doctor rest advised..." style="width:100%;">
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 11px;border-radius:12px;background:var(--surface-alt);border:1px solid var(--border);">
+          <div>
+            <strong style="display:block;font-size:12px;">Medical Certificate Ready</strong>
+            <span style="font-size:10.5px;color:var(--text-muted);">Track whether you have the doctor's slip</span>
+          </div>
+          <input type="checkbox" id="ml-cert" style="width:18px;height:18px;accent-color:var(--primary);">
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
+          <button onclick="closeModal('medical-modal')" class="pill-action" style="padding:10px;">Cancel</button>
+          <button onclick="submitMedicalLeave()" class="pill-action primary" style="padding:10px;">Apply Medical Leave</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1416,15 +1446,11 @@
       <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;color:var(--text-muted);">
         <div class="subject-card">
           <strong style="color:var(--text);display:block;margin-bottom:4px;">1. Android (Google Chrome)</strong>
-          Open the app link in <strong>Chrome</strong>, then tap <strong>Install App</strong> below (or <strong>⋮ Menu → Install app</strong>). Long-press the home-screen icon for quick <em>Present / Absent</em> shortcuts.
+          Open your GitHub Pages link in <strong>Chrome</strong>, then tap <strong>Install App</strong> (or <strong>⋮ Menu → Install app</strong>). Long-press the home-screen icon for quick <em>Present / Absent / Holiday</em> shortcuts.
         </div>
         <div class="subject-card">
-          <strong style="color:var(--text);display:block;margin-bottom:4px;">2. iPhone / iPad (Safari)</strong>
-          Open the web link in <strong>Safari</strong>, tap the <strong>Share (↑)</strong> button, and select <strong>Add to Home Screen</strong>.
-        </div>
-        <div class="subject-card">
-          <strong style="color:var(--text);display:block;margin-bottom:4px;">3. Compact Widget + Teacher Pace</strong>
-          Tap <strong>⊞ Widget</strong> in the top bar for a compact card with quick logging and live Teacher Pace status. Your data lives only on this device — use <strong>Export Backup</strong> now and then.
+          <strong style="color:var(--text);display:block;margin-bottom:4px;">2. Subject Columns & Exams</strong>
+          Use the <strong>Syllabus</strong> tab to track completed topics separately across <strong>LPM</strong>, <strong>VPY</strong>, and <strong>VAN</strong>, and the <strong>Exams</strong> tab to log Internals, Practicals, and Marks.
         </div>
       </div>
       <button onclick="closeModal('install-modal')" class="pill-action primary" style="width:100%;margin-top:14px;padding:11px;">Got It</button>
@@ -1437,9 +1463,9 @@
   <div id="reset-modal" class="modal-backdrop" onclick="if(event.target===this) closeModal('reset-modal')">
     <div class="modal-box" style="text-align:center;">
       <div style="font-size:28px;margin-bottom:6px;">🗑️</div>
-      <div class="sec-title">Reset All Logs & Pace Data?</div>
+      <div class="sec-title">Reset All Logs, Exams & Syllabus Data?</div>
       <p style="font-size:12px;color:var(--text-muted);margin:8px 0 16px;">
-        This will clear saved attendance logs, teacher drift offsets, and topic statuses on this device.
+        Export a backup first if you want to keep your attendance, completed topics, and exam records.
       </p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <button onclick="closeModal('reset-modal')" class="pill-action" style="padding:10px;">Cancel</button>
@@ -1452,68 +1478,60 @@
 (function() {
   "use strict";
 
-  // Safe Storage Wrapper (Prevents SecurityError in sandboxed or file:// contexts)
   const memoryStore = {};
   const SafeStorage = {
     get: function(key) {
-      try {
-        return window.localStorage.getItem(key);
-      } catch (e) {
-        return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null;
-      }
+      try { return window.localStorage.getItem(key); }
+      catch (e) { return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null; }
     },
     set: function(key, val) {
       memoryStore[key] = val;
-      try {
-        window.localStorage.setItem(key, val);
-      } catch (e) {}
+      try { window.localStorage.setItem(key, val); } catch (e) {}
     }
   };
 
-  // Subject Metadata
   const SUBJECTS = {
-    VPY: { code: "VPY", name: "Veterinary Physiology", core: true, hasSchedule: false },
-    VAN: { code: "VAN", name: "Veterinary Anatomy", core: true, hasSchedule: true },
-    LPM: { code: "LPM", name: "Livestock Production Mgmt", core: true, hasSchedule: true },
-    NCC: { code: "NCC", name: "NCC / NSS", core: false, hasSchedule: false },
-    WORK: { code: "WORK", name: "Work Programme", core: false, hasSchedule: false },
-    ADVISOR: { code: "ADVISOR", name: "Advisor Interaction / Work Prog.", core: false, hasSchedule: false }
+    VPY: { code: "VPY", short: "Physiology", name: "Veterinary Physiology & Biochem", core: true, hasSchedule: true },
+    VAN: { code: "VAN", short: "Anatomy", name: "Veterinary Anatomy", core: true, hasSchedule: true },
+    LPM: { code: "LPM", short: "LPM", name: "Livestock Production Mgmt", core: true, hasSchedule: true },
+    NCC: { code: "NCC", short: "NCC/NSS", name: "NCC / NSS", core: false, hasSchedule: false },
+    WORK: { code: "WORK", short: "Work Prog", name: "Work Programme", core: false, hasSchedule: false },
+    ADVISOR: { code: "ADVISOR", short: "Advisor", name: "Advisor Interaction / Work Prog.", core: false, hasSchedule: false }
   };
 
-  // Weekly Timetable (0=Sun ... 6=Sat) — Default Batch B
   const TIMETABLE = {
     0: [],
-    1: [ // Monday
+    1: [
       { id: "p1", time: "9:30 – 10:30", A: "VPY", B: "VPY" },
       { id: "p2", time: "10:30 – 11:30", A: "VAN", B: "VAN" },
       { id: "p3", time: "11:30 – 1:30", A: "LPM", B: "VPY" },
       { id: "p4", time: "2:15 – 4:15", A: "VAN", B: null }
     ],
-    2: [ // Tuesday
+    2: [
       { id: "p1", time: "9:30 – 10:30", A: "VPY", B: "VPY" },
       { id: "p2", time: "10:30 – 11:30", A: "VAN", B: "VAN" },
       { id: "p3", time: "11:30 – 1:30", A: "VPY", B: "LPM" },
       { id: "p4", time: "2:15 – 4:15", A: null, B: "VAN" }
     ],
-    3: [ // Wednesday
+    3: [
       { id: "p1", time: "9:30 – 10:30", A: "VAN", B: "VAN" },
       { id: "p2", time: "10:30 – 11:30", A: "LPM", B: "LPM" },
       { id: "p3", time: "11:30 – 1:30", A: "NCC", B: "NCC" },
       { id: "p4", time: "2:15 – 4:15", A: "VAN", B: "LPM" }
     ],
-    4: [ // Thursday
+    4: [
       { id: "p1", time: "9:30 – 10:30", A: "VPY", B: "VPY" },
       { id: "p2", time: "10:30 – 11:30", A: "LPM", B: "LPM" },
       { id: "p3", time: "11:30 – 1:30", A: "VAN", B: null },
       { id: "p4", time: "2:15 – 4:15", A: "WORK", B: "WORK" }
     ],
-    5: [ // Friday
+    5: [
       { id: "p1", time: "9:30 – 10:30", A: "LPM", B: "LPM" },
       { id: "p2", time: "10:30 – 11:30", A: "VAN", B: "VAN" },
       { id: "p3", time: "11:30 – 1:30", A: "LPM", B: null },
       { id: "p4", time: "2:15 – 4:15", A: null, B: "VAN" }
     ],
-    6: [ // Saturday
+    6: [
       { id: "p1", time: "9:30 – 10:30", A: "LPM", B: "LPM" },
       { id: "p2", time: "10:30 – 11:30", A: "VPY", B: "VPY" },
       { id: "p3", time: "11:30 – 1:30", A: null, B: "VAN" },
@@ -1521,7 +1539,7 @@
     ]
   };
 
-  // Dated Lecture Schedule — Livestock Production Management (Oct 14, 2026 – Feb 12, 2027)
+  // Dated Lecture Schedule — Livestock Production Management (68 Lectures)
   const LPM_SCHEDULE = [
     { no: 1, date: "2026-10-14", day: "Wednesday", topic: "Demographic distribution of livestock and role in Indian economy. Problems and prospects of livestock industry in India." },
     { no: 2, date: "2026-10-15", day: "Thursday", topic: "Common animal husbandry terms (glossary). Body conformation and identification." },
@@ -1593,7 +1611,81 @@
     { no: 68, date: "2027-02-12", day: "Friday", topic: "Limitation of rabbit animal production, Selection, care and management of breeding stock for commercial purpose." }
   ];
 
-  // Dated Lecture Schedule — Veterinary Anatomy (Oct 12, 2026 – Aug 3, 2027)
+  // Dated Lecture Schedule — Veterinary Physiology and Biochemistry (70 Lectures from Photo)
+  const VPY_SCHEDULE = [
+    { no: 1, date: "2026-10-13", day: "Tuesday", topic: "Introduction to Blood; Properties of blood as a body fluid, metabolism and fate of R.B.C." },
+    { no: 2, date: "2026-10-15", day: "Thursday", topic: "Hemoglobin-chemical structure, synthesis, physiological functions, derivatives of hemoglobin." },
+    { no: 3, date: "2026-10-17", day: "Saturday", topic: "Heart- morphological characteristic, systemic excitability conduction and transmission processes." },
+    { no: 4, date: "2026-10-19", day: "Monday", topic: "Cardiac Cycle: Regulation of cardiac output; coronary circulation; properties of pulse." },
+    { no: 5, date: "2026-10-22", day: "Thursday", topic: "Metabolism and energetic of working myocardial cell, extrinsic and intrinsic regulation." },
+    { no: 6, date: "2026-10-24", day: "Saturday", topic: "Electro Cardio Graph and its significance in Veterinary Sciences - Echocardiography." },
+    { no: 7, date: "2026-10-26", day: "Monday", topic: "Haemorrhage haemostasis. Haemodynamics of circulation, circulatory mechanics, resistance to flow." },
+    { no: 8, date: "2026-10-27", day: "Tuesday", topic: "Vasoconstriction, nervous and circulating fluid volume controls of blood pressure, neurohormonal control of vascular smooth muscle." },
+    { no: 9, date: "2026-10-29", day: "Thursday", topic: "Circulatory controls- shock stresses, regional and fetal circulation. Capillary exchange, control of blood pressure." },
+    { no: 10, date: "2026-10-31", day: "Saturday", topic: "Adjustment of circulation during exercise. Muscle Physiology-basic muscle unit characteristic-electrical phenomenon in muscle cell." },
+    { no: 11, date: "2026-11-02", day: "Monday", topic: "Muscle action potential, excitation and propagation of impulse characteristics- latent period refractive ness threshold level-all and none characteristics - contractile mechanism - excitation - contraction." },
+    { no: 12, date: "2026-11-03", day: "Tuesday", topic: "Coupling-neuro-muscular transmission." },
+    { no: 13, date: "2026-11-05", day: "Thursday", topic: "Types of muscle contraction, phenomenon of fatigue, rigor mortis. Organization of nervous system." },
+    { no: 14, date: "2026-11-07", day: "Saturday", topic: "Mechanism of information processing, hierarchical control." },
+    { no: 15, date: "2026-11-14", day: "Saturday", topic: "Major function system- sensory, consciousness, emotion, motor and visceral control and basic functional unit." },
+    { no: 16, date: "2026-11-16", day: "Monday", topic: "Neuron structure, type- functional characteristics of sub-units of neuron." },
+    { no: 17, date: "2026-11-17", day: "Tuesday", topic: "Membrane potential - ionic basis of resting membrane potential (RMP) nerve action potential, excitation and propagation of impulse characteristics." },
+    { no: 18, date: "2026-11-19", day: "Thursday", topic: "Latent period- refractive-ness threshold level-all and none characteristics." },
+    { no: 19, date: "2026-11-21", day: "Saturday", topic: "Degeneration and regeneration of nerve fibre. Synaptic and junctional transmission." },
+    { no: 20, date: "2026-11-23", day: "Monday", topic: "Functions of nervous system-reflexes-control of posture and movements, autonomic nervous system and visceral control." },
+    { no: 21, date: "2026-11-26", day: "Thursday", topic: "Neurotransmitter wakefulness, sleep cycle. Higher function of neurons system learning, memory, electroencephalography." },
+    { no: 22, date: "2026-11-28", day: "Saturday", topic: "Sense organs and receptors physiology of special senses." },
+    { no: 23, date: "2026-11-30", day: "Monday", topic: "Eye: functional morphology, nourishment and protection neural pathway, receptors optics, ocular muscles and movements, photochemistry, Vision defects." },
+    { no: 24, date: "2026-12-01", day: "Tuesday", topic: "Ear: Physiology of hearing and common hearing impairment." },
+    { no: 25, date: "2026-12-03", day: "Thursday", topic: "Vestibule apparatus. Physiology of olfaction and taste." },
+    { no: 26, date: "2026-12-05", day: "Saturday", topic: "Morphological characteristic of mono gastric and poly gastric digestive system." },
+    { no: 27, date: "2026-12-07", day: "Monday", topic: "Prehension, rumination; defecation; vomition; regulation of secretory function of saliva, stomach, intestine, pancreas." },
+    { no: 28, date: "2026-12-08", day: "Tuesday", topic: "Bile secretion; hunger, appetite control, developmental aspects of digestion." },
+    { no: 29, date: "2026-12-10", day: "Thursday", topic: "Luminal, membranous and microbial digestion in rumen and intestine." },
+    { no: 30, date: "2026-12-12", day: "Saturday", topic: "Permeability characteristics of intestine, forces governing absorption, control intestinal transport of electrolyte and water." },
+    { no: 31, date: "2026-12-14", day: "Monday", topic: "Enzymatic digestion in monogastric and fermentative digestion in rumen, modification of toxic substances in rumen. Digestion in birds." },
+    { no: 32, date: "2026-12-15", day: "Tuesday", topic: "Functional morphology of respiratory apparatus. Mechanics of breathing." },
+    { no: 33, date: "2026-12-17", day: "Thursday", topic: "Transport of blood gases, foetal and neonatal oxygen transport, dissociation curves, pressures, recoil tendency." },
+    { no: 34, date: "2026-12-19", day: "Saturday", topic: "Elasticity, surfactants, pleural liquid, compliance, exchanges of gases in lungs and tissues." },
+    { no: 35, date: "2026-12-21", day: "Monday", topic: "Neural and chemical regulation of breathing, diffusion, perfusion, hypoxia." },
+    { no: 36, date: "2026-12-22", day: "Tuesday", topic: "Frictional resistance to air flow, airways smooth muscle contraction." },
+    { no: 37, date: "2026-12-24", day: "Thursday", topic: "Respiratory muscle work, panting, adaptation of respiration during muscle exercise." },
+    { no: 38, date: "2026-12-26", day: "Saturday", topic: "High altitude hypoxia, Non-respiratory lung functions. Respiration in birds." },
+    { no: 39, date: "2026-12-28", day: "Monday", topic: "Kidney- Functional morphology of nephrons, factors determining filtration pressure." },
+    { no: 40, date: "2026-12-29", day: "Tuesday", topic: "Determination of glomerular filtration rate (GFR) and renal plasma flow." },
+    { no: 41, date: "2026-12-31", day: "Thursday", topic: "Re-absorption mechanisms for glucose, protein, amino acids, electrolytes; ammonium mechanism, glomerulo." },
+    { no: 42, date: "2027-01-02", day: "Saturday", topic: "Tubular balance, methods of studying renal functions; urine concentration; micturition, uremia." },
+    { no: 43, date: "2027-01-04", day: "Monday", topic: "Fluid, water balance, fluid therapy, dehydration, water concentration mechanisms." },
+    { no: 44, date: "2027-01-05", day: "Tuesday", topic: "Acid base balance and H+ regulation, correction and evolution of imbalances, total osmotic pressure." },
+    { no: 45, date: "2027-01-07", day: "Thursday", topic: "Formation and excretion of urine of Birds." },
+    { no: 46, date: "2027-01-09", day: "Saturday", topic: "Cerebrospinal fluid, synovial fluids - composition, formation and flow; Joints. Regulation of bone metabolism and homeostasis." },
+    { no: 47, date: "2027-01-11", day: "Monday", topic: "Hormone cell interaction, sub-cellular mechanisms-metabolism of hormones." },
+    { no: 48, date: "2027-01-12", day: "Tuesday", topic: "Methods of study of endocrine system; Receptors- mechanism of regulation." },
+    { no: 49, date: "2027-01-16", day: "Saturday", topic: "Chemistry of hypothalamo- hypophyseal hormones, target organ, pineal, thyroid, thymus." },
+    { no: 50, date: "2027-01-19", day: "Tuesday", topic: "Pancreas, adrenal, prostaglandins, hormones of calcium metabolism, disorders, rennin." },
+    { no: 51, date: "2027-01-21", day: "Thursday", topic: "Angiotensin system, atrial natriuretic factors, erythropoietin, GI hormones, pheromones." },
+    { no: 52, date: "2027-01-23", day: "Saturday", topic: "Genetic and endocrine control of gonadal development, modification of gonadotrophin release." },
+    { no: 53, date: "2027-01-25", day: "Monday", topic: "Ovarian functions, follicular development, dynamics, endocrine and receptor profiles, sexual receptivity." },
+    { no: 54, date: "2027-01-28", day: "Thursday", topic: "Ovarian cycle, post-partum ovarian activity, ovum transport, capacitation, fertilization, reproductive cycles in farm animals." },
+    { no: 55, date: "2027-01-30", day: "Saturday", topic: "Hormones present in the biological fluids during pregnancy and their uses for the diagnosis of pregnancy." },
+    { no: 56, date: "2027-02-01", day: "Monday", topic: "Maternal foetal placental participation in pregnancy and parturition, immunology of gestation, preparturient endocrine status." },
+    { no: 57, date: "2027-02-02", day: "Tuesday", topic: "Spermatogenic cycle and wave- function of sertoli cell-leydig cell-semen - composition- evaluation." },
+    { no: 58, date: "2027-02-04", day: "Thursday", topic: "Testosterone - function and regulation - cryptorchidism." },
+    { no: 59, date: "2027-02-06", day: "Saturday", topic: "Puberty - photoperiod - uses of androgens, progestogens, estrogens." },
+    { no: 60, date: "2027-02-08", day: "Monday", topic: "Functional and metabolic organization of mammary glands - structure and development." },
+    { no: 61, date: "2027-02-09", day: "Tuesday", topic: "Effect of estrogens and progesterone; hormonal control of mammary growth." },
+    { no: 62, date: "2027-02-11", day: "Thursday", topic: "Lactogenesis and galactogenesis; biosynthesis of milk constituents, secretion of milk, and metabolism, prolactin and lactation cycle." },
+    { no: 63, date: "2027-02-13", day: "Saturday", topic: "Biochemical and genetic determinants of growth, regulation of growth, metabolic and hormone interactions." },
+    { no: 64, date: "2027-02-15", day: "Monday", topic: "Factors affecting efficiency of growth and production in ruminants and single stomach animals." },
+    { no: 65, date: "2027-02-16", day: "Tuesday", topic: "Growth in meat producing animals and birds, growth curves." },
+    { no: 66, date: "2027-02-18", day: "Thursday", topic: "Recombinant gene transfer technologies for growth manipulation- advantages and limitations." },
+    { no: 67, date: "2027-02-20", day: "Saturday", topic: "Protein deposition in animals and poultry." },
+    { no: 68, date: "2027-02-22", day: "Monday", topic: "Heat balance, heat tolerance, hypothermia, hyperthermia, thermo-regulation in farm animals." },
+    { no: 69, date: "2027-02-23", day: "Tuesday", topic: "Role of skin, responses of animals to heat and cold, fever, body temperature and hibernation." },
+    { no: 70, date: "2027-02-25", day: "Thursday", topic: "Temperature regulation in birds. Climatology- various parameters and their importance. Effect of environmental variables, Acclimation, Circadian rhythm & Neurophysiology of behaviour." }
+  ];
+
+  // Dated Lecture Schedule — Veterinary Anatomy (149 Lectures)
   const VAN_SCHEDULE = [
     { no: 1, date: "2026-10-12", topic: "Introduction, branches of anatomy and various terms used in anatomy." },
     { no: 2, date: "2026-10-13", topic: "Skeleton, Classification, structure, bone marrow and composition of bones." },
@@ -1748,33 +1840,37 @@
 
   const SCHEDULES_BY_SUB = {
     LPM: LPM_SCHEDULE,
+    VPY: VPY_SCHEDULE,
     VAN: VAN_SCHEDULE
   };
 
   const RECORDS_KEY = "attend75_records_v4";
   const SETTINGS_KEY = "attend75_settings_v4";
   const SYLLABUS_KEY = "attend75_syllabus_v4";
+  const MEDICAL_KEY = "attend75_medical_v4";
+  const EXAMS_KEY = "attend75_exams_v4";
+  const EXTRA_KEY = "attend75_extra_v4";
 
   let state = {
     records: {},
+    medicalLeaves: [],
+    exams: [],
+    extraClasses: [],
     syllabus: {
-      // Teacher pace drift per subject (-6 to +6 lectures)
-      drift: { LPM: 0, VAN: 0 },
-      // Manual overrides for exact lecture index covered today per subject
-      manualLectureIdx: { LPM: null, VAN: null },
-      // Topic status map: "LPM-24" -> "covered" | "missed" | "revised"
+      drift: { LPM: 0, VPY: 0, VAN: 0 },
+      manualLectureIdx: { LPM: null, VPY: null, VAN: null },
       topicStatus: {}
     },
     settings: {
       theme: "light",
-      batch: "B", // Default Batch B
+      batch: "B",
       widgetMode: false,
       notifications: false,
-      showAllSubjects: false
+      showAllSubjects: false,
+      medicalLeaveMode: "condone"
     },
     tab: "dashboard",
-    syllabusFilter: "ALL",
-    syllabusAnchorIdx: null,
+    syllabusFilter: "LPM",
     viewDate: new Date(),
     modalDateKey: null
   };
@@ -1792,12 +1888,7 @@
   }
 
   function formatHumanDate(d) {
-    return d.toLocaleDateString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-      year: "numeric"
-    });
+    return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" });
   }
 
   function formatShortDate(isoKey) {
@@ -1808,7 +1899,6 @@
     return dd + "-" + mm + "-" + yy;
   }
 
-  // A logged day keeps the batch it was logged under, so switching batch never rewrites history.
   function recBatch(dateKey) {
     const r = state.records[dateKey];
     return (r && r.batch) || state.settings.batch;
@@ -1821,64 +1911,45 @@
     for (let i = 0; i < slots.length; i++) {
       const s = slots[i];
       if (s[b]) {
-        list.push({
-          slotId: s.id,
-          time: s.time,
-          code: s[b],
-          subject: SUBJECTS[s[b]]
-        });
+        list.push({ slotId: s.id, time: s.time, code: s[b], subject: SUBJECTS[s[b]] });
       }
     }
     return list;
   }
 
-  // Find index in LPM_SCHEDULE or VAN_SCHEDULE matching or closest to dateKey
   function findScheduleIndexForDate(code, dateKey) {
     const list = SCHEDULES_BY_SUB[code];
     if (!list || list.length === 0) return -1;
     const exactIdx = list.findIndex(function(item) { return item.date === dateKey; });
     if (exactIdx !== -1) return exactIdx;
-
-    // Find latest lecture on or before dateKey
     let bestIdx = -1;
     for (let i = 0; i < list.length; i++) {
-      if (list[i].date <= dateKey) {
-        bestIdx = i;
-      } else {
-        break;
-      }
+      if (list[i].date <= dateKey) bestIdx = i;
+      else break;
     }
-    if (bestIdx !== -1) return bestIdx;
-    return 0;
+    return bestIdx !== -1 ? bestIdx : 0;
   }
 
-  // Compute Scheduled Topic and Actual Class Topic with Teacher Pace Drift
   function getPaceInfoForSubject(code, dateKey) {
     const list = SCHEDULES_BY_SUB[code];
     if (!list) return null;
-
     const targetKey = dateKey || toDateKey(new Date());
     const baseIdx = findScheduleIndexForDate(code, targetKey);
     const scheduledItem = list[baseIdx] || list[0];
-
     const drift = Number(state.syllabus.drift[code] || 0);
     let actualIdx = baseIdx + drift;
-
     if (!dateKey && state.syllabus.manualLectureIdx[code] !== null && state.syllabus.manualLectureIdx[code] !== undefined) {
       actualIdx = Number(state.syllabus.manualLectureIdx[code]);
     }
-
     actualIdx = Math.max(0, Math.min(list.length - 1, actualIdx));
     const actualItem = list[actualIdx] || scheduledItem;
-    const effectiveDrift = actualIdx - baseIdx;
-
     return {
       code: code,
       list: list,
       baseIdx: baseIdx,
       actualIdx: actualIdx,
       drift: drift,
-      effectiveDrift: effectiveDrift,
+      effectiveDrift: actualIdx - baseIdx,
       scheduledItem: scheduledItem,
       actualItem: actualItem
     };
@@ -1889,18 +1960,23 @@
       const r = SafeStorage.get(RECORDS_KEY);
       const s = SafeStorage.get(SETTINGS_KEY);
       const syl = SafeStorage.get(SYLLABUS_KEY);
+      const ml = SafeStorage.get(MEDICAL_KEY);
+      const ex = SafeStorage.get(EXAMS_KEY);
+      const ec = SafeStorage.get(EXTRA_KEY);
       if (r) state.records = JSON.parse(r) || {};
       if (s) state.settings = Object.assign({}, state.settings, JSON.parse(s));
+      if (ml) state.medicalLeaves = JSON.parse(ml) || [];
+      if (ex) state.exams = JSON.parse(ex) || [];
+      if (ec) state.extraClasses = JSON.parse(ec) || [];
       if (syl) {
         const parsedSyl = JSON.parse(syl) || {};
-        state.syllabus.drift = Object.assign({ LPM: 0, VAN: 0 }, parsedSyl.drift || {});
-        state.syllabus.manualLectureIdx = Object.assign({ LPM: null, VAN: null }, parsedSyl.manualLectureIdx || {});
+        state.syllabus.drift = Object.assign({ LPM: 0, VPY: 0, VAN: 0 }, parsedSyl.drift || {});
+        state.syllabus.manualLectureIdx = Object.assign({ LPM: null, VPY: null, VAN: null }, parsedSyl.manualLectureIdx || {});
         state.syllabus.topicStatus = parsedSyl.topicStatus || {};
       }
     } catch (e) {
       state.records = {};
     }
-    // Older saves have no batch on each day: stamp them with the batch they were used under.
     let migrated = false;
     Object.keys(state.records).forEach(function(k) {
       if (state.records[k] && !state.records[k].batch) {
@@ -1918,6 +1994,9 @@
       SafeStorage.set(RECORDS_KEY, JSON.stringify(state.records));
       SafeStorage.set(SETTINGS_KEY, JSON.stringify(state.settings));
       SafeStorage.set(SYLLABUS_KEY, JSON.stringify(state.syllabus));
+      SafeStorage.set(MEDICAL_KEY, JSON.stringify(state.medicalLeaves));
+      SafeStorage.set(EXAMS_KEY, JSON.stringify(state.exams));
+      SafeStorage.set(EXTRA_KEY, JSON.stringify(state.extraClasses));
     } catch (e) {}
   }
 
@@ -1926,9 +2005,7 @@
     state.settings.theme = valid;
     document.documentElement.setAttribute("data-theme", valid);
     const meta = document.getElementById("meta-theme-color");
-    if (meta) {
-      meta.setAttribute("content", valid === "oled" ? "#000000" : valid === "dark" ? "#020617" : "#4f46e5");
-    }
+    if (meta) meta.setAttribute("content", valid === "oled" ? "#000000" : valid === "dark" ? "#020617" : "#4f46e5");
     const icons = { light: "☀️ Light", dark: "🌙 Dark", oled: "🖤 OLED" };
     const shortIcons = { light: "☀️", dark: "🌙", oled: "🖤" };
     const tBtn = document.getElementById("theme-btn");
@@ -1939,8 +2016,7 @@
 
   window.cycleTheme = function() {
     const order = ["light", "dark", "oled"];
-    const next = order[(order.indexOf(state.settings.theme) + 1) % order.length];
-    applyTheme(next);
+    applyTheme(order[(order.indexOf(state.settings.theme) + 1) % order.length]);
     saveState();
   };
 
@@ -1977,9 +2053,10 @@
 
   window.switchTab = function(tabName) {
     state.tab = tabName;
-    ["dashboard", "syllabus", "calendar", "timetable"].forEach(function(t) {
+    ["dashboard", "syllabus", "exams", "calendar", "timetable"].forEach(function(t) {
       const panel = document.getElementById("panel-" + t);
       const tabBtn = document.getElementById("tab-" + t);
+      if (!panel || !tabBtn) return;
       if (t === tabName) {
         panel.classList.remove("hidden");
         panel.style.display = "flex";
@@ -1992,35 +2069,19 @@
     });
   };
 
-  // Adjust Teacher Drift (+N ahead, -N behind, 0 on schedule)
   window.adjustDrift = function(code, delta) {
     const list = SCHEDULES_BY_SUB[code];
     if (!list) return;
     const current = Number(state.syllabus.drift[code] || 0);
-    const next = Math.max(-8, Math.min(8, current + delta));
+    const next = Math.max(-10, Math.min(10, current + delta));
     state.syllabus.drift[code] = next;
     state.syllabus.manualLectureIdx[code] = null;
-
-    // If teacher jumped ahead, automatically flag skipped intermediate lectures as missed if not covered
-    const todayKey = toDateKey(new Date());
-    const baseIdx = findScheduleIndexForDate(code, todayKey);
-    if (next > current) {
-      const newActualIdx = Math.min(list.length - 1, baseIdx + next);
-      for (let i = baseIdx; i < newActualIdx; i++) {
-        const tKey = code + "-" + list[i].no;
-        if (!state.syllabus.topicStatus[tKey]) {
-          state.syllabus.topicStatus[tKey] = "missed";
-        }
-      }
-    }
-
     saveState();
     renderAll();
     const label = next === 0 ? "On Schedule" : (next > 0 ? "Ahead by +" + next : "Behind by " + next);
     showToast(code + " teacher pace: " + label, next < 0 ? "danger" : "info");
   };
 
-  // Pick exact lecture actually covered today
   window.setManualLecture = function(code, idxStr) {
     const todayKey = toDateKey(new Date());
     const baseIdx = findScheduleIndexForDate(code, todayKey);
@@ -2036,7 +2097,6 @@
     renderAll();
   };
 
-  // Mark topic status: "covered" | "missed" | "revised" | null
   window.setTopicStatus = function(code, lecNo, status) {
     const key = code + "-" + lecNo;
     if (state.syllabus.topicStatus[key] === status) {
@@ -2048,37 +2108,58 @@
     renderAll();
   };
 
+  window.markUpToTodayDone = function() {
+    const code = state.syllabusFilter;
+    const list = SCHEDULES_BY_SUB[code];
+    if (!list) return;
+    const todayKey = toDateKey(new Date());
+    let count = 0;
+    list.forEach(function(item) {
+      if (item.date <= todayKey) {
+        const key = code + "-" + item.no;
+        if (state.syllabus.topicStatus[key] !== "covered") {
+          state.syllabus.topicStatus[key] = "covered";
+          count++;
+        }
+      }
+    });
+    saveState();
+    renderAll();
+    showToast(count > 0 ? "Marked " + count + " " + code + " topic(s) up to today as Completed ✓" : "All " + code + " topics up to today are already completed!", "info");
+  };
+
   window.clearCaughtUpTopics = function() {
     let cleared = 0;
     Object.keys(state.syllabus.topicStatus).forEach(function(k) {
-      if (state.syllabus.topicStatus[k] === "covered" || state.syllabus.topicStatus[k] === "revised") {
+      if (state.syllabus.topicStatus[k] === "missed") {
         delete state.syllabus.topicStatus[k];
         cleared++;
       }
     });
     saveState();
     renderAll();
-    showToast(cleared > 0 ? "Cleared " + cleared + " completed topic(s) from queue" : "No completed topics to clear", "info");
+    showToast(cleared > 0 ? "Cleared " + cleared + " missed flag(s)" : "No missed topics in queue", "info");
   };
 
   window.setSyllabusFilter = function(filter) {
-    state.syllabusFilter = filter;
-    ["ALL", "LPM", "VAN"].forEach(function(f) {
+    state.syllabusFilter = ["LPM", "VPY", "VAN"].indexOf(filter) !== -1 ? filter : "LPM";
+    ["LPM", "VPY", "VAN"].forEach(function(f) {
       const el = document.getElementById("syl-f-" + f);
-      if (el) el.classList.toggle("active", f === filter);
+      if (el) el.classList.toggle("active", f === state.syllabusFilter);
     });
-    renderSyllabusBrowser();
+    renderSyllabusTab();
   };
 
-  window.jumpSyllabusToToday = function() {
-    state.syllabusAnchorIdx = null;
-    const inp = document.getElementById("syl-search");
-    if (inp) inp.value = "";
-    renderSyllabusBrowser();
-    showToast("Centered schedule on today's date", "info");
+  window.setMedicalLeaveMode = function(mode) {
+    if (["condone", "credit", "absent"].indexOf(mode) === -1) return;
+    state.settings.medicalLeaveMode = mode;
+    saveState();
+    const metrics = renderAll();
+    checkAlerts(metrics);
   };
 
   function calculateMetrics() {
+    const mlMode = state.settings.medicalLeaveMode || "condone";
     const subStats = {};
     Object.keys(SUBJECTS).forEach(function(code) {
       subStats[code] = {
@@ -2087,6 +2168,7 @@
         core: SUBJECTS[code].core,
         present: 0,
         absent: 0,
+        medical: 0,
         holiday: 0,
         held: 0,
         pct: 100,
@@ -2098,6 +2180,7 @@
 
     let totalPresent = 0;
     let totalAbsent = 0;
+    let totalMedical = 0;
     let holidayDays = 0;
 
     Object.keys(state.records).forEach(function(key) {
@@ -2116,17 +2199,25 @@
         const s = subStats[cls.code];
         if (!s || !st) return;
         if (st === "present") {
-          s.present++;
-          s.held++;
-          totalPresent++;
+          s.present++; s.held++; totalPresent++;
         } else if (st === "absent") {
-          s.absent++;
-          s.held++;
-          totalAbsent++;
+          s.absent++; s.held++; totalAbsent++;
+        } else if (st === "medical") {
+          s.medical++; totalMedical++;
+          if (mlMode === "credit") { s.present++; s.held++; totalPresent++; }
+          else if (mlMode === "absent") { s.absent++; s.held++; totalAbsent++; }
         } else if (st === "holiday") {
           s.holiday++;
         }
       });
+    });
+
+    // Include logged Extra / Compensation classes
+    state.extraClasses.forEach(function(ec) {
+      const s = subStats[ec.code];
+      if (!s) return;
+      if (ec.status === "present") { s.present++; s.held++; totalPresent++; }
+      else if (ec.status === "absent") { s.absent++; s.held++; totalAbsent++; }
     });
 
     const lowSubjects = [];
@@ -2150,16 +2241,14 @@
     let safeSkip = 0;
 
     if (totalHeld > 0) {
-      if (overallPct < 75) {
-        needed = Math.max(0, Math.ceil(3 * totalHeld - 4 * totalPresent));
-      } else {
-        safeSkip = Math.max(0, Math.floor((4 * totalPresent - 3 * totalHeld) / 3));
-      }
+      if (overallPct < 75) needed = Math.max(0, Math.ceil(3 * totalHeld - 4 * totalPresent));
+      else safeSkip = Math.max(0, Math.floor((4 * totalPresent - 3 * totalHeld) / 3));
     }
 
     return {
       present: totalPresent,
       absent: totalAbsent,
+      medical: totalMedical,
       holiday: holidayDays,
       held: totalHeld,
       pct: overallPct,
@@ -2172,10 +2261,7 @@
   }
 
   function logDateAll(dateKey, status) {
-    if (status === null) {
-      delete state.records[dateKey];
-      return;
-    }
+    if (status === null) { delete state.records[dateKey]; return; }
     if (status === "holiday") {
       state.records[dateKey] = { dayHoliday: true, periods: {}, batch: recBatch(dateKey) };
       return;
@@ -2188,9 +2274,7 @@
       return;
     }
     const periods = {};
-    scheduled.forEach(function(cls) {
-      periods[cls.slotId] = status;
-    });
+    scheduled.forEach(function(cls) { periods[cls.slotId] = status; });
     state.records[dateKey] = { dayHoliday: false, periods: periods, batch: dayBatch };
   }
 
@@ -2202,9 +2286,11 @@
       showToast("Cleared today's holiday mark", "info");
     } else {
       logDateAll(todayKey, status);
+      if (status === "medical") upsertMedicalLeaveRange(todayKey, todayKey, "Single-day Medical Leave", false);
       const msgs = {
         present: "Marked all today's classes Present ✓",
         absent: "Marked all today's classes Absent ✕",
+        medical: "Applied Medical Leave for today 🏥",
         holiday: "Marked today as Holiday ☀"
       };
       showToast(msgs[status], status === "absent" ? "danger" : "info");
@@ -2214,30 +2300,197 @@
     checkAlerts(metrics);
   };
 
+  function upsertMedicalLeaveRange(fromKey, toKey, reason, certReady) {
+    state.medicalLeaves.unshift({
+      id: "ml_" + Date.now() + "_" + Math.random().toString(36).slice(2, 6),
+      from: fromKey,
+      to: toKey,
+      reason: (reason || "").trim() || "Medical Leave",
+      certReady: !!certReady,
+      createdAt: toDateKey(new Date())
+    });
+  }
+
+  window.openMedicalLeaveModal = function(presetDateKey) {
+    const baseKey = presetDateKey || state.modalDateKey || toDateKey(new Date());
+    document.getElementById("ml-from").value = baseKey;
+    document.getElementById("ml-to").value = baseKey;
+    document.getElementById("ml-reason").value = "";
+    document.getElementById("ml-cert").checked = false;
+    openModal("medical-modal");
+  };
+
+  window.submitMedicalLeave = function() {
+    const fromKey = document.getElementById("ml-from").value;
+    const toKey = document.getElementById("ml-to").value;
+    const reason = document.getElementById("ml-reason").value;
+    const certReady = document.getElementById("ml-cert").checked;
+    if (!fromKey || !toKey) { showToast("Please select both From and To dates.", "danger"); return; }
+    if (fromKey > toKey) { showToast("From Date cannot be after To Date.", "danger"); return; }
+
+    let cur = parseDateKey(fromKey);
+    const end = parseDateKey(toKey);
+    let appliedDays = 0;
+    while (cur <= end) {
+      if (cur.getDay() !== 0) {
+        const k = toDateKey(cur);
+        const dayBatch = recBatch(k);
+        const sched = getScheduledClasses(cur, dayBatch);
+        if (sched.length > 0) {
+          const periods = {};
+          sched.forEach(function(cls) { periods[cls.slotId] = "medical"; });
+          state.records[k] = { dayHoliday: false, periods: periods, batch: dayBatch, medicalReason: (reason || "").trim() || "Medical Leave" };
+          appliedDays++;
+        }
+      }
+      cur.setDate(cur.getDate() + 1);
+    }
+    if (appliedDays === 0) { showToast("No scheduled class days found in that range.", "info"); return; }
+    upsertMedicalLeaveRange(fromKey, toKey, reason, certReady);
+    saveState();
+    closeModal("medical-modal");
+    if (state.modalDateKey) renderModalPeriods(state.modalDateKey);
+    const metrics = renderAll();
+    showToast("🏥 Medical Leave applied for " + appliedDays + " class day(s)!", "info");
+    checkAlerts(metrics);
+  };
+
+  window.toggleMedicalCert = function(id) {
+    const item = state.medicalLeaves.find(function(x) { return x.id === id; });
+    if (!item) return;
+    item.certReady = !item.certReady;
+    saveState();
+    renderMedicalLeaves();
+  };
+
+  window.deleteMedicalLeave = function(id) {
+    const idx = state.medicalLeaves.findIndex(function(x) { return x.id === id; });
+    if (idx === -1) return;
+    const item = state.medicalLeaves[idx];
+    let cur = parseDateKey(item.from);
+    const end = parseDateKey(item.to);
+    while (cur <= end) {
+      const k = toDateKey(cur);
+      const rec = state.records[k];
+      if (rec && rec.periods) {
+        Object.keys(rec.periods).forEach(function(slotId) {
+          if (rec.periods[slotId] === "medical") delete rec.periods[slotId];
+        });
+        if (Object.keys(rec.periods).length === 0 && !rec.dayHoliday) delete state.records[k];
+      }
+      cur.setDate(cur.getDate() + 1);
+    }
+    state.medicalLeaves.splice(idx, 1);
+    saveState();
+    const metrics = renderAll();
+    showToast("Removed Medical Leave entry.", "info");
+    checkAlerts(metrics);
+  };
+
+  // Extra Class Logger
+  window.openExtraClassModal = function() {
+    document.getElementById("ec-date").value = toDateKey(new Date());
+    document.getElementById("ec-topic").value = "";
+    openModal("extra-class-modal");
+  };
+
+  window.saveExtraClass = function() {
+    const code = document.getElementById("ec-sub").value;
+    const date = document.getElementById("ec-date").value || toDateKey(new Date());
+    const status = document.getElementById("ec-status").value;
+    const topic = document.getElementById("ec-topic").value.trim();
+    state.extraClasses.unshift({
+      id: "ec_" + Date.now(),
+      code: code,
+      date: date,
+      status: status,
+      topic: topic
+    });
+    saveState();
+    closeModal("extra-class-modal");
+    const metrics = renderAll();
+    showToast("Logged extra " + code + " class (" + status + ")", "info");
+    checkAlerts(metrics);
+  };
+
+  window.deleteExtraClass = function(id) {
+    state.extraClasses = state.extraClasses.filter(function(x) { return x.id !== id; });
+    saveState();
+    renderAll();
+    showToast("Removed extra class", "info");
+  };
+
+  // Exams & Internals Management
+  window.openExamModal = function(examId) {
+    const ex = examId ? state.exams.find(function(x) { return x.id === examId; }) : null;
+    document.getElementById("exam-modal-title").textContent = ex ? "Edit Exam / Marks" : "Add Exam / Internal";
+    document.getElementById("ex-id").value = ex ? ex.id : "";
+    document.getElementById("ex-sub").value = ex ? ex.subject : "VPY";
+    document.getElementById("ex-type").value = ex ? ex.type : "Internal 1";
+    document.getElementById("ex-date").value = ex ? ex.date : toDateKey(new Date());
+    document.getElementById("ex-status").value = ex ? ex.status : "upcoming";
+    document.getElementById("ex-syllabus").value = ex ? (ex.syllabus || "") : "";
+    document.getElementById("ex-scored").value = (ex && ex.scored !== null && ex.scored !== "") ? ex.scored : "";
+    document.getElementById("ex-max").value = (ex && ex.max !== null && ex.max !== "") ? ex.max : "";
+    document.getElementById("ex-notes").value = ex ? (ex.notes || "") : "";
+    openModal("exam-modal");
+  };
+
+  window.saveExam = function() {
+    const id = document.getElementById("ex-id").value;
+    const dateVal = document.getElementById("ex-date").value;
+    if (!dateVal) { showToast("Please pick the exam date.", "danger"); return; }
+    const scoredRaw = document.getElementById("ex-scored").value;
+    const maxRaw = document.getElementById("ex-max").value;
+    const payload = {
+      id: id || ("ex_" + Date.now() + "_" + Math.random().toString(36).slice(2, 5)),
+      subject: document.getElementById("ex-sub").value,
+      type: document.getElementById("ex-type").value,
+      date: dateVal,
+      status: scoredRaw !== "" ? "completed" : document.getElementById("ex-status").value,
+      syllabus: document.getElementById("ex-syllabus").value.trim(),
+      scored: scoredRaw !== "" ? Number(scoredRaw) : null,
+      max: maxRaw !== "" ? Number(maxRaw) : null,
+      notes: document.getElementById("ex-notes").value.trim()
+    };
+    if (id) {
+      const idx = state.exams.findIndex(function(x) { return x.id === id; });
+      if (idx !== -1) state.exams[idx] = payload;
+    } else {
+      state.exams.push(payload);
+    }
+    state.exams.sort(function(a, b) { return a.date.localeCompare(b.date); });
+    saveState();
+    closeModal("exam-modal");
+    renderAll();
+    showToast("Saved exam schedule!", "info");
+  };
+
+  window.deleteExam = function(id) {
+    state.exams = state.exams.filter(function(x) { return x.id !== id; });
+    saveState();
+    renderAll();
+    showToast("Deleted exam entry", "info");
+  };
+
   window.setPeriodStatus = function(dateKey, slotId, status) {
     if (!state.records[dateKey] || state.records[dateKey].dayHoliday) {
       state.records[dateKey] = { dayHoliday: false, periods: {}, batch: state.settings.batch };
     }
     const periods = state.records[dateKey].periods;
-    if (periods[slotId] === status) {
-      delete periods[slotId];
-    } else {
-      periods[slotId] = status;
-    }
-    if (Object.keys(periods).length === 0 && !state.records[dateKey].dayHoliday) {
-      delete state.records[dateKey];
-    }
+    if (periods[slotId] === status) delete periods[slotId];
+    else periods[slotId] = status;
+    if (Object.keys(periods).length === 0 && !state.records[dateKey].dayHoliday) delete state.records[dateKey];
     saveState();
     const metrics = renderAll();
-    if (state.modalDateKey === dateKey) {
-      renderModalPeriods(dateKey);
-    }
+    if (state.modalDateKey === dateKey) renderModalPeriods(dateKey);
     checkAlerts(metrics);
   };
 
   window.setModalDateAll = function(status) {
     if (!state.modalDateKey) return;
     logDateAll(state.modalDateKey, status);
+    if (status === "medical") upsertMedicalLeaveRange(state.modalDateKey, state.modalDateKey, "Single-day Medical Leave", false);
     saveState();
     const metrics = renderAll();
     renderModalPeriods(state.modalDateKey);
@@ -2248,7 +2501,7 @@
     const opts = { body: body, icon: "icons/icon-192.png", badge: "icons/icon-192.png", tag: "attend75-alert" };
     if (navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
       navigator.serviceWorker.getRegistration().then(function(reg) {
-        if (reg && reg.showNotification) { reg.showNotification(title, opts); }
+        if (reg && reg.showNotification) reg.showNotification(title, opts);
         else { try { new window.Notification(title, opts); } catch (e) {} }
       }).catch(function() {});
     } else {
@@ -2260,13 +2513,9 @@
     const coreLow = metrics.lowSubjects.filter(function(s) { return s.core; });
     if (metrics.low || coreLow.length > 0) {
       let msg = "";
-      if (metrics.low) {
-        msg = "Overall attendance is " + metrics.pct.toFixed(1) + "% (<75%). Attend next " + metrics.needed + " class(es) to recover!";
-      } else {
-        msg = "Subject below 75%: " + coreLow.map(function(s) { return s.code + " (" + s.pct.toFixed(0) + "%)"; }).join(", ");
-      }
+      if (metrics.low) msg = "Overall attendance is " + metrics.pct.toFixed(1) + "% (<75%). Attend next " + metrics.needed + " class(es) to recover!";
+      else msg = "Subject below 75%: " + coreLow.map(function(s) { return s.code + " (" + s.pct.toFixed(0) + "%)"; }).join(", ");
       showToast("⚠️ " + msg, "danger");
-
       if (state.settings.notifications && typeof window.Notification !== "undefined" && window.Notification.permission === "granted") {
         sendNotification("Attend75 Alert (<75%)", msg);
       }
@@ -2297,8 +2546,6 @@
           saveState();
           renderNotifBtn();
           showToast("75% Push Alerts enabled!", "info");
-        } else {
-          showToast("Notification permission was not granted.", "info");
         }
       }).catch(function() {});
     } else {
@@ -2325,12 +2572,15 @@
     document.getElementById("syl-ref-date").textContent = formatShortDate(toDateKey(new Date()));
 
     renderOverview(metrics);
+    renderDashboardExamStrip();
     renderToday();
     renderSubjects(metrics);
     renderSyllabusTab();
+    renderExamsTab();
     renderCalendar();
     renderTimetable();
     renderNotifBtn();
+    updateSimulator();
     return metrics;
   }
 
@@ -2354,21 +2604,18 @@
     document.getElementById("st-held").textContent = metrics.held;
     document.getElementById("st-present").textContent = metrics.present;
     document.getElementById("st-absent").textContent = metrics.absent;
+    document.getElementById("st-medical").textContent = metrics.medical;
     document.getElementById("st-holiday").textContent = metrics.holiday;
+    const mlSel = document.getElementById("ml-mode-select");
+    if (mlSel) mlSel.value = state.settings.medicalLeaveMode || "condone";
 
     const banner = document.getElementById("alert-banner");
     const coreLow = metrics.lowSubjects.filter(function(s) { return s.core; });
     if (metrics.low || coreLow.length > 0) {
       banner.classList.remove("hidden");
       const parts = [];
-      if (metrics.low) {
-        parts.push("Overall is " + metrics.pct.toFixed(1) + "% (attend next " + metrics.needed + " class(es)).");
-      }
-      if (coreLow.length > 0) {
-        parts.push("Low subjects: " + coreLow.map(function(s) {
-          return s.code + " " + s.pct.toFixed(0) + "% (need " + s.needed + ")";
-        }).join(" • "));
-      }
+      if (metrics.low) parts.push("Overall is " + metrics.pct.toFixed(1) + "% (attend next " + metrics.needed + " class(es)).");
+      if (coreLow.length > 0) parts.push("Low subjects: " + coreLow.map(function(s) { return s.code + " " + s.pct.toFixed(0) + "% (need " + s.needed + ")"; }).join(" • "));
       document.getElementById("alert-text").textContent = parts.join(" ");
     } else {
       banner.classList.add("hidden");
@@ -2381,26 +2628,20 @@
     const wAdv = document.getElementById("w-advice");
 
     if (metrics.held === 0) {
-      badge.className = "badge badge-neutral";
-      badge.textContent = "Ready to Start";
+      badge.className = "badge badge-neutral"; badge.textContent = "Ready to Start";
       title.textContent = "No classes logged yet";
       sub.textContent = "Showing Batch " + state.settings.batch + " schedule. Mark your periods below!";
-      wBadge.className = "badge badge-neutral";
-      wBadge.textContent = "Ready";
+      wBadge.className = "badge badge-neutral"; wBadge.textContent = "Ready";
       wAdv.textContent = "Tap below to log today's classes.";
     } else if (metrics.low) {
-      badge.className = "badge badge-danger";
-      badge.textContent = "Shortage (< 75%)";
+      badge.className = "badge badge-danger"; badge.textContent = "Shortage (< 75%)";
       title.textContent = "Attend next " + metrics.needed + " class" + (metrics.needed === 1 ? "" : "es") + " straight";
       sub.textContent = "Attended " + metrics.present + " of " + metrics.held + " classes. Don't miss upcoming lectures.";
-      wBadge.className = "badge badge-danger";
-      wBadge.textContent = "Below 75%";
+      wBadge.className = "badge badge-danger"; wBadge.textContent = "Below 75%";
       wAdv.textContent = "Attend next " + metrics.needed + " class(es) to hit 75%.";
     } else {
-      badge.className = "badge badge-safe";
-      badge.textContent = "Safe Zone (≥ 75%)";
-      wBadge.className = "badge badge-safe";
-      wBadge.textContent = "Safe ≥ 75%";
+      badge.className = "badge badge-safe"; badge.textContent = "Safe Zone (≥ 75%)";
+      wBadge.className = "badge badge-safe"; wBadge.textContent = "Safe ≥ 75%";
       if (metrics.safeSkip > 0) {
         title.textContent = "Safe margin: " + metrics.safeSkip + " class" + (metrics.safeSkip === 1 ? "" : "es");
         sub.textContent = "Attended " + metrics.present + "/" + metrics.held + " classes. Check individual subjects before bunking.";
@@ -2413,7 +2654,7 @@
     }
 
     const wSubs = document.getElementById("w-subjects");
-    wSubs.innerHTML = ["VPY", "VAN", "LPM"].map(function(code) {
+    wSubs.innerHTML = ["LPM", "VPY", "VAN"].map(function(code) {
       const s = metrics.subjects[code];
       const txt = s.held === 0 ? "—" : Math.round(s.pct) + "%";
       return '<div class="widget-sub-box' + (s.low ? " low" : "") + '">' +
@@ -2422,19 +2663,37 @@
       '</div>';
     }).join("");
 
-    // Widget Teacher Pace Indicator
-    const lpmPace = getPaceInfoForSubject("LPM");
-    const vanPace = getPaceInfoForSubject("VAN");
-    const paceNotes = [];
-    ["LPM", "VAN"].forEach(function(c) {
-      const p = c === "LPM" ? lpmPace : vanPace;
-      if (p.effectiveDrift > 0) paceNotes.push(c + " +" + p.effectiveDrift + " ahead");
-      else if (p.effectiveDrift < 0) paceNotes.push(c + " " + p.effectiveDrift + " behind");
-      else paceNotes.push(c + " on schedule");
-    });
-    document.getElementById("w-pace-summary").textContent = paceNotes.join(" • ");
-    document.getElementById("w-pace-topic").textContent =
-      "LPM #" + lpmPace.actualItem.no + ": " + lpmPace.actualItem.topic + " | VAN #" + vanPace.actualItem.no + ": " + vanPace.actualItem.topic;
+    const cLpm = getSubjectCompletion("LPM");
+    const cVpy = getSubjectCompletion("VPY");
+    const cVan = getSubjectCompletion("VAN");
+    document.getElementById("w-pace-summary").textContent =
+      "LPM " + cLpm.done + "/" + cLpm.total + " • VPY " + cVpy.done + "/" + cVpy.total + " • VAN " + cVan.done + "/" + cVan.total;
+    const vpyPace = getPaceInfoForSubject("VPY");
+    document.getElementById("w-pace-topic").textContent = "VPY #" + vpyPace.actualItem.no + ": " + vpyPace.actualItem.topic;
+  }
+
+  function renderDashboardExamStrip() {
+    const strip = document.getElementById("dash-exam-strip");
+    if (!strip) return;
+    const todayKey = toDateKey(new Date());
+    const upcoming = state.exams.filter(function(ex) { return ex.date >= todayKey && ex.status !== "completed"; });
+    if (upcoming.length === 0) {
+      strip.innerHTML = "";
+      return;
+    }
+    const next = upcoming[0];
+    const diffDays = Math.round((parseDateKey(next.date) - parseDateKey(todayKey)) / 86400000);
+    const whenTxt = diffDays === 0 ? "Today!" : (diffDays === 1 ? "Tomorrow" : "In " + diffDays + " days");
+    strip.innerHTML = '<section class="card" style="padding:12px 14px;border-color:rgba(99,102,241,0.35);background:var(--primary-soft);">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
+        '<div>' +
+          '<div style="font-size:10px;font-weight:800;text-transform:uppercase;color:var(--primary-text);">📝 Upcoming Exam • ' + whenTxt + '</div>' +
+          '<div style="font-size:13px;font-weight:800;margin-top:1px;">' + next.subject + ' — ' + next.type + ' (' + formatShortDate(next.date) + ')</div>' +
+          (next.syllabus ? '<div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Portion: ' + next.syllabus + '</div>' : '') +
+        '</div>' +
+        '<button onclick="switchTab(\'exams\')" class="pill-action primary">Exams →</button>' +
+      '</div>' +
+    '</section>';
   }
 
   function renderToday() {
@@ -2444,7 +2703,6 @@
     const todayBatch = recBatch(key);
     const scheduled = getScheduledClasses(today, todayBatch);
     document.getElementById("today-batch-lbl").textContent = "Batch " + todayBatch;
-
     document.getElementById("today-date-lbl").textContent = formatHumanDate(today);
 
     const badge = document.getElementById("today-badge");
@@ -2452,22 +2710,22 @@
     const listEl = document.getElementById("today-periods");
 
     if (rec && rec.dayHoliday) {
-      badge.className = "badge";
-      badge.style.background = "var(--warning-soft)";
-      badge.style.color = "var(--warning-text)";
-      badge.textContent = "Holiday ☀";
-      wStatus.textContent = "Today: Holiday ☀";
+      badge.className = "badge"; badge.style.background = "var(--warning-soft)"; badge.style.color = "var(--warning-text)";
+      badge.textContent = "Holiday ☀"; wStatus.textContent = "Today: Holiday ☀";
     } else if (rec && rec.periods && Object.keys(rec.periods).length > 0) {
-      const pCount = Object.values(rec.periods).filter(function(v) { return v === "present"; }).length;
-      badge.className = "badge badge-safe";
-      badge.style.background = "";
-      badge.style.color = "";
-      badge.textContent = pCount + "/" + scheduled.length + " Present";
-      wStatus.textContent = "Today: " + pCount + "/" + scheduled.length + " Present";
+      const vals = Object.values(rec.periods);
+      const pCount = vals.filter(function(v) { return v === "present"; }).length;
+      const mCount = vals.filter(function(v) { return v === "medical"; }).length;
+      if (mCount > 0 && pCount === 0) {
+        badge.className = "badge badge-info"; badge.style.background = ""; badge.style.color = "";
+        badge.textContent = "Medical Leave 🏥"; wStatus.textContent = "Today: Medical Leave 🏥";
+      } else {
+        badge.className = "badge badge-safe"; badge.style.background = ""; badge.style.color = "";
+        badge.textContent = pCount + "/" + scheduled.length + " Present" + (mCount > 0 ? " • " + mCount + " ML" : "");
+        wStatus.textContent = "Today: " + pCount + "/" + scheduled.length + " Present";
+      }
     } else {
-      badge.className = "badge badge-neutral";
-      badge.style.background = "";
-      badge.style.color = "";
+      badge.className = "badge badge-neutral"; badge.style.background = ""; badge.style.color = "";
       badge.textContent = scheduled.length === 0 ? "Sunday Off" : "Not Logged";
       wStatus.textContent = scheduled.length === 0 ? "Today: Sunday Off" : "Today: Not Logged";
     }
@@ -2480,12 +2738,10 @@
     const pMap = (rec && !rec.dayHoliday && rec.periods) ? rec.periods : {};
     let html = "";
     scheduled.forEach(function(cls, idx) {
-      if (idx > 0 && cls.time.indexOf("2:15") === 0) {
-        html += '<div class="lunch-divider">1:30 – 2:15 Lunch Break</div>';
-      }
+      if (idx > 0 && cls.time.indexOf("2:15") === 0) html += '<div class="lunch-divider">1:30 – 2:15 Lunch Break</div>';
       const st = pMap[cls.slotId] || "";
       let topicStrip = "";
-      if (cls.code === "LPM" || cls.code === "VAN") {
+      if (SCHEDULES_BY_SUB[cls.code]) {
         const pace = getPaceInfoForSubject(cls.code, key);
         const driftBadge = pace.effectiveDrift > 0
           ? '<span class="badge badge-warn" style="margin:0;">+' + pace.effectiveDrift + ' Ahead</span>'
@@ -2494,13 +2750,10 @@
             : '<span class="badge badge-safe" style="margin:0;">On Schedule</span>');
         topicStrip = '<div class="period-topic-box">' +
           '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;">' +
-            '<span style="font-weight:800;color:var(--primary-text);">Actual #' + pace.actualItem.no + '</span>' +
+            '<span style="font-weight:800;color:var(--primary-text);">Lecture #' + pace.actualItem.no + '</span>' +
             driftBadge +
           '</div>' +
           '<div style="font-weight:600;margin-top:2px;">' + pace.actualItem.topic + '</div>' +
-          (pace.effectiveDrift !== 0
-            ? '<div style="font-size:10.5px;color:var(--text-muted);margin-top:2px;">Scheduled today: #' + pace.scheduledItem.no + ' — ' + pace.scheduledItem.topic + '</div>'
-            : '') +
         '</div>';
       }
 
@@ -2516,6 +2769,7 @@
           '<div class="period-actions">' +
             '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'present\')" class="p-btn' + (st === "present" ? " active-present" : "") + '" title="Present">✓</button>' +
             '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'absent\')" class="p-btn' + (st === "absent" ? " active-absent" : "") + '" title="Absent">✕</button>' +
+            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'medical\')" class="p-btn' + (st === "medical" ? " active-medical" : "") + '" title="Medical Leave">ML</button>' +
             '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'holiday\')" class="p-btn' + (st === "holiday" ? " active-holiday" : "") + '" title="Cancelled / Holiday">☀</button>' +
           '</div>' +
         '</div>' +
@@ -2534,7 +2788,6 @@
   function renderSubjects(metrics) {
     const btn = document.getElementById("toggle-subs-btn");
     btn.textContent = state.settings.showAllSubjects ? "Core Only (3)" : "Show All (6)";
-
     const codes = Object.keys(metrics.subjects).filter(function(code) {
       const s = metrics.subjects[code];
       return state.settings.showAllSubjects || s.core || s.held > 0;
@@ -2547,13 +2800,9 @@
       const width = s.held === 0 ? 0 : Math.min(100, Math.max(0, s.pct));
       let advice = "Log periods to calculate 75% target";
       if (s.held > 0) {
-        if (s.low) {
-          advice = "⚠️ Attend next " + s.needed + " class(es) to reach 75%";
-        } else if (s.safeSkip > 0) {
-          advice = "Safe to skip " + s.safeSkip + " class(es)";
-        } else {
-          advice = "On 75% border — attend next class";
-        }
+        if (s.low) advice = "⚠️ Attend next " + s.needed + " class(es) to reach 75%";
+        else if (s.safeSkip > 0) advice = "Safe to skip " + s.safeSkip + " class(es)";
+        else advice = "On 75% border — attend next class";
       }
 
       return '<div class="subject-card' + (s.low ? " low" : "") + '">' +
@@ -2573,73 +2822,112 @@
     }).join("");
   }
 
+  // What-If Simulator
+  window.updateSimulator = function() {
+    const metrics = calculateMetrics();
+    const addPresent = Number(document.getElementById("sim-attend").value || 0);
+    const addAbsent = Number(document.getElementById("sim-skip").value || 0);
+    document.getElementById("sim-attend-val").textContent = addPresent;
+    document.getElementById("sim-skip-val").textContent = addAbsent;
+
+    const newPresent = metrics.present + addPresent;
+    const newHeld = metrics.held + addPresent + addAbsent;
+    const out = document.getElementById("sim-result");
+    if (newHeld === 0) {
+      out.textContent = "Log classes or move sliders to simulate future attendance %.";
+      out.style.color = "";
+      return;
+    }
+    const simPct = (newPresent / newHeld) * 100;
+    const safe = simPct >= 75;
+    out.style.color = safe ? "var(--success-text)" : "var(--danger-text)";
+    out.textContent = (safe ? "✓ Safe: " : "⚠️ Warning: ") +
+      simPct.toFixed(1) + "% (" + newPresent + "/" + newHeld + " classes)";
+  };
+
+  window.resetSimulator = function() {
+    document.getElementById("sim-attend").value = 0;
+    document.getElementById("sim-skip").value = 0;
+    updateSimulator();
+  };
+
+  // Subject Syllabus Completion Counter
+  function getSubjectCompletion(code) {
+    const list = SCHEDULES_BY_SUB[code] || [];
+    let done = 0;
+    let missed = 0;
+    let revised = 0;
+    list.forEach(function(item) {
+      const st = state.syllabus.topicStatus[code + "-" + item.no];
+      if (st === "covered" || st === "revised") done++;
+      if (st === "missed") missed++;
+      if (st === "revised") revised++;
+    });
+    const pct = list.length === 0 ? 0 : Math.round((done / list.length) * 100);
+    return { code: code, total: list.length, done: done, missed: missed, revised: revised, pct: pct };
+  }
+
   function renderSyllabusTab() {
     const todayKey = toDateKey(new Date());
-    const paceContainer = document.getElementById("pace-cards");
+    const colsGrid = document.getElementById("subject-columns-grid");
 
-    paceContainer.innerHTML = ["LPM", "VAN"].map(function(code) {
-      const p = getPaceInfoForSubject(code, todayKey);
-      let driftBadgeClass = "badge-safe";
-      let driftBadgeText = "On Schedule";
-      let gapNote = "Teacher is right on the dated lecture schedule.";
-
-      if (p.effectiveDrift > 0) {
-        driftBadgeClass = "badge-warn";
-        driftBadgeText = "Ahead by +" + p.effectiveDrift + " Lec";
-        gapNote = "Teacher jumped +" + p.effectiveDrift + " lecture(s) ahead of schedule. Check intermediate topics below!";
-      } else if (p.effectiveDrift < 0) {
-        driftBadgeClass = "badge-danger";
-        driftBadgeText = "Behind by " + p.effectiveDrift + " Lec";
-        gapNote = "Teacher is " + Math.abs(p.effectiveDrift) + " lecture(s) behind the planned date.";
-      }
-
-      const actualStatusKey = code + "-" + p.actualItem.no;
-      const curStatus = state.syllabus.topicStatus[actualStatusKey] || "";
-
-      const optionsHtml = ['<option value="auto"' + (state.syllabus.manualLectureIdx[code] === null ? " selected" : "") + '>Auto (Date + Drift)</option>']
-        .concat(p.list.map(function(item, idx) {
-          const isSelected = state.syllabus.manualLectureIdx[code] === idx;
-          const shortTopic = item.topic.length > 46 ? item.topic.slice(0, 46) + "…" : item.topic;
-          return '<option value="' + idx + '"' + (isSelected ? " selected" : "") + '>#' + item.no + ' (' + formatShortDate(item.date) + ') ' + shortTopic + '</option>';
-        })).join("");
-
-      return '<div class="subject-card">' +
-        '<div class="sub-row-top">' +
-          '<div class="sub-title-wrap">' +
-            '<span class="sub-tag ' + code + '">' + code + '</span>' +
-            '<strong style="font-size:13px;">' + SUBJECTS[code].name + '</strong>' +
-          '</div>' +
-          '<span class="badge ' + driftBadgeClass + '" style="margin:0;">' + driftBadgeText + '</span>' +
+    // Render 3 separate subject columns: LPM, VPY, VAN
+    colsGrid.innerHTML = ["LPM", "VPY", "VAN"].map(function(code) {
+      const stats = getSubjectCompletion(code);
+      const isSelected = state.syllabusFilter === code;
+      return '<div onclick="setSyllabusFilter(\'' + code + '\')" class="col-card' + (isSelected ? " selected" : "") + '">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;">' +
+          '<span class="sub-tag ' + code + '">' + code + '</span>' +
+          '<strong style="font-size:11px;color:var(--primary-text);">' + stats.pct + '%</strong>' +
         '</div>' +
-        '<p style="font-size:11px;color:var(--text-muted);margin-top:6px;">' + gapNote + '</p>' +
-
-        '<div class="pace-controls">' +
-          '<select onchange="setManualLecture(\'' + code + '\', this.value)" aria-label="Pick lecture covered today for ' + code + '">' +
-            optionsHtml +
-          '</select>' +
-          '<div class="controls-row">' +
-            '<button onclick="adjustDrift(\'' + code + '\', -1)" class="icon-pill" title="Teacher Behind (-1)">-1 Lec</button>' +
-            '<button onclick="adjustDrift(\'' + code + '\', 0 - ' + p.drift + ')" class="icon-pill" title="Reset to Schedule">Sync</button>' +
-            '<button onclick="adjustDrift(\'' + code + '\', 1)" class="icon-pill" title="Teacher Ahead (+1)">+1 Lec</button>' +
-          '</div>' +
+        '<div style="font-size:11.5px;font-weight:800;">' + SUBJECTS[code].short + '</div>' +
+        '<div style="font-size:11px;color:var(--text-muted);font-weight:700;">' +
+          '<strong style="color:var(--success-text);">' + stats.done + '</strong> / ' + stats.total + ' done' +
         '</div>' +
-
-        '<div class="topic-box">' +
-          '<div class="topic-label">Actual Class Topic Today (Lec #' + p.actualItem.no + ' • ' + formatShortDate(p.actualItem.date) + ')</div>' +
-          '<div class="topic-text">' + p.actualItem.topic + '</div>' +
-          (p.effectiveDrift !== 0
-            ? '<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);">' +
-                '<strong>Scheduled for Today:</strong> Lec #' + p.scheduledItem.no + ' (' + formatShortDate(p.scheduledItem.date) + ') — ' + p.scheduledItem.topic +
-              '</div>'
-            : '') +
-          '<div class="topic-status-pills">' +
-            '<button onclick="setTopicStatus(\'' + code + '\',' + p.actualItem.no + ',\'covered\')" class="st-chip' + (curStatus === "covered" ? " active-covered" : "") + '">✓ Covered</button>' +
-            '<button onclick="setTopicStatus(\'' + code + '\',' + p.actualItem.no + ',\'missed\')" class="st-chip' + (curStatus === "missed" ? " active-missed" : "") + '">! Missed / Catch-Up</button>' +
-            '<button onclick="setTopicStatus(\'' + code + '\',' + p.actualItem.no + ',\'revised\')" class="st-chip' + (curStatus === "revised" ? " active-revised" : "") + '">↻ Revised</button>' +
-          '</div>' +
+        '<div class="bar-track" style="margin:2px 0;">' +
+          '<div class="bar-fill" style="width:' + stats.pct + '%;background:var(--success);"></div>' +
+        '</div>' +
+        '<div style="font-size:10px;color:var(--text-muted);">' +
+          (stats.missed > 0 ? '<span style="color:var(--danger-text);font-weight:700;">' + stats.missed + ' missed</span>' : (stats.total - stats.done) + ' left') +
         '</div>' +
       '</div>';
     }).join("");
+
+    // Render Pace Tracker for active subject column
+    const code = state.syllabusFilter;
+    document.getElementById("active-sub-syl-title").textContent = code + " — " + SUBJECTS[code].name;
+    const vanRules = document.getElementById("van-rules-box");
+    if (vanRules) vanRules.classList.toggle("hidden", code !== "VAN");
+
+    const p = getPaceInfoForSubject(code, todayKey);
+    let driftBadgeClass = "badge-safe";
+    let driftBadgeText = "On Schedule";
+    if (p.effectiveDrift > 0) { driftBadgeClass = "badge-warn"; driftBadgeText = "Ahead +" + p.effectiveDrift + " Lec"; }
+    else if (p.effectiveDrift < 0) { driftBadgeClass = "badge-danger"; driftBadgeText = "Behind " + p.effectiveDrift + " Lec"; }
+
+    const optionsHtml = ['<option value="auto"' + (state.syllabus.manualLectureIdx[code] === null ? " selected" : "") + '>Auto (Date + Drift)</option>']
+      .concat(p.list.map(function(item, idx) {
+        const isSelected = state.syllabus.manualLectureIdx[code] === idx;
+        const shortTopic = item.topic.length > 42 ? item.topic.slice(0, 42) + "…" : item.topic;
+        return '<option value="' + idx + '"' + (isSelected ? " selected" : "") + '>#' + item.no + ' (' + formatShortDate(item.date) + ') ' + shortTopic + '</option>';
+      })).join("");
+
+    document.getElementById("active-pace-card").innerHTML =
+      '<div class="subject-card">' +
+        '<div class="sub-row-top">' +
+          '<span style="font-size:11.5px;font-weight:800;">Current Lecture: #' + p.actualItem.no + ' (' + formatShortDate(p.actualItem.date) + ')</span>' +
+          '<span class="badge ' + driftBadgeClass + '" style="margin:0;">' + driftBadgeText + '</span>' +
+        '</div>' +
+        '<div style="font-size:11.5px;font-weight:600;margin-top:4px;">' + p.actualItem.topic + '</div>' +
+        '<div class="pace-controls">' +
+          '<select onchange="setManualLecture(\'' + code + '\', this.value)">' + optionsHtml + '</select>' +
+          '<div class="controls-row">' +
+            '<button onclick="adjustDrift(\'' + code + '\', -1)" class="icon-pill">-1</button>' +
+            '<button onclick="adjustDrift(\'' + code + '\', 0 - ' + p.drift + ')" class="icon-pill">Sync</button>' +
+            '<button onclick="adjustDrift(\'' + code + '\', 1)" class="icon-pill">+1</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
 
     renderBacklogQueue();
     renderSyllabusBrowser();
@@ -2647,20 +2935,16 @@
 
   function renderBacklogQueue() {
     const backlogItems = [];
-    ["LPM", "VAN"].forEach(function(code) {
-      const list = SCHEDULES_BY_SUB[code];
-      list.forEach(function(item) {
-        const key = code + "-" + item.no;
-        const st = state.syllabus.topicStatus[key];
-        if (st === "missed") {
-          backlogItems.push({ code: code, item: item, status: st });
+    ["LPM", "VPY", "VAN"].forEach(function(code) {
+      SCHEDULES_BY_SUB[code].forEach(function(item) {
+        if (state.syllabus.topicStatus[code + "-" + item.no] === "missed") {
+          backlogItems.push({ code: code, item: item });
         }
       });
     });
 
     document.getElementById("backlog-count").textContent = backlogItems.length;
     const container = document.getElementById("backlog-list");
-
     if (backlogItems.length === 0) {
       container.innerHTML = '<div class="period-item" style="justify-content:center;color:var(--success-text);background:var(--success-soft);border-color:transparent;font-size:12px;font-weight:700;">🎉 No missed topics in your catch-up queue!</div>';
       return;
@@ -2674,7 +2958,7 @@
             '<strong>Lec #' + entry.item.no + '</strong>' +
             '<span style="color:var(--text-muted);">(' + formatShortDate(entry.item.date) + ')</span>' +
           '</div>' +
-          '<button onclick="setTopicStatus(\'' + entry.code + '\',' + entry.item.no + ',\'covered\')" class="pill-action success">✓ Caught Up</button>' +
+          '<button onclick="setTopicStatus(\'' + entry.code + '\',' + entry.item.no + ',\'covered\')" class="pill-action success">✓ Completed</button>' +
         '</div>' +
         '<div style="font-weight:600;">' + entry.item.topic + '</div>' +
       '</div>';
@@ -2682,67 +2966,47 @@
   }
 
   function renderSyllabusBrowser() {
+    const code = state.syllabusFilter;
+    const list = SCHEDULES_BY_SUB[code] || [];
     const searchVal = (document.getElementById("syl-search") ? document.getElementById("syl-search").value : "").trim().toLowerCase();
+    const hideDone = document.getElementById("syl-hide-done") ? document.getElementById("syl-hide-done").checked : false;
     const todayKey = toDateKey(new Date());
-    const combined = [];
 
-    if (state.syllabusFilter === "ALL" || state.syllabusFilter === "LPM") {
-      LPM_SCHEDULE.forEach(function(item) {
-        combined.push({ code: "LPM", item: item });
-      });
-    }
-    if (state.syllabusFilter === "ALL" || state.syllabusFilter === "VAN") {
-      VAN_SCHEDULE.forEach(function(item) {
-        combined.push({ code: "VAN", item: item });
-      });
-    }
-
-    combined.sort(function(a, b) {
-      if (a.item.date !== b.item.date) return a.item.date < b.item.date ? -1 : 1;
-      return a.code.localeCompare(b.code);
-    });
-
-    const filtered = combined.filter(function(entry) {
+    const filtered = list.filter(function(item) {
+      const st = state.syllabus.topicStatus[code + "-" + item.no] || "";
+      if (hideDone && (st === "covered" || st === "revised")) return false;
       if (!searchVal) return true;
-      return entry.item.topic.toLowerCase().indexOf(searchVal) !== -1 ||
-        entry.item.date.indexOf(searchVal) !== -1 ||
-        formatShortDate(entry.item.date).indexOf(searchVal) !== -1 ||
-        entry.code.toLowerCase().indexOf(searchVal) !== -1 ||
-        ("lec #" + entry.item.no).indexOf(searchVal) !== -1;
+      return item.topic.toLowerCase().indexOf(searchVal) !== -1 ||
+        item.date.indexOf(searchVal) !== -1 ||
+        formatShortDate(item.date).indexOf(searchVal) !== -1 ||
+        ("#" + item.no).indexOf(searchVal) !== -1 ||
+        ("lec " + item.no).indexOf(searchVal) !== -1;
     });
 
-    let slice = filtered;
-    if (!searchVal && filtered.length > 18) {
-      let anchor = 0;
-      for (let i = 0; i < filtered.length; i++) {
-        if (filtered[i].item.date <= todayKey) anchor = i;
-      }
-      const start = Math.max(0, anchor - 3);
-      slice = filtered.slice(start, start + 18);
-    }
+    const stats = getSubjectCompletion(code);
+    document.getElementById("syl-filter-summary").textContent =
+      code + ": " + stats.done + " of " + stats.total + " topics completed (" + filtered.length + " shown)";
 
     const browser = document.getElementById("syllabus-browser");
-    if (slice.length === 0) {
+    if (filtered.length === 0) {
       browser.innerHTML = '<div class="period-item" style="justify-content:center;color:var(--text-muted);font-size:12px;">No matching lectures found.</div>';
       return;
     }
 
-    browser.innerHTML = slice.map(function(entry) {
-      const code = entry.code;
-      const item = entry.item;
+    browser.innerHTML = filtered.map(function(item) {
       const st = state.syllabus.topicStatus[code + "-" + item.no] || "";
       const isToday = item.date === todayKey;
+      const isDone = st === "covered" || st === "revised";
 
-      let statusTag = '<span class="badge badge-neutral" style="margin:0;">Planned</span>';
-      if (st === "covered") statusTag = '<span class="badge badge-safe" style="margin:0;">✓ Covered</span>';
+      let statusTag = '<span class="badge badge-neutral" style="margin:0;">Pending</span>';
+      if (st === "covered") statusTag = '<span class="badge badge-safe" style="margin:0;">✓ Completed</span>';
       else if (st === "missed") statusTag = '<span class="badge badge-danger" style="margin:0;">! Missed</span>';
       else if (st === "revised") statusTag = '<span class="badge badge-info" style="margin:0;">↻ Revised</span>';
 
-      return '<div class="syllabus-item' + (isToday ? " is-today" : "") + '">' +
+      return '<div class="syllabus-item' + (isToday ? " is-today" : "") + (isDone ? " is-done" : "") + '">' +
         '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;">' +
           '<div style="display:flex;align-items:center;gap:6px;">' +
-            '<span class="sub-tag ' + code + '">' + code + '</span>' +
-            '<strong>#' + item.no + '</strong>' +
+            '<span class="sub-tag ' + code + '">' + code + ' #' + item.no + '</span>' +
             '<span style="color:var(--text-muted);font-weight:700;">' + formatShortDate(item.date) + (item.day ? " • " + item.day : "") + '</span>' +
             (isToday ? '<span class="badge badge-info" style="margin:0;">Today</span>' : '') +
           '</div>' +
@@ -2750,9 +3014,52 @@
         '</div>' +
         '<div style="font-weight:600;">' + item.topic + '</div>' +
         '<div class="topic-status-pills" style="margin-top:2px;">' +
-          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'covered\')" class="st-chip' + (st === "covered" ? " active-covered" : "") + '">Covered</button>' +
-          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'missed\')" class="st-chip' + (st === "missed" ? " active-missed" : "") + '">Missed</button>' +
-          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'revised\')" class="st-chip' + (st === "revised" ? " active-revised" : "") + '">Revised</button>' +
+          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'covered\')" class="st-chip' + (st === "covered" ? " active-covered" : "") + '">✓ Completed</button>' +
+          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'missed\')" class="st-chip' + (st === "missed" ? " active-missed" : "") + '">! Missed</button>' +
+          '<button onclick="setTopicStatus(\'' + code + '\',' + item.no + ',\'revised\')" class="st-chip' + (st === "revised" ? " active-revised" : "") + '">↻ Revised</button>' +
+        '</div>' +
+      '</div>';
+    }).join("");
+  }
+
+  // Render Exams Tab
+  function renderExamsTab() {
+    const listEl = document.getElementById("exams-list");
+    if (!listEl) return;
+    if (state.exams.length === 0) {
+      listEl.innerHTML = '<div class="period-item" style="justify-content:center;color:var(--text-muted);font-size:12px;">No exams added yet. Tap <strong>+ Add Exam</strong> above to record Internals, Practicals, or Board dates.</div>';
+      return;
+    }
+
+    const todayKey = toDateKey(new Date());
+    listEl.innerHTML = state.exams.map(function(ex) {
+      const diffDays = Math.round((parseDateKey(ex.date) - parseDateKey(todayKey)) / 86400000);
+      let statusBadge = "";
+      if (ex.scored !== null && ex.max !== null && ex.max > 0) {
+        const pct = Math.round((ex.scored / ex.max) * 100);
+        statusBadge = '<span class="badge ' + (pct >= 50 ? "badge-safe" : "badge-danger") + '" style="margin:0;">Score: ' + ex.scored + '/' + ex.max + ' (' + pct + '%)</span>';
+      } else if (ex.status === "completed" || diffDays < 0) {
+        statusBadge = '<span class="badge badge-neutral" style="margin:0;">Conducted</span>';
+      } else if (diffDays === 0) {
+        statusBadge = '<span class="badge badge-danger" style="margin:0;">Today!</span>';
+      } else {
+        statusBadge = '<span class="badge badge-info" style="margin:0;">In ' + diffDays + ' day' + (diffDays === 1 ? "" : "s") + '</span>';
+      }
+
+      return '<div class="syllabus-item">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;">' +
+          '<div style="display:flex;align-items:center;gap:6px;">' +
+            '<span class="sub-tag ' + ex.subject + '">' + ex.subject + '</span>' +
+            '<strong>' + ex.type + '</strong>' +
+            '<span style="color:var(--text-muted);font-weight:700;">• ' + formatShortDate(ex.date) + '</span>' +
+          '</div>' +
+          statusBadge +
+        '</div>' +
+        (ex.syllabus ? '<div style="font-weight:600;">📚 Portion: ' + ex.syllabus + '</div>' : '') +
+        (ex.notes ? '<div style="font-size:11px;color:var(--text-muted);">📝 ' + ex.notes + '</div>' : '') +
+        '<div style="display:flex;gap:6px;margin-top:4px;">' +
+          '<button onclick="openExamModal(\'' + ex.id + '\')" class="pill-action" style="padding:4px 9px;font-size:10.5px;">Edit / Add Marks</button>' +
+          '<button onclick="deleteExam(\'' + ex.id + '\')" class="pill-action danger" style="padding:4px 9px;font-size:10.5px;">Delete</button>' +
         '</div>' +
       '</div>';
     }).join("");
@@ -2771,10 +3078,7 @@
   function renderCalendar() {
     const y = state.viewDate.getFullYear();
     const m = state.viewDate.getMonth();
-    document.getElementById("cal-month-lbl").textContent = new Date(y, m, 1).toLocaleDateString("en-US", {
-      month: "long",
-      year: "numeric"
-    });
+    document.getElementById("cal-month-lbl").textContent = new Date(y, m, 1).toLocaleDateString("en-US", { month: "long", year: "numeric" });
 
     const firstDow = new Date(y, m, 1).getDay();
     const daysCount = new Date(y, m + 1, 0).getDate();
@@ -2782,9 +3086,7 @@
     const grid = document.getElementById("cal-grid");
     let html = "";
 
-    for (let i = 0; i < firstDow; i++) {
-      html += '<div class="cal-cell empty"></div>';
-    }
+    for (let i = 0; i < firstDow; i++) html += '<div class="cal-cell empty"></div>';
 
     for (let d = 1; d <= daysCount; d++) {
       const dateObj = new Date(y, m, d);
@@ -2802,27 +3104,52 @@
         const vals = Object.values(rec.periods);
         const p = vals.filter(function(v) { return v === "present"; }).length;
         const a = vals.filter(function(v) { return v === "absent"; }).length;
-        if (p > 0 && a === 0 && p >= sched.length) {
-          classes.push("st-present");
-        } else if (a > 0 && p === 0) {
-          classes.push("st-absent");
-        } else {
-          classes.push("st-partial");
-          mini = '<span class="cal-mini">' + p + '/' + sched.length + '</span>';
-        }
+        const mCnt = vals.filter(function(v) { return v === "medical"; }).length;
+        if (mCnt > 0 && p === 0 && a === 0) { classes.push("st-medical"); mini = '<span class="cal-mini">ML</span>'; }
+        else if (p > 0 && a === 0 && (p + mCnt) >= sched.length) classes.push("st-present");
+        else if (a > 0 && p === 0 && mCnt === 0) classes.push("st-absent");
+        else { classes.push("st-partial"); mini = '<span class="cal-mini">' + p + '/' + sched.length + '</span>'; }
       } else if (dateObj.getDay() === 0) {
         classes.push("sunday");
       }
 
-      const hasSyl = LPM_SCHEDULE.some(function(x) { return x.date === key; }) ||
-                     VAN_SCHEDULE.some(function(x) { return x.date === key; });
+      const hasExam = state.exams.some(function(x) { return x.date === key; });
+      if (hasExam) mini = '<span class="cal-mini">EX</span>';
 
-      html += '<button onclick="openDateModal(\'' + key + '\')" class="' + classes.join(" ") + '">' +
-        d + mini + (hasSyl ? '<span class="cal-syl-dot"></span>' : '') +
-      '</button>';
+      html += '<button onclick="openDateModal(\'' + key + '\')" class="' + classes.join(" ") + '">' + d + mini + '</button>';
     }
 
     grid.innerHTML = html;
+    renderMedicalLeaves();
+  }
+
+  function renderMedicalLeaves() {
+    const countEl = document.getElementById("ml-count");
+    const listEl = document.getElementById("ml-list");
+    if (!listEl) return;
+    if (countEl) countEl.textContent = state.medicalLeaves.length;
+
+    if (state.medicalLeaves.length === 0) {
+      listEl.innerHTML = '<div class="period-item" style="justify-content:center;color:var(--text-muted);font-size:12px;">No medical leave applications logged yet.</div>';
+      return;
+    }
+
+    listEl.innerHTML = state.medicalLeaves.map(function(item) {
+      const rangeTxt = item.from === item.to ? formatShortDate(item.from) : (formatShortDate(item.from) + " → " + formatShortDate(item.to));
+      const certBadge = item.certReady
+        ? '<button onclick="toggleMedicalCert(\'' + item.id + '\')" class="badge badge-safe" style="margin:0;cursor:pointer;">✓ Certificate Ready</button>'
+        : '<button onclick="toggleMedicalCert(\'' + item.id + '\')" class="badge badge-warn" style="margin:0;cursor:pointer;">! Certificate Pending</button>';
+      return '<div class="syllabus-item" style="border-color:rgba(2,132,199,0.35);">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;">' +
+          '<div style="display:flex;align-items:center;gap:6px;">' +
+            '<span class="sub-tag" style="background:var(--info-soft);color:var(--info-text);">🏥 ' + rangeTxt + '</span>' +
+            certBadge +
+          '</div>' +
+          '<button onclick="deleteMedicalLeave(\'' + item.id + '\')" class="pill-action danger" style="padding:4px 8px;font-size:10.5px;">Remove</button>' +
+        '</div>' +
+        '<div style="font-weight:700;">' + item.reason + '</div>' +
+      '</div>';
+    }).join("");
   }
 
   function renderTimetable() {
@@ -2873,18 +3200,20 @@
     const d = parseDateKey(key);
     document.getElementById("m-date-title").textContent = formatHumanDate(d) + " (Batch " + recBatch(key) + ")";
 
-    // Show scheduled LPM & VAN topics for this date if present
     const lpmHit = LPM_SCHEDULE.find(function(x) { return x.date === key; });
+    const vpyHit = VPY_SCHEDULE.find(function(x) { return x.date === key; });
     const vanHit = VAN_SCHEDULE.find(function(x) { return x.date === key; });
+    const examHits = state.exams.filter(function(x) { return x.date === key; });
     const sylBox = document.getElementById("m-syllabus-info");
-    if (lpmHit || vanHit) {
-      let sHtml = '<div class="topic-box" style="margin-top:0;">';
-      if (lpmHit) {
-        sHtml += '<div style="margin-bottom:' + (vanHit ? "6px" : "0") + ';"><span class="sub-tag LPM">LPM #' + lpmHit.no + '</span> <strong>' + lpmHit.topic + '</strong></div>';
-      }
-      if (vanHit) {
-        sHtml += '<div><span class="sub-tag VAN">VAN #' + vanHit.no + '</span> <strong>' + vanHit.topic + '</strong></div>';
-      }
+
+    if (lpmHit || vpyHit || vanHit || examHits.length > 0) {
+      let sHtml = '<div class="topic-box" style="margin-top:0;display:flex;flex-direction:column;gap:5px;">';
+      examHits.forEach(function(ex) {
+        sHtml += '<div><span class="badge badge-danger" style="margin:0;">📝 EXAM</span> <strong>' + ex.subject + ' — ' + ex.type + '</strong></div>';
+      });
+      if (lpmHit) sHtml += '<div><span class="sub-tag LPM">LPM #' + lpmHit.no + '</span> <strong>' + lpmHit.topic + '</strong></div>';
+      if (vpyHit) sHtml += '<div><span class="sub-tag VPY">VPY #' + vpyHit.no + '</span> <strong>' + vpyHit.topic + '</strong></div>';
+      if (vanHit) sHtml += '<div><span class="sub-tag VAN">VAN #' + vanHit.no + '</span> <strong>' + vanHit.topic + '</strong></div>';
       sHtml += '</div>';
       sylBox.innerHTML = sHtml;
     } else {
@@ -2928,6 +3257,7 @@
           '<div class="period-actions">' +
             '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'present\')" class="p-btn' + (st === "present" ? " active-present" : "") + '">P</button>' +
             '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'absent\')" class="p-btn' + (st === "absent" ? " active-absent" : "") + '">A</button>' +
+            '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'medical\')" class="p-btn' + (st === "medical" ? " active-medical" : "") + '">ML</button>' +
             '<button onclick="setPeriodStatus(\'' + key + '\',\'' + cls.slotId + '\',\'holiday\')" class="p-btn' + (st === "holiday" ? " active-holiday" : "") + '">H</button>' +
           '</div>' +
         '</div>' +
@@ -2950,56 +3280,27 @@
 
   window.confirmReset = function() {
     state.records = {};
+    state.medicalLeaves = [];
+    state.exams = [];
+    state.extraClasses = [];
     state.syllabus = {
-      drift: { LPM: 0, VAN: 0 },
-      manualLectureIdx: { LPM: null, VAN: null },
+      drift: { LPM: 0, VPY: 0, VAN: 0 },
+      manualLectureIdx: { LPM: null, VPY: null, VAN: null },
       topicStatus: {}
     };
     saveState();
     closeModal("reset-modal");
     renderAll();
-    showToast("All attendance and syllabus pace data cleared.", "info");
-  };
-
-  window.loadDemoData = function() {
-    const today = new Date();
-    const demo = {};
-    for (let i = 1; i <= 12; i++) {
-      const d = new Date(today);
-      d.setDate(today.getDate() - i);
-      if (d.getDay() === 0) continue;
-      const key = toDateKey(d);
-      if (i === 5) {
-        demo[key] = { dayHoliday: true, periods: {}, batch: state.settings.batch };
-        continue;
-      }
-      const sched = getScheduledClasses(d, state.settings.batch);
-      const periods = {};
-      sched.forEach(function(cls, idx) {
-        if (cls.code === "VAN" && i % 3 === 0) {
-          periods[cls.slotId] = "absent";
-        } else if (i % 5 === 0 && idx === 0) {
-          periods[cls.slotId] = "absent";
-        } else {
-          periods[cls.slotId] = "present";
-        }
-      });
-      demo[key] = { dayHoliday: false, periods: periods, batch: state.settings.batch };
-    }
-    state.records = demo;
-    state.syllabus.drift = { LPM: 1, VAN: -1 };
-    state.syllabus.topicStatus["LPM-24"] = "missed";
-    state.syllabus.topicStatus["VAN-16"] = "missed";
-    saveState();
-    const metrics = renderAll();
-    showToast("Loaded sample attendance & pace demo!", "info");
-    checkAlerts(metrics);
+    showToast("All data cleared.", "info");
   };
 
   window.exportBackup = function() {
     try {
       const payload = JSON.stringify({
         records: state.records,
+        medicalLeaves: state.medicalLeaves,
+        exams: state.exams,
+        extraClasses: state.extraClasses,
         syllabus: state.syllabus,
         settings: state.settings
       }, null, 2);
@@ -3028,9 +3329,12 @@
         if (!data || typeof data.records !== "object" || data.records === null) throw new Error("bad");
         if (!window.confirm("Replace current data with this backup?")) { input.value = ""; return; }
         state.records = data.records;
+        state.medicalLeaves = Array.isArray(data.medicalLeaves) ? data.medicalLeaves : [];
+        state.exams = Array.isArray(data.exams) ? data.exams : [];
+        state.extraClasses = Array.isArray(data.extraClasses) ? data.extraClasses : [];
         const syl = data.syllabus || {};
-        state.syllabus.drift = Object.assign({ LPM: 0, VAN: 0 }, syl.drift || {});
-        state.syllabus.manualLectureIdx = Object.assign({ LPM: null, VAN: null }, syl.manualLectureIdx || {});
+        state.syllabus.drift = Object.assign({ LPM: 0, VPY: 0, VAN: 0 }, syl.drift || {});
+        state.syllabus.manualLectureIdx = Object.assign({ LPM: null, VPY: null, VAN: null }, syl.manualLectureIdx || {});
         state.syllabus.topicStatus = syl.topicStatus || {};
         if (data.settings && (data.settings.batch === "A" || data.settings.batch === "B")) {
           state.settings.batch = data.settings.batch;
@@ -3050,12 +3354,8 @@
     reader.readAsText(file);
   };
 
-  // Install prompt (Android Chrome)
   let deferredInstall = null;
-  window.addEventListener("beforeinstallprompt", function(e) {
-    e.preventDefault();
-    deferredInstall = e;
-  });
+  window.addEventListener("beforeinstallprompt", function(e) { e.preventDefault(); deferredInstall = e; });
   window.addEventListener("appinstalled", function() {
     deferredInstall = null;
     const b = document.getElementById("install-btn");
@@ -3077,16 +3377,11 @@
     if (ib) ib.classList.add("hidden");
   }
 
-  // Offline support
   if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
-    window.addEventListener("load", function() {
-      navigator.serviceWorker.register("sw.js").catch(function() {});
-    });
+    window.addEventListener("load", function() { navigator.serviceWorker.register("sw.js").catch(function() {}); });
   }
-  // Ask the browser not to wipe saved data
   try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
 
-// Re-render when the app is reopened or when the calendar day rolls past midnight
   let lastRenderedDateKey = toDateKey(new Date());
   function syncDateIfChanged() {
     const nowKey = toDateKey(new Date());
@@ -3096,10 +3391,7 @@
     }
   }
   document.addEventListener("visibilitychange", function() {
-    if (document.visibilityState === "visible") {
-      syncDateIfChanged();
-      renderAll();
-    }
+    if (document.visibilityState === "visible") { syncDateIfChanged(); renderAll(); }
   });
   setInterval(syncDateIfChanged, 60000);
 
@@ -3110,16 +3402,12 @@
     div.className = "toast" + (type === "danger" ? " danger" : "");
     div.textContent = text;
     wrap.appendChild(div);
-    setTimeout(function() {
-      if (div.parentNode) div.parentNode.removeChild(div);
-    }, 3600);
+    setTimeout(function() { if (div.parentNode) div.parentNode.removeChild(div); }, 3600);
   }
 
-  // Safe boot
   try {
     loadState();
     renderAll();
-    // Home-screen shortcuts: ?action=present | absent | holiday
     const qs = new URLSearchParams(location.search);
     const act = qs.get("action");
     if (act === "present" || act === "absent" || act === "holiday") {
