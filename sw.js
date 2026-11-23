@@ -1,6 +1,5 @@
 // Attend75 service worker: offline-first app shell.
-// Bump CACHE when you change any file so phones pick up the update.
-const CACHE = "attend75-v3";
+const CACHE = "attend75-v5";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png"];
 
 self.addEventListener("install", (e) => {
@@ -19,7 +18,6 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
   if (req.mode === "navigate") {
-    // Network first so updates arrive; fall back to cached app when offline.
     e.respondWith(
       fetch(req)
         .then((res) => { const copy = res.clone(); caches.open(CACHE).then((c) => c.put("./index.html", copy)); return res; })
